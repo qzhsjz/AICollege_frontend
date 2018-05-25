@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GapGo</title>
+
+    <!-- Bootstrap -->
+    <link href="assets/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <!-- <link href="assets/css/login.css" type="text/css" rel="stylesheet"> -->
+  </head>
+
+  <body>
+     <div class="navbar navbar-inverse navbar-fixed-top navbar-wrapper">
+      <div class="bar-top">
+        <div class="container">
+            <a class="bar-title" href="index.html">GapGo间隔行动</a>
+            <ul class="navtitle pull-right">
+                <li class="head">
+                    <a href="#" class="headimg"><img src="http://7zn2fy.com1.z0.glb.clouddn.com/apicloud/1d276ae45be8f9a2fdd1fd0687f35f4e.jpg"></a>
+                    <div class="bubble dropdown-menu">
+                        <div class="cusp"></div>
+                        <div class="func-one" id="my-collect">我的收藏</div>
+                        <div class="func-two" id="my-join">我的报名</div>
+                        <div class="quit" id="quit">注 销</div>
+                    </div>
+                </li>
+                <li class="aboutusbottom"><a href="#aboutus">关于我们</a></li>
+                <li class="informatonbottom"><a href="#informaton">信息攻略</a></li>
+                <li class="yearbottom"><a href="#year">间隔年</a></li>
+                <li class="monthbottom"><a href="#month">间隔月</a></li>
+                <li class="weekbottom"><a href="#week">间隔周</a></li>
+                <li class="Findout">
+                    <form class="form-search">
+                        <input type="text" class="input-medium search-query find_input search" style="width:250px;height: 15px;border-color: #e5e5e5;" placeholder="search">
+                        <button class="find_button">搜索</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+      </div>
+    </div>
+
+    
+    </bod>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/js/sha1.min.js"></script>
+    <script src="assets/js/common.js"></script>
+    <script src="assets/js/stickup.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- <script src="assets/js/login.js"></script> -->
+    <script>
+        BXF.component.login.install();
+    </script>
+    <script type="text/javascript">
+        // jQuery ( function ( $ ) {
+        //     $ ( document ).ready ( function () {
+        //         $ ( '.navbar-wrapper' ).stickUp ( {
+        //             parts     : {
+        //                 0 : 'aboutus' ,
+        //                 1 : 'about' ,
+        //                 2 : 'technical' ,
+        //                 3 : 'exprience' ,
+        //                 4 : 'reffernces' ,
+        //                 5 : 'contact'
+        //             } ,
+        //         } );
+        //     } );
+        // } );
+        $('.weekbottom').on('click',function(){
+            $('html,body').animate({scrollTop: $('#week').offset().top}, 1000)
+        });
+        $('.monthbottom').on('click',function(){
+            $('html,body').animate({scrollTop: $('#month').offset().top}, 1000)
+        });
+        $('.yearbottom').on('click',function(){
+            $('html,body').animate({scrollTop: $('#year').offset().top}, 1000)
+        });
+        $('.informatonbottom').on('click',function(){
+            $('html,body').animate({scrollTop: $('#informaton').offset().top}, 1000)
+        });
+        $('.aboutusbottom').on('click',function(){
+            $('html,body').animate({scrollTop: $('#aboutus').offset().top}, 1000)
+        });
+    </script>
+</html>
