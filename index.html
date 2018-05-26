@@ -9,6 +9,7 @@
     <!-- Bootstrap -->
     <link href="assets/css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="assets/css/login.css" type="text/css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
   </head>
 
   <body>
@@ -65,7 +66,31 @@
         </ul>
         <div class="tab-content">
           <div class="tab-pane active" id="tab1">
-            <p>I'm in Section 1.</p>
+            <div ng-app="myApp" ng-controller="myCtrl">
+                <div class="course_list">
+                   <div class="row">
+                    <ul class="thumbnails ">
+                        <li class="span4" ng-repeat="course in records">
+                        <div class="thumbnail">
+                            <div class="caption">
+                            <img ng-src="{{course.img}}"/>
+                            <div class="row-fluid">
+                                <div class="span9">
+                                    <h5>{{course.title}}</h5>
+                                    <p class="teachername">{{course.teachername}}</p>
+                                </div>
+                                <div class="span3">
+                                    <p class="act">{{course.value}}</p>
+                                </div>
+                            </div>
+                            
+                            </div>
+                        </div>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+            </div>
           </div>
           <div class="tab-pane" id="tab2">
             <p>Howdy, I'm in Section 2.</p>
@@ -74,6 +99,7 @@
       </div>
 
 
+     
       
     
     </bod>
@@ -82,11 +108,11 @@
     <script src="assets/js/common.js"></script>
     <!-- <script src="assets/js/stickup.js"></script> -->
     <script src="assets/js/bootstrap.min.js"></script>
-    <!-- <script src="assets/js/login.js"></script> -->
+    <script src="assets/js/index.js"></script>
     <!-- <script>
         BXF.component.login.install();
     </script> -->
     <script type="text/javascript">
-      var hotlession = {["pic":]}
+   
     </script>
 </html>

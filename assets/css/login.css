@@ -33,13 +33,12 @@ form{
 
 .bar-top{
     background: #4A5073;
-    height:80px;
+    height:60px;
     line-height: 60px;
 }
 .bar-title{
   display: block;
   float: left;
-  padding: 10px 20px 10px;
   margin-left: -20px;
   font-size: 20px;
   font-weight: 200;
@@ -60,7 +59,7 @@ form{
     height: 80px;
     float:right;
     padding: 0 13px;
-    line-height: 80px;
+    line-height: 60px;
 }
 .navtitle li a{
     color:#fff;
@@ -162,3 +161,19 @@ input::-webkit-input-placeholder {
     padding-top:80px;
     padding-bottom: 40px;
   }
+
+.act{
+    padding-top:25px;
+    padding-right: 20px;
+    text-align: right;
+    color: red;
+}
+
+.row{
+    margin-left: 0;
+}
+
+.teachername{
+    font-size: 10px;
+    margin:0;
+}
