@@ -4,33 +4,35 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>GapGo</title>
+    <title>小智</title>
 
     <!-- Bootstrap -->
     <link href="assets/css/bootstrap.min.css" type="text/css" rel="stylesheet">
-    <!-- <link href="assets/css/login.css" type="text/css" rel="stylesheet"> -->
+    <link href="assets/css/login.css" type="text/css" rel="stylesheet">
   </head>
 
   <body>
-     <div class="navbar navbar-inverse navbar-fixed-top navbar-wrapper">
+     <!-- <div class="navbar navbar-inverse navbar-fixed-top navbar-wrapper"> -->
+        <div>
       <div class="bar-top">
         <div class="container">
-            <a class="bar-title" href="index.html">GapGo间隔行动</a>
+            <a class="bar-title" href="index.html">小智课堂</a>
             <ul class="navtitle pull-right">
                 <li class="head">
+                    <div class="signup_in"><a href="#">登录/注册</a></div>
                     <a href="#" class="headimg"><img src="http://7zn2fy.com1.z0.glb.clouddn.com/apicloud/1d276ae45be8f9a2fdd1fd0687f35f4e.jpg"></a>
+                   
                     <div class="bubble dropdown-menu">
                         <div class="cusp"></div>
-                        <div class="func-one" id="my-collect">我的收藏</div>
+                        <!-- <div class="func-one" id="my-collect">我的收藏</div> -->
                         <div class="func-two" id="my-join">我的报名</div>
                         <div class="quit" id="quit">注 销</div>
                     </div>
                 </li>
-                <li class="aboutusbottom"><a href="#aboutus">关于我们</a></li>
-                <li class="informatonbottom"><a href="#informaton">信息攻略</a></li>
-                <li class="yearbottom"><a href="#year">间隔年</a></li>
-                <li class="monthbottom"><a href="#month">间隔月</a></li>
-                <li class="weekbottom"><a href="#week">间隔周</a></li>
+                
+                <li class="mystudy"><a href="#">我的学习</a></li>
+                <li class="message"><a href="#">信息</a></li>
+                
                 <li class="Findout">
                     <form class="form-search">
                         <input type="text" class="input-medium search-query find_input search" style="width:250px;height: 15px;border-color: #e5e5e5;" placeholder="search">
@@ -42,46 +44,49 @@
       </div>
     </div>
 
+
+    <div class="container" id="container">
+        <div class="row backgro">
+            <div class="span6 offset11 login-win " id="login-win">
+                <div id="initialize">
+                    <div class="title-one">小智课堂</div>
+                    <div class="title-two">Enjoy Your AI Learning</div>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="tabbable container"> 
+        <ul class="nav nav-tabs tab">
+          <li class="active"><a href="#tab1" data-toggle="tab">热门课程</a></li>
+          <li><a href="#tab2" data-toggle="tab">最新课程</a></li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="tab1">
+            <p>I'm in Section 1.</p>
+          </div>
+          <div class="tab-pane" id="tab2">
+            <p>Howdy, I'm in Section 2.</p>
+          </div>
+        </div>
+      </div>
+
+
+      
     
     </bod>
     <script src="assets/js/jquery-1.11.3.min.js"></script>
     <script src="assets/js/sha1.min.js"></script>
     <script src="assets/js/common.js"></script>
-    <script src="assets/js/stickup.js"></script>
+    <!-- <script src="assets/js/stickup.js"></script> -->
     <script src="assets/js/bootstrap.min.js"></script>
     <!-- <script src="assets/js/login.js"></script> -->
-    <script>
+    <!-- <script>
         BXF.component.login.install();
-    </script>
+    </script> -->
     <script type="text/javascript">
-        // jQuery ( function ( $ ) {
-        //     $ ( document ).ready ( function () {
-        //         $ ( '.navbar-wrapper' ).stickUp ( {
-        //             parts     : {
-        //                 0 : 'aboutus' ,
-        //                 1 : 'about' ,
-        //                 2 : 'technical' ,
-        //                 3 : 'exprience' ,
-        //                 4 : 'reffernces' ,
-        //                 5 : 'contact'
-        //             } ,
-        //         } );
-        //     } );
-        // } );
-        $('.weekbottom').on('click',function(){
-            $('html,body').animate({scrollTop: $('#week').offset().top}, 1000)
-        });
-        $('.monthbottom').on('click',function(){
-            $('html,body').animate({scrollTop: $('#month').offset().top}, 1000)
-        });
-        $('.yearbottom').on('click',function(){
-            $('html,body').animate({scrollTop: $('#year').offset().top}, 1000)
-        });
-        $('.informatonbottom').on('click',function(){
-            $('html,body').animate({scrollTop: $('#informaton').offset().top}, 1000)
-        });
-        $('.aboutusbottom').on('click',function(){
-            $('html,body').animate({scrollTop: $('#aboutus').offset().top}, 1000)
-        });
+      var hotlession = {["pic":]}
     </script>
 </html>
