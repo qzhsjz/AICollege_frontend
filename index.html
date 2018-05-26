@@ -32,7 +32,7 @@
                 </li>
                 
                 <li class="mystudy"><a href="#">我的学习</a></li>
-                <li class="message"><a href="#">信息</a></li>
+                <!-- <li class="message"><a href="#">消息</a></li> -->
                 
                 <li class="Findout">
                     <form class="form-search">
@@ -70,7 +70,8 @@
                 <div class="course_list">
                    <div class="row">
                     <ul class="thumbnails ">
-                        <li class="span4" ng-repeat="course in records">
+                        <li class="span4 " style="position: relative;" ng-repeat="course in records">
+                            <div class="coursebox"></div>
                         <div class="thumbnail">
                             <div class="caption">
                             <img ng-src="{{course.img}}"/>
