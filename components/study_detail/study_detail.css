@@ -1,0 +1,50 @@
+
+html,body{ height:100%}
+.cell { height:100%; }
+.center{ text-align: center;display:inline-block;}
+.grey1{ background-color: #a7a3a3; }
+.grey2{ background-color: rgb(136, 133, 133)}
+.grey3{ background-color: #FFFFFF;}
+.grey4{   background: #d4d2d2}
+.img-contain
+{
+    padding: 10px;
+}
+.ct
+{
+    margin-left: 0px;
+    height: 100%;
+}
+.course-container
+{   
+    padding-top: 30px;
+    width:95%;
+    display:inline-block;
+}
+.course-video
+{
+    padding-top: 30px;
+    width:100%;
+    display:inline-block;
+    vertical-align:middle;
+    text-align: center;
+
+}
+.course-info
+{
+    width:100%;
+}
+.box
+{
+    background-color:#FFFFFF;
+    width:100%;
+}
+.chapter{height: 30px; width:100%}
+
+
+
+
+
+
+
+
