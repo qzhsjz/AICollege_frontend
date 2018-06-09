@@ -4,7 +4,7 @@ body {
 
 .header {
     text-align: center;
-    padding-top: 80px;
+    padding-top: 20px;
 }
 
 .header-logo {
@@ -33,4 +33,20 @@ body {
     margin-bottom: 7px;
     font-weight: normal;
     font-size: 12px;
+}
+
+.title{
+    margin-top: 10px;
+   text-align: center;
+    color:#000;
+}
+
+.loginimg{
+    display: inline-block;
+    width:40%;
+    text-align: center;
+    padding: 4%;
+}
+.loginimg img{
+    width: 50%;
 }
