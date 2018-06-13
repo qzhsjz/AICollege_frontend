@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> 
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">  
+    
+    <link href="../../assets/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="course_buy.css" type="text/css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
+    <script src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>    
+    <script src="http://cdn.bootcss.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>   
+    <script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
+    <script src="course_buy.js"></script>
+    
+    <title>课程详情</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="course_buy.css">
+    <!-- <link href="study_detail.css" type="text/css" rel="stylesheet"> -->
+  </head>
+  
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+          <div class="navbar-inner">
+            <div class="container">
+              <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="brand" href="#">Project name</a>
+              <div class="nav-collapse collapse">
+                <ul class="nav">
+                  <li class="active"><a href="#">Home</a></li>
+                  <li><a href="#about">About</a></li>
+                  <li><a href="#contact">Contact</a></li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Action</a></li>
+                      <li><a href="#">Another action</a></li>
+                      <li><a href="#">Something else here</a></li>
+                      <li class="divider"></li>
+                      <li class="nav-header">Nav header</li>
+                      <li><a href="#">Separated link</a></li>
+                      <li><a href="#">One more separated link</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <form class="navbar-form pull-right">
+                  <input class="span2" placeholder="Email" type="text">
+                  <input class="span2" placeholder="Password" type="password">
+                  <button type="submit" class="btn">Sign in</button>
+                </form>
+              </div><!--/.nav-collapse -->
+            </div>
+          </div>
+    </div>
+    <div ng-app="myBuy" ng-controller="buyCtrl">
+        <div class="container">
+            <!--课程名称、图片等基本信息 -->
+            <div class="course-info">
+                    <div class="row-fluid">
+                        <div class="span5">
+                            <img src="img/11.png" style="width:100%"/>
+                        </div>
+                        <div class="span7">
+                            <p class="title">{{name}}</p>
+                            <p>讲师：{{teacher}}</p>
+                            <p class="value">¥{{value}}</p>
+                            <p><a href="#" class="btn btn-primary btn-large">Learn more »</a></p>
+                            
+                        </div>
+                        
+                    </div>   
+                </div>
+                <!--课程介绍、课程目录-->
+                <div class="grey" style="width:100%">
+                        <ul class="nav nav-tabs">
+                                <li class="active" style=" text-align: center">
+                                    <a href="#tab1" data-toggle="tab"><span class="icon-th-list"></span>简介</a>                                
+                                </li>
+                                <li  style="text-align: center">
+                                    <a href="#tab2" data-toggle="tab"><span class="icon-list-alt"></span>目录</a>
+                                </li>
+                        </ul>
+                </div>
+                <!-- Example row of columns -->
+                <div class="row">
+                    <div class="span8">
+                        <div class="tab-content">
+                            <div id="tab1" class="tab-pane active">
+                                <div class="well" style="background-color: #ffffffff">
+                                    <p class="title">课程概述</p>
+                                    <p>{{introduce}}</p>
+                                </div>
+                            </div>
+                            <div id="tab2" class="tab-pane">
+                                <div class="well" style="background-color: #ffffffff">
+                                    <ul class="nav nav-list">
+                                        <li ng-repeat="ch in chapter"><a href="#">{{ch.name}}</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+    
+                        </div>
+                    </div>
+                    
+                    <div class="span4">
+                        <div class="well" style="background-color: #ffffffff">
+                            <p class="title">Advertise</p>
+                            <p>招聘程序员鼓励师任职要求：
+                                1、长相清新，声线甜美，微笑常在，人见人爱；
+                                2、善于倾听，善不善沟通不重要，能忍受IT工程师死宅无法交流的性格；
+                                3、耍不耍脾气不重要，要善于发现每一个程序暖男的天性，成功驯服；
+                                4、了解互联网，懂科技，不然聊起来云里雾里，工程师会更受打击。</p>
+                            <p><a class="btn" href="#">View details »</a></p>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <hr>
+                <footer>
+                    <p>© 小智课堂 2018</p>
+                </footer>
+            
+            </div> <!-- /container -->
+        </div>
+    
+      
+    
+    </body>
+    

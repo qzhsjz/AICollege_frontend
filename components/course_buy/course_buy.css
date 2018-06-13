@@ -1,0 +1,31 @@
+body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+    background-color: #eeeeee;
+  }
+
+.course-info
+{
+    padding:20px;
+    background-color: #ffffff;
+}
+
+.value
+{
+    color: #ff3c00;
+    font-size: 30px;
+    font-family: '微软雅黑';
+    line-height: 30px;
+}
+
+.title
+{
+    font-size:24px;
+    line-height: 1.2;
+}
+
+.grey
+{
+    background-color: #fcf9f9
+}
+
