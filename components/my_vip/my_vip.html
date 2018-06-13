@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> 
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">  
+    
+    <link href="../../assets/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    
+    <link href="my_vip.css" type="text/css" rel="stylesheet">
+    <link href="../../course_buy.css" type="text/css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
+    <script src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>    
+    <script src="http://cdn.bootcss.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>   
+    <script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
+    <script src="my_vip.js"></script>
+    
+    <title>会员购买</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="course_buy.css">
+    <!-- <link href="study_detail.css" type="text/css" rel="stylesheet"> -->
+            
+  </head>
+  
+  <body>
+    <div>
+        <div class="bar-top">
+          <div class="container">
+              <a class="bar-title" href="index.html">小智课堂</a>
+              <ul class="navtitle pull-right">
+                  <li class="head">
+                      <div class="signup_in"><a href="components/login/login.html">登录/注册</a></div>
+                      <a href="components/my_detail/my_detail.html" class="headimg"><img src="http://7zn2fy.com1.z0.glb.clouddn.com/apicloud/1d276ae45be8f9a2fdd1fd0687f35f4e.jpg"></a>
+                     
+                      <div class="bubble dropdown-menu">
+                          <div class="cusp"></div>
+                          <!-- <div class="func-one" id="my-collect">我的收藏</div> -->
+                          <div class="func-two" id="my-join">我的报名</div>
+                          <div class="quit" id="quit">注 销</div>
+                      </div>
+                  </li>
+                  
+                  <li class="mystudy"><a href="components/mystudy/mystudy.html">我的学习</a></li>
+                  <!-- <li class="message"><a href="#">消息</a></li> -->
+                  
+                  <li class="Findout">
+                      <form class="form-search">
+                          <input type="text" class="input-medium search-query find_input search" style="width:250px;height: 15px;border-color: #e5e5e5;" placeholder="search">
+                          <button class="find_button">搜索</button>
+                      </form>
+                  </li>
+              </ul>
+          </div>
+        </div>
+    </div>
+
+    <div ng-app="myVIP" ng-controller="vipCtrl">
+        <div class="container">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="tab-content" style="overflow: hidden;">
+                        <div>
+                            <div class="course_list">
+                                <div class="row">
+                                    <ul class="thumbnails ">
+                                        <li class="span4 " style="position: relative;" ng-repeat="vip in info">
+                                            <div class="coursebox"></div>
+                                            <div class="thumbnail">
+                                                <div class="caption">
+                                                    <img ng-src="{{vip.img}}"/>
+                                                    <div class="row-fluid">
+                                                        <div class="span9">
+                                                            <h3>{{vip.name}}</h3>
+                                                            <p class="welfare">{{vip.welfare}}</p>
+                                                        </div>
+                                                        <div class="span3">
+                                                            <p class="price">{{vip.value}}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <style>
+                                    .add{background-color:rgb(212, 17, 17);}
+                                    </style>
+                                    <script>
+                                    $("ul").on("click","li",function(){
+                                    $("ul li").removeClass("add");
+                                    $(this).addClass("add");});
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p><a href="#" class="btn btn-danger btn-large">确认支付 »</a></p>
+            </div>
+            <div style="height: 20px"></div>
+            <div class="vip-introduce">
+                <p>1、下载权益：会员拥有免费观看网站所有视频的权益；</p>
+                <p>2、有效期限：季卡会员有效期为3个月；半年卡会员有效期为6个月；年卡会员有效期为12个月；</p>    
+                <p>3、会员到期：当拥有的下载次数使用完或者超过规定时间后自动过期；</p>  
+                <p>4、需要发票的用户，请点击申请发票，发票快递费需要自付，请联系客服；QQ：3456678348；电话：010-64351436；邮箱：vip@csdn.net；</p>
+                <p style="color:#ff0606">5、声明：下载VIP购买成功后且已经使用，则不可退款。套餐购买成功后，不支持退款；</p>   
+            </div>
+        
+        <hr>
+        <footer>
+            <p>© 小智课堂 2018</p>
+        </footer>
+        </div><!-- /container -->
+    </div> 
+   
+    
+      
+    
+    </body>
+    
