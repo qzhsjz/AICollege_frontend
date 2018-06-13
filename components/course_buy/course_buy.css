@@ -1,5 +1,4 @@
 body {
-    padding-top: 60px;
     padding-bottom: 40px;
     background-color: #eeeeee;
   }
@@ -29,3 +28,194 @@ body {
     background-color: #fcf9f9
 }
 
+/***********************/
+form{
+    margin:0;
+}
+#initialize{
+    margin:40px;
+}
+.title-one{
+    height: 84px;
+    text-align: center;
+    line-height: 100px;
+    font-size: 50px;
+    color: rgb(176, 214, 231);
+    font-family: "华文楷体";
+}
+.title-two{
+    height: 81px;
+    text-align: center;
+    line-height: 81px;
+    font-size: 30px;
+    color:  rgb(176, 214, 231);
+    font-family: "楷体";
+}
+
+.bar-top{
+    background: #4A5073;
+    height:60px;
+    line-height: 60px;
+}
+.bar-title{
+  display: block;
+  float: left;
+  margin-left: -20px;
+  font-size: 20px;
+  font-weight: 200;
+  color:#fff;
+}
+.bar-title::before{
+  color:#86A6DC;
+}
+.navtitle{
+  
+  margin-bottom: 0px;
+  margin-left: 0;
+  list-style: none;
+  overflow: hiden;
+}
+.navtitle li{
+    color: #fff;
+    height: 80px;
+    float:right;
+    padding: 0 13px;
+    line-height: 60px;
+}
+.navtitle li a{
+    color:#fff;
+}
+.navtitle li a:hover{
+    color:#86A6DC;
+}
+/* .navtitle li a:active{
+    color:#86A6DC;
+} */
+.navtitle li a img{
+    border-radius: 35px;
+    height: 35px;
+}
+
+.head{
+    position: relative;
+}
+.dropdown-menu{
+    min-width: 80px;
+}
+.bubble{
+    padding: 5px 0;
+    position: absolute;
+    top: 60px;
+    right: 2px;
+    display: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+}
+.quit,.func-one,.func-two{
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    color: black;
+    font-family: "微软雅黑";
+    font-size: 12px;
+    cursor: pointer;
+}
+.func-one{
+    border-radius: 5px 5px 0 0;
+}
+.quit{
+    border-radius: 0 0 5px 5px;
+}
+.quit:hover,.func-one:hover,.func-two:hover{
+    background: #86A6DC;
+    color: #f4f4f4;
+}
+.Consultation{
+    position: relative;
+}
+.td-code{
+    display: none;
+    position: absolute;
+    top: -14px;
+    left: 74px;
+    width: 140px;
+    height: 140px;
+    padding: 10px;
+    background: #44444f;
+    border-radius: 5px;
+}
+.td-code img{
+    width: 100%;
+}
+input::-webkit-input-placeholder {
+        /* placeholder颜色  */
+     color: #d3d3d3;
+      
+}
+
+ input::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #d3d3d3;
+}
+
+ input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #d3d3d3;
+}
+.find_button{
+    padding:2px 10px;
+    border:none;
+    background: #fff;
+    border-radius: 5px;
+    font-family: "微软雅黑";
+    font-size: 10px;
+    color: #99C0C8;
+}
+.signup_in{
+    display: inline;
+    padding-right: 5px;
+}
+.tab{
+    margin:20px 0;
+}
+
+.detail{
+    padding-top:80px;
+    padding-bottom: 40px;
+  }
+
+.act{
+    padding-top:25px;
+    padding-right: 20px;
+    text-align: right;
+    color: red;
+}
+
+
+.teachername{
+    font-size: 10px;
+    margin:0;
+}
+
+.coursebox{
+    opacity: 0;
+    position: absolute;
+    top: -10px;
+    right: -8px;
+    bottom: -10px;
+    left: -8px;
+    background-color: #fff;
+    box-shadow: 0 0 12px rgba(0, 0, 0,1);
+    cursor: pointer;
+}
+
+.coursebox:hover{
+    opacity: 0.3;
+    position: absolute;
+    top: -10px;
+    right: -8px;
+    bottom: -10px;
+    left: -8px;
+    background-color: #fff;
+    box-shadow: 0 0 12px rgba(0, 0, 0,1);
+    cursor: pointer;
+}

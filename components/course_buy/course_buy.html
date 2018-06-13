@@ -7,7 +7,9 @@
     <link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">  
     
     <link href="../../assets/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    
     <link href="course_buy.css" type="text/css" rel="stylesheet">
+    <link href="../../course_buy.css" type="text/css" rel="stylesheet">
     <script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
     <script src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>    
     <script src="http://cdn.bootcss.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>   
@@ -22,42 +24,36 @@
   </head>
   
   <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-          <div class="navbar-inner">
-            <div class="container">
-              <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="brand" href="#">Project name</a>
-              <div class="nav-collapse collapse">
-                <ul class="nav">
-                  <li class="active"><a href="#">Home</a></li>
-                  <li><a href="#about">About</a></li>
-                  <li><a href="#contact">Contact</a></li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="#">Action</a></li>
-                      <li><a href="#">Another action</a></li>
-                      <li><a href="#">Something else here</a></li>
-                      <li class="divider"></li>
-                      <li class="nav-header">Nav header</li>
-                      <li><a href="#">Separated link</a></li>
-                      <li><a href="#">One more separated link</a></li>
-                    </ul>
+    <div>
+        <div class="bar-top">
+          <div class="container">
+              <a class="bar-title" href="index.html">小智课堂</a>
+              <ul class="navtitle pull-right">
+                  <li class="head">
+                      <div class="signup_in"><a href="components/login/login.html">登录/注册</a></div>
+                      <a href="components/my_detail/my_detail.html" class="headimg"><img src="http://7zn2fy.com1.z0.glb.clouddn.com/apicloud/1d276ae45be8f9a2fdd1fd0687f35f4e.jpg"></a>
+                     
+                      <div class="bubble dropdown-menu">
+                          <div class="cusp"></div>
+                          <!-- <div class="func-one" id="my-collect">我的收藏</div> -->
+                          <div class="func-two" id="my-join">我的报名</div>
+                          <div class="quit" id="quit">注 销</div>
+                      </div>
                   </li>
-                </ul>
-                <form class="navbar-form pull-right">
-                  <input class="span2" placeholder="Email" type="text">
-                  <input class="span2" placeholder="Password" type="password">
-                  <button type="submit" class="btn">Sign in</button>
-                </form>
-              </div><!--/.nav-collapse -->
-            </div>
+                  
+                  <li class="mystudy"><a href="components/mystudy/mystudy.html">我的学习</a></li>
+                  <!-- <li class="message"><a href="#">消息</a></li> -->
+                  
+                  <li class="Findout">
+                      <form class="form-search">
+                          <input type="text" class="input-medium search-query find_input search" style="width:250px;height: 15px;border-color: #e5e5e5;" placeholder="search">
+                          <button class="find_button">搜索</button>
+                      </form>
+                  </li>
+              </ul>
           </div>
-    </div>
+        </div>
+      </div>
     <div ng-app="myBuy" ng-controller="buyCtrl">
         <div class="container">
             <!--课程名称、图片等基本信息 -->
