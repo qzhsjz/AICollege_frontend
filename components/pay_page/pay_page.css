@@ -1,0 +1,26 @@
+body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+    background-color: #eeeeee;
+  }
+
+  .grey
+  {
+      background-color: #fcf9f9
+  }
+
+  .pay-info
+  {
+      padding:20px;
+      background-color: #ffffff;
+
+  }
+
+  .pay
+  {
+      margin-top:30px; 
+      padding-top:50px;
+      padding-left: 20px;
+      padding-right: 20px;
+      background-color:#ffffff;
+  }
