@@ -3,16 +3,19 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">  
     <link href="../../assets/css/bootstrap.min.css" type="text/css" rel="stylesheet">
-    <link href="study_detail.css" type="text/css" rel="stylesheet">  
+    <link href="study_detail.css" type="text/css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
+    <script src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>    
+    <script src="http://cdn.bootcss.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>   
     <script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
     <script src="study_detail.js"></script>
     
     <title>学习</title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" type="text/css" href="study_detail.css">
+    <link rel="stylesheet" type="text/css" href="course_buy.css">
     <!-- <link href="study_detail.css" type="text/css" rel="stylesheet"> -->
   </head>
 
@@ -23,54 +26,49 @@
                   <div class="span9 grey2 center">
                       <div class="course-container center">
                           <div class="course-video">
-                              <video style="width: 100%" src="media/study.mp4" controls></video>
+                              <video style="width: 100%" src="{{play}}" controls="controls" ></video>
                             </div>
                         </div>
                     </div>
                     
                     <div class="cell span3 grey1">
-                        <div class="course-info" style="height: 15%;">
+                        <div class="course-info" style="height: 20%;">
                             <div class="row-fluid">
                                 <div class="span7 center img-contain" >
                                     <h4>{{title}}</h4>
                                     <p>{{teacher}}</p>
                                 </div>
-                                <div class="span5" ng-repeat="course in records">
+                                <div class="span5" >
                                     <div class="img-contain">
-                                        <img ng-src="{{img}}" style="width:100%"/>
+                                        <img src="{{image}}"/ style="height: 60px">
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <div class="course-nav grey4" style="height:5%">
-                            <ul class="nav nav-tabs">
-                                <li class="active" style="width:33%; text-align: center">
-                                    <a href="#tab1" data-toggle="tab"><span class="icon-th-list"></span>目录</a>                                
-                                </li>
-                                <li  style="width:33%; text-align: center">
-                                    <a href="#tab2" data-toggle="tab"><span class="icon-list-alt"></span>讨论</a>
-                                </li>
-                                <li  style="width:33%; text-align: center">
-                                    <a href="#tab3" data-toggle="tab"><span class="icon-pencil"></span>笔记</a>
-                                </li>
+                            <ul class="nav nav-tabs grey3" >
+                                    <li class="active" style=" text-align: center">
+                                        <a href="#tab1" data-toggle="tab"><span class="icon-th-list"></span>简介</a>                                
+                                    </li>
+                                    <li  style="text-align: center">
+                                        <a href="#tab2" data-toggle="tab"><span class="icon-list-alt"></span>目录</a>
+                                    </li>
                             </ul>
                         </div>
                         
                         <div class="tab-content box"style="height: 80%;">
-                            <div id="tab1" class="tab-pane active cell">
+                            <div id="tab1" class="tab-pane active cell" style="background-color: #f5f5f5">
                                 <div class="well sidebar-nav cell">
                                     <ul class="nav nav-list">
-                                        <li ng-repeat="ch in chapter"><a href="#">{{ch.name}}</a></li>
+                                        <li ng-repeat="ch in chapter track by $index"><a>{{ch.name}}</a></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div id="tab2" class="tab-pane cell">
-                                <p>开发中</p>
+                            <div id="tab2" class="tab-pane active cell" style="background-color: #f5f5f5">
+                                <div class="well">
+                                        <p>开发中</p>
+                                </div>
+                                
                             </div>
-                            <div id="tab3" class="tab-pane cell">
-                                <textarea rows="3"></textarea>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>

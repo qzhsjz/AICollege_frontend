@@ -3,13 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> 
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">  
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">  
     <link href="../../assets/css/bootstrap.min.css" type="text/css" rel="stylesheet">
-    
     <link href="course_buy.css" type="text/css" rel="stylesheet">
-    <link href="../../course_buy.css" type="text/css" rel="stylesheet">
     <script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
     <script src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>    
     <script src="http://cdn.bootcss.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>   
@@ -30,8 +26,8 @@
               <a class="bar-title" href="index.html">小智课堂</a>
               <ul class="navtitle pull-right">
                   <li class="head">
-                      <div class="signup_in"><a href="components/login/login.html">登录/注册</a></div>
-                      <a href="components/my_detail/my_detail.html" class="headimg"><img src="http://7zn2fy.com1.z0.glb.clouddn.com/apicloud/1d276ae45be8f9a2fdd1fd0687f35f4e.jpg"></a>
+                      <div class="signup_in"><a href="../login/login.html">登录/注册</a></div>
+                      <a href="../my_detail/my_detail.html" class="headimg"><img src="http://7zn2fy.com1.z0.glb.clouddn.com/apicloud/1d276ae45be8f9a2fdd1fd0687f35f4e.jpg"></a>
                      
                       <div class="bubble dropdown-menu">
                           <div class="cusp"></div>
@@ -41,7 +37,7 @@
                       </div>
                   </li>
                   
-                  <li class="mystudy"><a href="components/mystudy/mystudy.html">我的学习</a></li>
+                  <li class="mystudy"><a href="../mystudy/mystudy.html">我的学习</a></li>
                   <!-- <li class="message"><a href="#">消息</a></li> -->
                   
                   <li class="Findout">
@@ -62,11 +58,11 @@
                         <div class="span5">
                             <img src="img/11.png" style="width:100%"/>
                         </div>
-                        <div class="span7">
+                        <div class="span7" style="padding: 20px">
                             <p class="title">{{name}}</p>
                             <p>讲师：{{teacher}}</p>
                             <p class="value">¥{{value}}</p>
-                            <p><a href="#" class="btn btn-primary btn-large">Learn more »</a></p>
+                            <p><a href="" class="btn btn-primary btn-large bottom-box" ng-click="go_to()">Learn more »</a></p>
                             
                         </div>
                         

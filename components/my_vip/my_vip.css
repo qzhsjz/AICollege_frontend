@@ -3,8 +3,8 @@
     margin-top:"20px";
 }
 
-.add{
-    background-color:rgb(247, 9, 9);
+.red{
+    background-color:rgb(9, 104, 247);
 }
 /******************************************/
 form{
@@ -176,7 +176,7 @@ input::-webkit-input-placeholder {
 
 
 .welfare{
-    font-size: 18px;
+    font-size: 14px;
     margin:0;
 }
 

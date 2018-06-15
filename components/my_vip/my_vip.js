@@ -1,10 +1,17 @@
-$("ul").on("click","li",function(){
-    $("ul li").removeClass("add");
-    $(this).addClass("add");
-});
-
 var myVIP = angular.module("myVIP", []);
 myVIP.controller("vipCtrl", function($scope) {
+    $scope.isActive=0;
+    $scope.price=998;
+    $scope.name="YearVIP";
+    $scope.go_to = function () {
+        var name = $scope.name;
+        var value =$scope.price;
+        location.href = "../pay_page/pay_page.html?&name=" + name + "&value=" + value;
+    }
+    $scope.choose=function(index){
+        $scope.isActive=index;
+        $scope.price=$scope.info[index].value;
+    }
     $scope.info = [
         {
             "name":"年卡会员",

@@ -28,8 +28,8 @@
               <a class="bar-title" href="index.html">小智课堂</a>
               <ul class="navtitle pull-right">
                   <li class="head">
-                      <div class="signup_in"><a href="components/login/login.html">登录/注册</a></div>
-                      <a href="components/my_detail/my_detail.html" class="headimg"><img src="http://7zn2fy.com1.z0.glb.clouddn.com/apicloud/1d276ae45be8f9a2fdd1fd0687f35f4e.jpg"></a>
+                      <div class="signup_in"><a href="../login/login.html">登录/注册</a></div>
+                      <a href="../my_detail/my_detail.html" class="headimg"><img src="http://7zn2fy.com1.z0.glb.clouddn.com/apicloud/1d276ae45be8f9a2fdd1fd0687f35f4e.jpg"></a>
                      
                       <div class="bubble dropdown-menu">
                           <div class="cusp"></div>
@@ -53,15 +53,24 @@
         </div>
       </div>
     <div ng-app="myBuy" ng-controller="buyCtrl">
+        <script>
+            var appElement = document.querySelector("[ng-controller=buyCtrl]");
+            angular.element(appElement).scope().update("12345678");
+        </script>
         <div class="container">
-            <div style="padding: 10px">
-                <h1>LOGO 收银台</h1>
+            <div class="logo row-fluid">
+                <div class="span4"><img src="img/ai.png" style="height: 100px"></div>
+                <div class="span2" style="padding-top: 40px" ></div>
             </div>
+            
+        
             <div class="pay-info">
-                <p>应付金额：</p>
-                <p>订单编号：xxxxxxxxx</p>
-                <p>订单类型：xxxxxxxxx</p>
+                <h3>收银台</h3>
+                <p>应付金额：{{value}}</p>
+                <p>付费项目：{{name}}</p>
+                <p>订单类型：</p>
             </div>
+            
             <div class="pay">
                     <ul class="nav nav-tabs">
                             <li class="active" style=" text-align: center; width: 100px">

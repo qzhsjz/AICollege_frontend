@@ -31,8 +31,8 @@
               <a class="bar-title" href="index.html">小智课堂</a>
               <ul class="navtitle pull-right">
                   <li class="head">
-                      <div class="signup_in"><a href="components/login/login.html">登录/注册</a></div>
-                      <a href="components/my_detail/my_detail.html" class="headimg"><img src="http://7zn2fy.com1.z0.glb.clouddn.com/apicloud/1d276ae45be8f9a2fdd1fd0687f35f4e.jpg"></a>
+                      <div class="signup_in"><a href="../login/login.html">登录/注册</a></div>
+                      <a href="../my_detail/my_detail.html" class="headimg"><img src="http://7zn2fy.com1.z0.glb.clouddn.com/apicloud/1d276ae45be8f9a2fdd1fd0687f35f4e.jpg"></a>
                      
                       <div class="bubble dropdown-menu">
                           <div class="cusp"></div>
@@ -42,7 +42,7 @@
                       </div>
                   </li>
                   
-                  <li class="mystudy"><a href="components/mystudy/mystudy.html">我的学习</a></li>
+                  <li class="mystudy"><a href="../mystudy/mystudy.html">我的学习</a></li>
                   <!-- <li class="message"><a href="#">消息</a></li> -->
                   
                   <li class="Findout">
@@ -65,14 +65,14 @@
                             <div class="course_list">
                                 <div class="row">
                                     <ul class="thumbnails ">
-                                        <li class="span4 " style="position: relative;" ng-repeat="vip in info">
+                                        <li class="span4 " ng-repeat="vip in info" ng-class="{red:isActive==$index}" style="position: relative;" ng-click="choose($index)">
                                             <div class="coursebox"></div>
                                             <div class="thumbnail">
                                                 <div class="caption">
                                                     <img ng-src="{{vip.img}}"/>
                                                     <div class="row-fluid">
                                                         <div class="span9">
-                                                            <h3>{{vip.name}}</h3>
+                                                            <h5>{{vip.name}}</h5>
                                                             <p class="welfare">{{vip.welfare}}</p>
                                                         </div>
                                                         <div class="span3">
@@ -83,20 +83,13 @@
                                             </div>
                                         </li>
                                     </ul>
-                                    <style>
-                                    .add{background-color:rgb(212, 17, 17);}
-                                    </style>
-                                    <script>
-                                    $("ul").on("click","li",function(){
-                                    $("ul li").removeClass("add");
-                                    $(this).addClass("add");});
-                                    </script>
+                                   
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <p><a href="#" class="btn btn-danger btn-large">确认支付 »</a></p>
+                <p class="btn btn-danger btn-large" ng-click="go_to()">确认支付 »</p>
             </div>
             <div style="height: 20px"></div>
             <div class="vip-introduce">
