@@ -58,7 +58,7 @@
                             <div id="tab1" class="tab-pane active cell" style="background-color: #f5f5f5">
                                 <div class="well sidebar-nav cell">
                                     <ul class="nav nav-list">
-                                        <li ng-repeat="ch in chapter track by $index"><a>{{ch.name}}</a></li>
+                                        <li ng-repeat="ch in chapter track by $index" ng-click="chooseItem($index)"><a>{{ch.name}}</a></li>
                                     </ul>
                                 </div>
                             </div>
