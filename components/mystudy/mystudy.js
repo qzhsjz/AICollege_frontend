@@ -75,5 +75,14 @@ var hotcourse = [
               $scope.hot = hotcourse;
         // alert(page);
     };
+
+    $scope.chooseItem=function(index){
+        var ch=$scope.hot[index];
+        var name=ch.teachername;
+        //location.href = "components/course_buy/course_buy.html?&id=" + name;
+        window.open("../course_buy/course_buy.html?&id=" + name);
+    }
+
+    
   
 });

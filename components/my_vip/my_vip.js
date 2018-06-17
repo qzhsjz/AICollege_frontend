@@ -2,7 +2,7 @@ var myVIP = angular.module("myVIP", []);
 myVIP.controller("vipCtrl", function($scope) {
     $scope.isActive=0;
     $scope.price=998;
-    $scope.name="YearVIP";
+    $scope.name="Year VIP";
     $scope.go_to = function () {
         var name = $scope.name;
         var value =$scope.price;

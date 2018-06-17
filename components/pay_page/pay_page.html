@@ -1,109 +1,119 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> 
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">  
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+
     <link href="../../assets/css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="pay_page.css" type="text/css" rel="stylesheet">
     <script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
-    <script src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>    
-    <script src="http://cdn.bootcss.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>   
+    <script src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
     <script src="pay_page.js"></script>
-    
+
     <title>支付</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="course_buy.css">
     <!-- <link href="study_detail.css" type="text/css" rel="stylesheet"> -->
-  </head>
-  
-  <body>
+</head>
+
+<body>
     <div>
         <div class="bar-top">
-          <div class="container">
-              <a class="bar-title" href="index.html">小智课堂</a>
-              <ul class="navtitle pull-right">
-                  <li class="head">
-                      <div class="signup_in"><a href="../login/login.html">登录/注册</a></div>
-                      <a href="../my_detail/my_detail.html" class="headimg"><img src="http://7zn2fy.com1.z0.glb.clouddn.com/apicloud/1d276ae45be8f9a2fdd1fd0687f35f4e.jpg"></a>
-                     
-                      <div class="bubble dropdown-menu">
-                          <div class="cusp"></div>
-                          <!-- <div class="func-one" id="my-collect">我的收藏</div> -->
-                          <div class="func-two" id="my-join">我的报名</div>
-                          <div class="quit" id="quit">注 销</div>
-                      </div>
-                  </li>
-                  
-                  <li class="mystudy"><a href="components/mystudy/mystudy.html">我的学习</a></li>
-                  <!-- <li class="message"><a href="#">消息</a></li> -->
-                  
-                  <li class="Findout">
-                      <form class="form-search">
-                          <input type="text" class="input-medium search-query find_input search" style="width:250px;height: 15px;border-color: #e5e5e5;" placeholder="search">
-                          <button class="find_button">搜索</button>
-                      </form>
-                  </li>
-              </ul>
-          </div>
-        </div>
-      </div>
-    <div ng-app="myBuy" ng-controller="buyCtrl">
-        <script>
-            var appElement = document.querySelector("[ng-controller=buyCtrl]");
-            angular.element(appElement).scope().update("12345678");
-        </script>
-        <div class="container">
-            <div class="logo row-fluid">
-                <div class="span4"><img src="img/ai.png" style="height: 100px"></div>
-                <div class="span2" style="padding-top: 40px" ></div>
+            <div class="container">
+                <a class="bar-title" href="index.html">小智课堂</a>
+                <ul class="navtitle pull-right">
+                    <li class="head">
+                        <div class="signup_in">
+                            <a href="../login/login.html">登录/注册</a>
+                        </div>
+                        <a href="../my_detail/my_detail.html" class="headimg">
+                            <img src="http://7zn2fy.com1.z0.glb.clouddn.com/apicloud/1d276ae45be8f9a2fdd1fd0687f35f4e.jpg">
+                        </a>
+
+                        <div class="bubble dropdown-menu">
+                            <div class="cusp"></div>
+                            <!-- <div class="func-one" id="my-collect">我的收藏</div> -->
+                            <div class="func-two" id="my-join">我的报名</div>
+                            <div class="quit" id="quit">注 销</div>
+                        </div>
+                    </li>
+
+                    <li class="mystudy">
+                        <a href="components/mystudy/mystudy.html">我的学习</a>
+                    </li>
+                    <!-- <li class="message"><a href="#">消息</a></li> -->
+
+                    <li class="Findout">
+                        <form class="form-search">
+                            <input type="text" class="input-medium search-query find_input search" style="width:250px;height: 15px;border-color: #e5e5e5;"
+                                placeholder="search">
+                            <button class="find_button">搜索</button>
+                        </form>
+                    </li>
+                </ul>
             </div>
-            
-        
+        </div>
+    </div>
+    <div ng-app="myBuy" ng-controller="buyCtrl">
+        <div class="container">
+            <h3>收银台</h3>
             <div class="pay-info">
-                <h3>收银台</h3>
                 <p>应付金额：{{value}}</p>
                 <p>付费项目：{{name}}</p>
                 <p>订单类型：</p>
             </div>
-            
+
             <div class="pay">
-                    <ul class="nav nav-tabs">
-                            <li class="active" style=" text-align: center; width: 100px">
-                                <a href="#tab1" data-toggle="tab"></span>微信</a>                                
-                            </li>
-                            <li  style="text-align: center; width:100px">
-                                <a href="#tab2" data-toggle="tab"></span>支付宝</a>
-                            </li>
-                    </ul>
-                    <div class="tab-content">
-                            <div id="tab1" class="tab-pane active">
-                                <div class="well" style="background-color: #ffffffff">
-                                    <div style="text-align: center">
-                                        <h1>微信二维码</h1>
+                <ul class="nav nav-tabs">
+                    <li class="active" style=" text-align: center; width: 100px">
+                        <a href="#tab1" data-toggle="tab">
+                            </span>微信</a>
+                    </li>
+                    <li style="text-align: center; width:100px">
+                        <a href="#tab2" data-toggle="tab">
+                            </span>支付宝</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div id="tab1" class="tab-pane active">
+                        <div class="well" style="background-color: #ffffffff">
+                            <div class="row-fluid">
+                                <div class="span3">
+                                    <div style="padding:20px">
+                                        <img src="img/WePayLogo.png">
                                     </div>
                                     
                                 </div>
-                            </div>
-                            <div id="tab2" class="tab-pane">
-                                <div class="well" style="background-color: #ffffffff">
-                                    <div style="text-align: center">
-                                        <h1>支付宝二维码</h1>
-                                    </div>
+                                <div class="span1"></div>
+                                <div class="span4" style="text-align: center;padding-top: 30px">
+                                    <img src="img/二维码.jpg" style="width:100%">
+                                    <img src="img/说明文字.png" style="width:100%">
                                 </div>
                             </div>
-
-
+                        </div>
+                    </div>
+                    <div id="tab2" class="tab-pane">
+                        <div class="well" style="background-color: #ffffffff">
+                            <div style="text-align: center">
+                                <h1>支付宝二维码</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--tab-contant-->
             </div>
+            <!--pay-->
         </div>
+        <!--container-->
     </div>
 
-    
-      
-    
-    </body>
-    
+
+
+
+</body>
