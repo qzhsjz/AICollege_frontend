@@ -169,5 +169,13 @@ var hotcourse = [
               ];
               $scope.new = newcourse;
         // alert(page);
-	};
+    };
+    
+    $scope.chooseItem=function(index){
+        var ch=$scope.new[index];
+        var name=ch.teachername;
+        //location.href = "components/course_buy/course_buy.html?&id=" + name;
+        window.open("components/course_buy/course_buy.html?&id=" + name);
+    }
+    
 });
