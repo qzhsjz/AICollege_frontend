@@ -15,7 +15,43 @@ $("#login").on('click',function(){
         dataType: 'json',
         success: function(data) {
           console.log(JSON.stringify(data));
+          if(data.error){
+           alert(data.error);
+         }else{
+             alert(111);
+         }
         }
     });
     // $.post(urlget,{ username: "John", password: "2pm" });
     });
+
+    
+    $("#validation").on('click',function(){
+   
+        var usernamesign = $("input[name='usernamesign']").val();
+        var passwordsign = $("input[name='passwordsign']").val();
+        var email = $("input[name='email']").val();
+        var invitecode = $("input[name='invitecode']").val();
+        // console.log(passwordsign);
+        var urlget = 'http://39.106.19.27:8080/user/register';
+          $.ajax({
+            url:urlget,
+            type:'post',
+            data: {
+              'username': usernamesign,
+              'password': passwordsign,
+              'email':email,
+              'refer_id':invitecode
+            },
+            dataType: 'json',
+            success: function(data) {
+              console.log(JSON.stringify(data));
+              if(data.error){
+               alert(data.error);
+             }else{
+                 alert(111);
+             }
+            }
+        });
+        // $.post(urlget,{ username: "John", password: "2pm" });
+        });
