@@ -18,7 +18,7 @@ $("#login").on('click',function(){
           if(data.error){
            alert(data.error);
          }else{
-             alert(111);
+          location.href = "../../index.html";
          }
         }
     });
@@ -49,7 +49,7 @@ $("#login").on('click',function(){
               if(data.error){
                alert(data.error);
              }else{
-                 alert(111);
+                location.replace(document.referrer);
              }
             }
         });
