@@ -76,14 +76,14 @@
                                         <div class="coursebox"></div>
                                     <div class="thumbnail">
                                         <div class="caption">
-                                        <img ng-src="{{course.img}}"/>
+                                        <img ng-src="{{course.picPath}}"/>
                                         <div class="row-fluid">
                                             <div class="span9">
-                                                <h5>{{course.title}}</h5>
-                                                <p class="teachername">{{course.teachername}}</p>
+                                                <h5>{{course.course_name}}</h5>
+                                                <p class="teachername">{{course.teacherName}}</p>
                                             </div>
                                             <div class="span3">
-                                                <p class="act">{{course.value}}</p>
+                                                <p class="act">{{course.course_price}}</p>
                                             </div>
                                         </div>
                                         
@@ -147,6 +147,6 @@
         BXF.component.login.install();
     </script> -->
     <script type="text/javascript">
-   
+        
     </script>
 </html>
