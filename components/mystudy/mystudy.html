@@ -20,8 +20,8 @@
             <a class="bar-title" href="index.html">小智课堂</a>
             <ul class="navtitle pull-right">
                 <li class="head">
-                    <div class="signup_in"><a href="components/login/login.html">登录/注册</a></div>
-                    <a href="../my_detail/my_detail.html"href="components/my_detail/my_detail.html" target="_blank" class="headimg"><img src="http://7zn2fy.com1.z0.glb.clouddn.com/apicloud/1d276ae45be8f9a2fdd1fd0687f35f4e.jpg"></a>
+                    <div class="signup_in" id="signup"><a href="../login/login.html">登录/注册</a></div>
+                    <a href="../my_detail/my_detail.html"href="components/my_detail/my_detail.html" target="_blank" class="headimg"><img id="headerimg" src="http://7zn2fy.com1.z0.glb.clouddn.com/apicloud/1d276ae45be8f9a2fdd1fd0687f35f4e.jpg"></a>
                    
                     <div class="bubble dropdown-menu">
                         <div class="cusp"></div>
@@ -52,15 +52,15 @@
                 <div class="course_list">
                     <div class="row">
                         <ul class="thumbnails ">
-                            <li class="span4 " style="position: relative;" ng-repeat="course in hot" ng-click="chooseItem($index)">
+                            <li class="span4 " style="position: relative;" ng-repeat="course in hot track by $index" ng-click="chooseItem($index)">
                                 <div class="coursebox"></div>
                                 <div class="thumbnail">
                                     <div class="caption">
-                                    <img ng-src="{{course.img}}"/>
+                                    <img ng-src="{{course.picPath}}"/>
                                     <div class="row-fluid">
                                         <div class="span9">
-                                            <h5>{{course.title}}</h5>
-                                            <p class="teachername">{{course.teachername}}</p>
+                                            <h5>{{course.course_name}}</h5>
+                                            <p class="teachername">{{course.teacherName}}</p>
                                         </div>
                                         <div class="span3">
                                                 <button class="btn btn-mini btn-primary startstudy" type="button">开始学习</button>
