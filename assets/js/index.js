@@ -185,6 +185,9 @@ course.controller('course', ['$scope', '$http', function ($scope, $http) {
             if(response.data.id){
                 document.getElementById("signup").style.display="none";
                 document.getElementById("headerimg").src=response.data.picture;
+                $(".mystudy").show();
+            }else{
+                $(".mystudy").hide();
             }
             // console.log(JSON.stringify(response.data));
             $http({

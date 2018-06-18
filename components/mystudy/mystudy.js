@@ -120,7 +120,7 @@ course.controller('course', ['$scope', '$http', function ($scope, $http) {
             $http({
                 method:'post', //get请求方式
                 url:urlget+1,   //请求地址
-            
+                withCredentials:true,  
             }).then(function(response){
                         hotcourse = response.data.data;
                         
