@@ -7,6 +7,10 @@ $("#login").on('click',function(){
     var urlget = 'http://39.106.19.27:8080/user/login';
       $.ajax({
         url:urlget,
+        xhrFields: {
+            withCredentials: true
+        },
+        crossDomain: true,
         type:'post',
         data: {
           'username': username,

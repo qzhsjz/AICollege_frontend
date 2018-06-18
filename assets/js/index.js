@@ -173,103 +173,111 @@ var newpage ;
 // });
 
 course.controller('course', ['$scope', '$http', function ($scope, $http) {
-
+    
     $http({
         method:'get', //get请求方式
         url:urlcookie,   //请求地址
+        withCredentials:true,  
     }).then(function(response){
-        
-        $http({
-            method:'post', //get请求方式
-            url:urlget+1,   //请求地址
-        
-        }).then(function(response){
-            //成功时执行
-            // console.log(response);
-            // console.log(JSON.stringify(response));
+        if(response.error){
+            alert(response.error);
+        }else{
+
+            $http({
+                method:'post', //get请求方式
+                url:urlget+1,   //请求地址
             
-            // $scope.data = response.data; //得到请求的数据
-     
+            }).then(function(response){
+                //成功时执行
+                // console.log(response);
+                // console.log(JSON.stringify(response));
                 
-                    hotcourse = response.data.data;
-                    newcourse = response.data.data;
+                // $scope.data = response.data; //得到请求的数据
+         
                     
-                //  hotpagelen = parseInt(data.length/9)+1;
-                
-                    // for(i=0;i<hotpagelen;i++){
-                    //     hotpage[i]=i+1;
-                    // }
-                    // hotpage[0] = 1;
-                //  var len = 9;
-                    hotpage = new Array(response.data.length);
-                    newpage = new Array(response.data.length);
-                    // console.log(hotpage);
-                    for(i=0;i<response.data.length;i++){
-                        hotpage[i]=i+1;
-                        newpage[i]=i+1;
-                    }
-                    console.log(JSON.stringify(hotcourse));
-                    $scope.hot = hotcourse;
-                    $scope.new = newcourse;
-                    $scope.hotpage = hotpage;
-                    $scope.newpage = newpage;
-                    // console.log(JSON.stringify($scope.hot));
-                //  console.log(JSON.stringify(hotcourse[0].teacherName));
+                        hotcourse = response.data.data;
+                        newcourse = response.data.data;
+                        
+                    //  hotpagelen = parseInt(data.length/9)+1;
                     
-                    $scope.hotpagechange = function(event) {
-                        var page = $(event.target).html();
-     
-     
-                        $http({
-                            method:'post', //get请求方式
-                            url:urlget,   //请求地址
-                            data:{index:page}
-                        }).then(function(response){
-                             hotcourse = response.data.data;
-                            
-                        },function(response){
-                            //失败时执行 
-                            console.log(response);
+                        // for(i=0;i<hotpagelen;i++){
+                        //     hotpage[i]=i+1;
+                        // }
+                        // hotpage[0] = 1;
+                    //  var len = 9;
+                        hotpage = new Array(response.data.length);
+                        newpage = new Array(response.data.length);
+                        // console.log(hotpage);
+                        for(i=0;i<response.data.length;i++){
+                            hotpage[i]=i+1;
+                            newpage[i]=i+1;
+                        }
+                        console.log(JSON.stringify(hotcourse));
+                        $scope.hot = hotcourse;
+                        $scope.new = newcourse;
+                        $scope.hotpage = hotpage;
+                        $scope.newpage = newpage;
+                        // console.log(JSON.stringify($scope.hot));
+                    //  console.log(JSON.stringify(hotcourse[0].teacherName));
                         
-                        });
-                        
-                            $scope.hot = hotcourse;
-                        // alert(page);
-                    };
-                    $scope.newpagechange = function(event) {
-                        var page = $(event.target).html();
-                        $http({
-                            method:'post', //get请求方式
-                            url:urlget+page,   //请求地址
+                        $scope.hotpagechange = function(event) {
+                            var page = $(event.target).html();
+         
+         
+                            $http({
+                                method:'post', //get请求方式
+                                url:urlget,   //请求地址
+                                data:{index:page}
+                            }).then(function(response){
+                                 hotcourse = response.data.data;
+                                
+                            },function(response){
+                                //失败时执行 
+                                console.log(response);
                             
-                        }).then(function(response){
-                            newcourse = response.data.data;
+                            });
                             
-                        },function(response){
-                            //失败时执行 
-                            console.log(response);
+                                $scope.hot = hotcourse;
+                            // alert(page);
+                        };
+                        $scope.newpagechange = function(event) {
+                            var page = $(event.target).html();
+                            $http({
+                                method:'post', //get请求方式
+                                url:urlget+page,   //请求地址
+                                
+                            }).then(function(response){
+                                newcourse = response.data.data;
+                                
+                            },function(response){
+                                //失败时执行 
+                                console.log(response);
+                            
+                            });
+                                $scope.new = newcourse;
+                            // alert(page);
+                        };
                         
-                        });
-                            $scope.new = newcourse;
-                        // alert(page);
-                    };
+                        $scope.chooseItem=function(index){
+                            var ch=$scope.new[index];
+                        console.log(JSON.stringify(ch));
+                            
+                            var name=ch.teachername;
+                            //location.href = "components/course_buy/course_buy.html?&id=" + name;
+                            // window.open("components/course_buy/course_buy.html?&id=" + name);
+                        }
                     
-                    $scope.chooseItem=function(index){
-                        var ch=$scope.new[index];
-                    console.log(JSON.stringify(ch));
-                        
-                        var name=ch.teachername;
-                        //location.href = "components/course_buy/course_buy.html?&id=" + name;
-                        // window.open("components/course_buy/course_buy.html?&id=" + name);
-                    }
-                
-     
-     
-        },function(response){
-            //失败时执行 
-            console.log(response);
-            alert("error");
-        });
+         
+         
+            },function(response){
+                //失败时执行 
+                console.log(response);
+                alert("error");
+            });
+
+
+        }
+        
 
         
     },function(response){
