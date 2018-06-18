@@ -182,7 +182,7 @@ course.controller('course', ['$scope', '$http', function ($scope, $http) {
         if(response.error){
             alert(response.error);
         }else{
-
+            console.log(JSON.stringify(response));
             $http({
                 method:'post', //get请求方式
                 url:urlget+1,   //请求地址
@@ -212,7 +212,7 @@ course.controller('course', ['$scope', '$http', function ($scope, $http) {
                             hotpage[i]=i+1;
                             newpage[i]=i+1;
                         }
-                        console.log(JSON.stringify(hotcourse));
+                        // console.log(JSON.stringify(hotcourse));
                         $scope.hot = hotcourse;
                         $scope.new = newcourse;
                         $scope.hotpage = hotpage;
@@ -260,7 +260,7 @@ course.controller('course', ['$scope', '$http', function ($scope, $http) {
                         
                         $scope.chooseItem=function(index){
                             var ch=$scope.new[index];
-                        console.log(JSON.stringify(ch));
+                        // console.log(JSON.stringify(ch));
                             
                             var name=ch.teachername;
                             //location.href = "components/course_buy/course_buy.html?&id=" + name;
