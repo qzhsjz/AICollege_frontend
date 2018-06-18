@@ -136,7 +136,16 @@ course.controller('course', ['$scope', '$http', function ($scope, $http) {
                             // alert(page);
                         };
                         
-                        $scope.chooseItem=function(index){
+                        $scope.chooseHotItem=function(index){
+                            var ch=$scope.hot[index];
+                        // console.log(JSON.stringify(ch.id));
+                            
+                            var id=ch.id;
+                            //location.href = "components/course_buy/course_buy.html?&id=" + name;
+                            window.open("components/course_buy/course_buy.html?&id=" + id);
+                        }
+
+                        $scope.chooseNewItem=function(index){
                             var ch=$scope.new[index];
                         // console.log(JSON.stringify(ch.id));
                             

@@ -1,9 +1,30 @@
 var urlget = 'http://39.106.19.27:8080/course/';
+var urlAdd = 'http://39.106.19.27:8080/addtostudy/'
 var next_page;
 var myBuy = angular.module("myBuy", []);
 var isLearn;
 var isLog;
 var urlcookie = 'http://39.106.19.27:8080/user/getuserinfo';
+var quit = function(){
+    var urlquit = 'http://39.106.19.27:8080/user/logout';
+    $.ajax({
+        url:urlquit,
+        xhrFields: {
+            withCredentials: true
+        },
+        crossDomain: true,
+        type:'get',
+        dataType: 'json',
+        success: function(data) {
+          console.log(JSON.stringify(data));
+          if(data.error){
+           alert(data.error);
+         }else{
+          location.href = "../../index.html";
+         }
+        }
+    });
+}
 
 myBuy.controller('buyCtrl', ['$scope', '$http', function ($scope, $http,$location) {
     $http({
@@ -14,17 +35,31 @@ myBuy.controller('buyCtrl', ['$scope', '$http', function ($scope, $http,$locatio
         if(response.error){
             alert(response.error);
         }else{
-            //console.log(JSON.stringify(response));
+            // console.log(JSON.stringify(response));
             if(response.data.id){
                 isLog="1";      
+                document.getElementById("signup").style.display="none";
+                document.getElementById("headerimg").src=response.data.picture;
+                $(".mystudy").show();
+                                //显示状态改变
+                $('.head').on('mouseenter',function(){
+                    $('.bubble').css("display","block");
+                });
+                $('.head').on('mouseleave',function(){
+                    $('.bubble').css("display","none");
+                });
+                $('.headimg').attr('href','../my_detail/my_detail.html'); 
+                $('.headimg').attr('target','_blank');
             }else{
                 isLog="0";
+                $(".mystudy").hide();
             }
             
             var searchStr = location.search;
             var searchArr = searchStr.split("&");
             var id = searchArr[1].replace("id=","");//string
             urlget=urlget+id;
+            urlAdd=urlAdd+id;
             var urlcookie = 'http://39.106.19.27:8080/user/getuserinfo';
             $http({
                 method:'post', //get请求方式
@@ -54,6 +89,7 @@ myBuy.controller('buyCtrl', ['$scope', '$http', function ($scope, $http,$locatio
                         }
                         else
                         {
+                            
                             next_page="../study_detail/study_detail.html?&id="+id;
                         }
                     }
@@ -74,8 +110,20 @@ myBuy.controller('buyCtrl', ['$scope', '$http', function ($scope, $http,$locatio
                 $scope.go_to = function () {
                     var name = "course_buy";
                     var value =$scope.value;
-                    if(value>0)location.href = next_page;
-                    else location.href=next_page;
+                    $http({
+                        method:'post', //get请求方式
+                        url:urlAdd,   //请求地址
+                        withCredentials:true,
+                        //data:{index:1}
+                    }).then(function(response){    
+                        
+                    },function(response){
+                        //失败时执行 
+                        console.log(response);
+                        alert("网络连接出错，请刷新");
+                    });
+                    //if(value>0)location.href = next_page;
+                    //else location.href=next_page;
                 }
             },function(response){
                 //失败时执行 
