@@ -1,4 +1,4 @@
-﻿var urlget = 'http://39.106.19.27:8080/course/';
+﻿var urlget = 'http://39.106.19.27:8080/course/judgeCourse/';
 var next_page;
 var app = angular.module("myApp", []);
 var isLearn;
