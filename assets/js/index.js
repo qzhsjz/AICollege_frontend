@@ -175,7 +175,7 @@ var newpage ;
 course.controller('course', ['$scope', '$http', function ($scope, $http) {
 
     $http({
-        method:'post', //get请求方式
+        method:'get', //get请求方式
         url:urlcookie,   //请求地址
     }).then(function(response){
         
