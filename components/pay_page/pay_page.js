@@ -8,7 +8,7 @@
 }]);*/
 
 
-var urlget = 'http://39.106.19.27:8080/course/judgeCourse/';
+var urlget = 'http://39.106.19.27:8080/course/';
 var next_page;
 var myBuy = angular.module("myBuy", []);
 var isLearn;

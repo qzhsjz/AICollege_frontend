@@ -1,4 +1,4 @@
-var urlget = 'http://39.106.19.27:8080/course/judgeCourse/';
+var urlget = 'http://39.106.19.27:8080/course/';
 var urlAdd = 'http://39.106.19.27:8080/course/addtostudy/'
 var next_page;
 var myBuy = angular.module("myBuy", []);
@@ -68,7 +68,7 @@ myBuy.controller('buyCtrl', ['$scope', '$http', function ($scope, $http, $locati
                 //data:{index:1}
             }).then(function (response) {
                 console.log(JSON.stringify(response));
-                var course_info = response.data.course[0];
+                var course_info = response.data.course;
                 isLearn = response.data.islearn;
                 //console.log(JSON.stringify(response.data.islearn));
                 $scope.name = course_info.course_name;
@@ -121,8 +121,9 @@ myBuy.controller('buyCtrl', ['$scope', '$http', function ($scope, $http, $locati
                             alert("网络连接出错，请刷新");
                         });
                         //if(value>0)location.href = next_page;
-                        //else location.href=next_page;
+                        
                     }
+                    location.href=next_page;
                 }
 
             }, function (response) {

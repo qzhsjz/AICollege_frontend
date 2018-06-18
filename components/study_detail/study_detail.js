@@ -1,4 +1,4 @@
-﻿var urlget = 'http://39.106.19.27:8080/course/judgeCourse/';
+﻿var urlget = 'http://39.106.19.27:8080/course/';
 var next_page;
 var app = angular.module("myApp", []);
 var isLearn;
@@ -16,9 +16,9 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http,$location) 
     }).then(function(response){    
                // hotcourse = response.dict.course.course_name;
                 
-                //console.log(JSON.stringify(response));
+                console.log(JSON.stringify(response));
                 //$scope.id=id;
-                var course_info=response.data.course[0];
+                var course_info=response.data.course;
                 //console.log(JSON.stringify(response.data.islearn));
                 $scope.title=course_info.course_name;
                 //console.log(JSON.stringify(course_info.course_name));
