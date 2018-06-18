@@ -193,7 +193,7 @@ course.controller('course', ['$scope', '$http', function ($scope, $http) {
             $http({
                 method:'post', //get请求方式
                 url:urlget+1,   //请求地址
-            
+                withCredentials:true,  
             }).then(function(response){
                 //成功时执行
                 // console.log(response);
@@ -233,8 +233,8 @@ course.controller('course', ['$scope', '$http', function ($scope, $http) {
          
                             $http({
                                 method:'post', //get请求方式
-                                url:urlget,   //请求地址
-                                data:{index:page}
+                                url:urlget+page,   //请求地址
+                                withCredentials:true, 
                             }).then(function(response){
                                  hotcourse = response.data.data;
                                 
@@ -252,7 +252,7 @@ course.controller('course', ['$scope', '$http', function ($scope, $http) {
                             $http({
                                 method:'post', //get请求方式
                                 url:urlget+page,   //请求地址
-                                
+                                withCredentials:true, 
                             }).then(function(response){
                                 newcourse = response.data.data;
                                 
