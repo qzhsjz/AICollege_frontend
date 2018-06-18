@@ -31,7 +31,11 @@ $("#login").on('click',function(){
 
     
     $("#validation").on('click',function(){
-   
+      var tip = "正在加载中，请稍后...";
+    
+      ZENG.msgbox.show(tip, 6);
+      $('#overlay').css("display","block");
+    
         var usernamesign = $("input[name='usernamesign']").val();
         var passwordsign = $("input[name='passwordsign']").val();
         var email = $("input[name='email']").val();
@@ -49,10 +53,16 @@ $("#login").on('click',function(){
             },
             dataType: 'json',
             success: function(data) {
-              console.log(JSON.stringify(data));
+              // console.log(JSON.stringify(data));
               if(data.error){
+                
+               ZENG.msgbox._hide();
                alert(data.error);
+               $('#overlay').css("display","none");
              }else{
+              ZENG.msgbox._hide();
+              $('#overlay').css("display","none");
+
                 location.replace(document.referrer);
                 location.href = "../../components/login/login.html";
              }
