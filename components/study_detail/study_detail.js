@@ -1,34 +1,46 @@
-﻿var app = angular.module("myApp", []);
-app.controller("myCtrl", function($scope,$location) {
-    //var searchStr = location.search;
-    //var searchArr = searchStr.split("&");
-    //var name = searchArr[1].replace("id=","");//string
-    $scope.title="111";
-    $scope.teacher="赵老师";
-    $scope.image='http://www.runoob.com/wp-content/uploads/2014/06/angular.jpg';
-    $scope.play="http://video.eastday.com/a/160731002439353075334.html?qid=01359";
-    $scope.itemNumber=0;
-    $scope.chooseItem=function(index){
-        var ch=$scope.chapter[index];
-        $scope.play=ch.item;
-    }
-    $scope.chapter = [
-        {
-          "name":"第一节",
-          "item":"media/study.mp4",
-        },
-        {
-            "name":"第二节",
-            "item":"media/study.mp4",
-        },
-        {
-            "name":"第三节",
-            "item":"media/study.mp4",
-        }
-       
-        
-      ];
+﻿var urlget = 'http://39.106.19.27:8080/course/';
+var next_page;
+var app = angular.module("myApp", []);
+var isLearn;
 
-});
+app.controller('myCtrl', ['$scope', '$http', function ($scope, $http,$location) {
+    var searchStr = location.search;
+    var searchArr = searchStr.split("&");
+    var id = searchArr[1].replace("id=","");//string
+    urlget=urlget+id;
+    $http({
+        method:'post', //get请求方式
+        url:urlget,   //请求地址
+        //data:{index:1}
+    }).then(function(response){    
+               // hotcourse = response.dict.course.course_name;
+                
+                console.log(JSON.stringify(response));
+                //$scope.id=id;
+                var course_info=response.data.course[0];
+                //console.log(JSON.stringify(response.data.islearn));
+                $scope.title=course_info.course_name;
+                //console.log(JSON.stringify(course_info.course_name));
+                $scope.teacher=course_info.teacherName;
+                $scope.value=course_info.course_price;
+                $scope.introduce=course_info.course_info;
+                $scope.image=course_info.picPath;
+                $scope.chapter = response.data.section;
+                $scope.play;
+                $scope.itemNumber=0;
+                $scope.chooseItem=function(index){
+                    var ch=$scope.chapter[index];
+                    $scope.play=ch.videoPath;
+                }
+                
+                
+            },function(response){
+                //失败时执行 
+                console.log(response);
+                alert("网络连接出错，请刷新");
+            });
+}]);
+
+
 
   

@@ -3,20 +3,14 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">  
-    <link href="../../assets/css/bootstrap.min.css" type="text/css" rel="stylesheet">
-    <link href="course_buy.css" type="text/css" rel="stylesheet">
-    <script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
-    <script src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>    
-    <script src="http://cdn.bootcss.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>   
-    <script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
-    <script src="course_buy.js"></script>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>课程详情</title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" type="text/css" href="course_buy.css">
-    <!-- <link href="study_detail.css" type="text/css" rel="stylesheet"> -->
+    <link href="../../assets/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="course_buy.css" type="text/css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
+
   </head>
   
   <body>
@@ -56,13 +50,13 @@
             <div class="course-info">
                     <div class="row-fluid">
                         <div class="span5">
-                            <img src="img/11.png" style="width:100%"/>
+                            <img ng-src="{{img}}" style="width:100%"/>
                         </div>
                         <div class="span7" style="padding: 20px">
                             <p class="title">{{name}}</p>
                             <p>讲师：{{teacher}}</p>
                             <p class="value">¥{{value}}</p>
-                            <p><a href="" class="btn btn-primary btn-large bottom-box" ng-click="go_to()">Learn more »</a></p>
+                            <p><a href="" class="btn btn-primary btn-large bottom-box" ng-click="go_to()">{{design}} »</a></p>
                             
                         </div>
                         
@@ -92,7 +86,7 @@
                             <div id="tab2" class="tab-pane">
                                 <div class="well" style="background-color: #ffffffff">
                                     <ul class="nav nav-list">
-                                        <li ng-repeat="ch in chapter"><a href="#">{{ch.name}}</a></li>
+                                        <li ng-repeat="ch in chapter"><a href="#">{{ch.section_name}}</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -126,4 +120,19 @@
       
     
     </body>
+
+    <script src="../../assets/js/jquery-1.11.3.min.js"></script>
+    <script src="../../assets/js/sha1.min.js"></script>
+    <script src="../../assets/js/common.js"></script>
+    <!-- <script src="assets/js/stickup.js"></script> -->
+    <script src="../../assets/js/bootstrap.min.js"></script>
+    <script src="course_buy.js"></script>
+    <!-- <script>
+        BXF.component.login.install();
+    </script> -->
+    <script type="text/javascript">
+        
+    </script>
+
+    </html>
     
