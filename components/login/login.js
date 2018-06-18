@@ -53,7 +53,8 @@ $("#login").on('click',function(){
               if(data.error){
                alert(data.error);
              }else{
-              location.href = "login.html";
+                location.replace(document.referrer);
+                location.href = "../../components/login/login.html";
              }
             }
         });
