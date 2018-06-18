@@ -46,7 +46,7 @@ course.controller('course', ['$scope', '$http', function ($scope, $http) {
         }else{
             if(response.data.id){
                 document.getElementById("signup").style.display="none";
-                document.getElementById("headerimg").src="response.data.picture";
+                document.getElementById("headerimg").src=response.data.picture;
                 $(".mystudy").show();
                                 //显示状态改变
                 $('.head').on('mouseenter',function(){
