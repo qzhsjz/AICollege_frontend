@@ -172,6 +172,28 @@ var newpage ;
    
 // });
 
+var quit = function(){
+    var urlquit = 'http://39.106.19.27:8080/user/logout';
+    $.ajax({
+        url:urlquit,
+        xhrFields: {
+            withCredentials: true
+        },
+        crossDomain: true,
+        type:'get',
+        dataType: 'json',
+        success: function(data) {
+          console.log(JSON.stringify(data));
+          if(data.error){
+           alert(data.error);
+         }else{
+          location.href = "../../index.html";
+         }
+        }
+    });
+}
+
+
 course.controller('course', ['$scope', '$http', function ($scope, $http) {
     
     $http({
@@ -186,6 +208,13 @@ course.controller('course', ['$scope', '$http', function ($scope, $http) {
                 document.getElementById("signup").style.display="none";
                 document.getElementById("headerimg").src=response.data.picture;
                 $(".mystudy").show();
+                                //显示状态改变
+                $('.head').on('mouseenter',function(){
+                    $('.bubble').css("display","block");
+                });
+                $('.head').on('mouseleave',function(){
+                    $('.bubble').css("display","none");
+                });
             }else{
                 $(".mystudy").hide();
             }

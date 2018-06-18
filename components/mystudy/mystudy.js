@@ -93,7 +93,26 @@
 
 
 
-
+var quit = function(){
+    var urlquit = 'http://39.106.19.27:8080/user/logout';
+    $.ajax({
+        url:urlquit,
+        xhrFields: {
+            withCredentials: true
+        },
+        crossDomain: true,
+        type:'get',
+        dataType: 'json',
+        success: function(data) {
+          console.log(JSON.stringify(data));
+          if(data.error){
+           alert(data.error);
+         }else{
+          location.href = "../../index.html";
+         }
+        }
+    });
+}
 
 
 var urlcookie = 'http://39.106.19.27:8080/user/getuserinfo';    
@@ -115,6 +134,12 @@ course.controller('course', ['$scope', '$http', function ($scope, $http) {
             if(response.data.id){
                 document.getElementById("signup").style.display="none";
                 document.getElementById("headerimg").src=response.data.picture;
+                $('.head').on('mouseenter',function(){
+                    $('.bubble').css("display","block");
+                });
+                $('.head').on('mouseleave',function(){
+                    $('.bubble').css("display","none");
+                });
             }
             // console.log(JSON.stringify(response.data));
             $http({
