@@ -53,7 +53,7 @@ $("#login").on('click',function(){
               if(data.error){
                alert(data.error);
              }else{
-                location.replace(document.referrer);
+              location.href = "login.html";
              }
             }
         });
