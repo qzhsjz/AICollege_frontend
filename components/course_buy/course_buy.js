@@ -11,6 +11,7 @@ myBuy.controller('buyCtrl', ['$scope', '$http', function ($scope, $http,$locatio
     $http({
         method:'post', //get请求方式
         url:urlget,   //请求地址
+        withCredentials:true,
         //data:{index:1}
     }).then(function(response){    
                // hotcourse = response.dict.course.course_name;
