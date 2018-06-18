@@ -63,6 +63,10 @@ $(function(){
           $.ajax({
             url:urlget,
             type:'post',
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
             // data: {
             //   'username':nickname,
             //   'imagefile':formFile,
