@@ -97,7 +97,7 @@
 
 
 var urlcookie = 'http://39.106.19.27:8080/user/getuserinfo';    
-var urlget = 'http://39.106.19.27:8080/course/all/';
+var urlget = 'http://39.106.19.27:8080/course/mystudy/';
 var hotcourse;
 var hotpage ;
 
