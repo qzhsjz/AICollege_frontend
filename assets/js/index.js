@@ -46,7 +46,7 @@ course.controller('course', ['$scope', '$http', function ($scope, $http) {
         }else{
             if(response.data.id){
                 document.getElementById("signup").style.display="none";
-                document.getElementById("headerimg").src=response.data.picture;
+                document.getElementById("headerimg").src="response.data.picture";
                 $(".mystudy").show();
                                 //显示状态改变
                 $('.head').on('mouseenter',function(){
@@ -55,8 +55,8 @@ course.controller('course', ['$scope', '$http', function ($scope, $http) {
                 $('.head').on('mouseleave',function(){
                     $('.bubble').css("display","none");
                 });
-                $('.headimg').href = "../../components/my_detail/my_detail.html";
-                $('.headimg').target="_blank"
+                $('.headimg').attr('href','../../components/my_detail/my_detail.html'); 
+                $('.headimg').attr('target','_blank');
             }else{
                 $(".mystudy").hide();
             }
