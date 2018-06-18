@@ -11,11 +11,12 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http,$location) 
     $http({
         method:'post', //get请求方式
         url:urlget,   //请求地址
+        withCredentials:true,
         //data:{index:1}
     }).then(function(response){    
                // hotcourse = response.dict.course.course_name;
                 
-                console.log(JSON.stringify(response));
+                //console.log(JSON.stringify(response));
                 //$scope.id=id;
                 var course_info=response.data.course[0];
                 //console.log(JSON.stringify(response.data.islearn));
@@ -26,12 +27,16 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http,$location) 
                 $scope.introduce=course_info.course_info;
                 $scope.image=course_info.picPath;
                 $scope.chapter = response.data.section;
-                $scope.play;
+                console.log(JSON.stringify($scope.chapter));
+
                 $scope.itemNumber=0;
                 $scope.chooseItem=function(index){
                     var ch=$scope.chapter[index];
                     $scope.play=ch.videoPath;
+                    console.log(JSON.stringify($scope.play));
                 }
+                $scope.play=$scope.chapter[0].videoPath;
+                console.log(JSON.stringify($scope.play));
                 
                 
             },function(response){
