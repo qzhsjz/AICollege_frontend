@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link href="../../assets/css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="login.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="jquery.mloading.css">
+    
     <script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
     
     <style>
@@ -75,11 +77,24 @@
         </form>
      
     </div>
-   
+    <div id="overlay">
+        </div>
+    <div style="top:400px;display:none" id="q_Msgbox " class="zeng_msgbox_layer_wrap">
+        <span id="mode_tips_v2" style="z-index:10000" class="zeng_msgbox_layer">
+            <span class="gtl_ico_clear"></span>
+            <span class="gtl_ico_loading"></span>正在加载中，请稍后...
+            <span class="gtl_end"></span>
+        </span>
+    </div>
+    <div class="zeng_msgbox_layer_wrap" id="q_Msgbox" style=" display:block"></div>
+    
+    
 </body>
 
     <script src="../../assets/js/jquery-1.11.3.min.js"></script>
     <script src="../../assets/js/bootstrap.min.js"></script>
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script src="jquery.mloading.js"></script>
     <script src="login.js"></script>
     <script>
        
