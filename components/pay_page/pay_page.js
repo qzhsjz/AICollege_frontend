@@ -12,32 +12,57 @@ var urlget = 'http://39.106.19.27:8080/course/';
 var next_page;
 var myBuy = angular.module("myBuy", []);
 var isLearn;
+var urlcookie = 'http://39.106.19.27:8080/user/getuserinfo';
 
-myBuy.controller('buyCtrl', ['$scope', '$http', function ($scope, $http,$location) {
+myBuy.controller('buyCtrl', ['$scope', '$http', function ($scope, $http, $location) {
     var searchStr = location.search;
     var searchArr = searchStr.split("&");
-    var id = searchArr[1].replace("id=","");//string
+    var id = searchArr[1].replace("id=", "");//string
     console.log(JSON.stringify(id));
-    urlget=urlget+id;
+    urlget = urlget + id;
     $http({
-        method:'post', //get请求方式
-        url:urlget,   //请求地址
-        withCredentials:true,
-        //data:{index:1}
-    }).then(function(response){    
-               // hotcourse = response.dict.course.course_name;
-               var course_info=response.data.course[0];
-               isLearn=response.data.islearn;
-               //console.log(JSON.stringify(response.data.islearn));
-               $scope.name=course_info.course_name;
-               //console.log(JSON.stringify(course_info.course_name));
-               $scope.value=course_info.course_price;
+        method: 'get', //get请求方式
+        url: urlcookie,   //请求地址
+        withCredentials: true,
+    }).then(function (response) {
+        if (response.error) {
+            alert(response.error);
+        } else {
+            //console.log(JSON.stringify(response));
+            if (response.data.id) {
+
+            } else {
+
+            }
+            $http({
+                method: 'post', //get请求方式
+                url: urlget,   //请求地址
+                withCredentials: true,
+                //data:{index:1}
+            }).then(function (response) {
+                // hotcourse = response.dict.course.course_name;
+                var course_info = response.data.course[0];
+                isLearn = response.data.islearn;
+                //console.log(JSON.stringify(response.data.islearn));
+                $scope.name = course_info.course_name;
+                //console.log(JSON.stringify(course_info.course_name));
+                $scope.value = course_info.course_price;
 
                 console.log(JSON.stringify(response));
 
-            },function(response){
+            }, function (response) {
                 //失败时执行 
                 console.log(response);
                 alert("网络连接出错，请刷新");
             });
+
+
+        }//else
+
+    }, function (response) {
+        //失败时执行 
+        console.log("CookieError" + response);
+
+    });
+
 }]);
