@@ -182,7 +182,11 @@ course.controller('course', ['$scope', '$http', function ($scope, $http) {
         if(response.error){
             alert(response.error);
         }else{
-            console.log(JSON.stringify(response));
+            if(response.data.id){
+                document.getElementById("signup").style.display="none";
+                document.getElementById("headerimg").src=response.data.picture;
+            }
+            // console.log(JSON.stringify(response.data));
             $http({
                 method:'post', //get请求方式
                 url:urlget+1,   //请求地址
@@ -260,11 +264,11 @@ course.controller('course', ['$scope', '$http', function ($scope, $http) {
                         
                         $scope.chooseItem=function(index){
                             var ch=$scope.new[index];
-                        // console.log(JSON.stringify(ch));
+                        // console.log(JSON.stringify(ch.id));
                             
-                            var name=ch.teachername;
+                            var id=ch.id;
                             //location.href = "components/course_buy/course_buy.html?&id=" + name;
-                            // window.open("components/course_buy/course_buy.html?&id=" + name);
+                            window.open("components/course_buy/course_buy.html?&id=" + id);
                         }
                     
          
