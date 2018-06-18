@@ -11,7 +11,7 @@ $("#login").on('click',function(){
             withCredentials: true
         },
         crossDomain: true,
-        type:'post',
+        type:'get',
         data: {
           'username': username,
           'password': password,
