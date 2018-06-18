@@ -140,8 +140,6 @@ course.controller('course', ['$scope', '$http', function ($scope, $http) {
                 $('.head').on('mouseleave',function(){
                     $('.bubble').css("display","none");
                 });
-                $('.headimg').attr('href','../../components/my_detail/my_detail.html'); 
-                $('.headimg').attr('target','_blank');
             }
             // console.log(JSON.stringify(response.data));
             $http({
