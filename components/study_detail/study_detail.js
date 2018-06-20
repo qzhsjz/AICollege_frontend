@@ -29,7 +29,18 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
                 withCredentials: true,
                 //data:{index:1}
             }).then(function (response) {
-
+                var course_info = response.data.course;
+                //console.log(JSON.stringify(response.data.islearn));
+                $scope.title = course_info.course_name;
+                //console.log(JSON.stringify(course_info.course_name));
+                $scope.course_info = course_info.course_info;
+                $scope.teacher = course_info.teacherName;
+                $scope.value = course_info.course_price;
+                $scope.introduce = course_info.course_info;
+                $scope.image = course_info.picPath;
+                $scope.chapter = response.data.section;
+                $scope.play = $scope.chapter[0].videoPath;
+                $scope.itemNumber = 0;
                 $scope.flv_load = function () {
                     console.log('isSupported: ' + flvjs.isSupported());
                     var index = $scope.play.indexOf("."); //得到"."在第几位
@@ -58,27 +69,14 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
                     }
                     xhr.send();
                 }
-
-                var course_info = response.data.course;
-                //console.log(JSON.stringify(response.data.islearn));
-                $scope.title = course_info.course_name;
-                //console.log(JSON.stringify(course_info.course_name));
-                $scope.course_info = course_info.course_info;
-                $scope.teacher = course_info.teacherName;
-                $scope.value = course_info.course_price;
-                $scope.introduce = course_info.course_info;
-                $scope.image = course_info.picPath;
-                $scope.chapter = response.data.section;
-                //console.log(JSON.stringify($scope.chapter));
-
-                $scope.itemNumber = 0;
+                
                 $scope.chooseItem = function (index) {
                     var ch = $scope.chapter[index];
                     $scope.play = ch.videoPath;
                     //console.log(JSON.stringify($scope.play));
                     $scope.flv_load();
                 }
-                $scope.play = $scope.chapter[0].videoPath;
+                $scope.flv_load();
                 //console.log(JSON.stringify($scope.play));
 
 

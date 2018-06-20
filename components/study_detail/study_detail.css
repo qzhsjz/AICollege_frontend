@@ -1,13 +1,13 @@
+
 .center{ text-align: center;display:inline-block;}
 .grey1{ background-color: #a7a3a3; }
-.grey2{ background-color: rgb(136, 133, 133)}
-.grey3{ background-color: #FFFFFF;}
-.grey4{   background: #d4d2d2}
+.white{ background-color: #FFFFFF;}
+
 .hero-color{ background-color: #eee;}
-.board{padding:10px;border:1px solid #eee; height: 300px;}
+.board{padding:10px;border:1px solid #eee;}
 .img-contain
 {
-    padding: 10px;
+    border:1px solid #eee;
 }
 .ct
 {

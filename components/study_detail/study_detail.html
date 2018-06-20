@@ -14,11 +14,11 @@
   <link href="demo.css" type="text/css" rel="stylesheet">
   <style type="text/css">
     body {
-    padding-top: 90px;
-    padding-bottom: 40px;
-    background-image:"img/b1.jpg";
-    background-repeat: repeat;
-  }
+      padding-top: 90px;
+      padding-bottom: 30px;
+      background-color: #7c7c7c;
+      background-repeat: repeat;
+    }
   </style>
   <link href="../../assets/css/bootstrap-responsive.css" type="text/css" rel="stylesheet">
   <link href="study_detail.css" type="text/css" rel="stylesheet">
@@ -31,11 +31,12 @@
 </head>
 
 <body ng-app="myApp" ng-controller="myCtrl">
-    {{flv_load()}}
   <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
-        <a class="brand" href="../../index.html"><img style="width: 150px" src="img/pic1.jpeg"></a>
+        <a class="brand" href="../../index.html">
+          <img style="width: 150px" src="img/pic1.jpeg">
+        </a>
       </div>
     </div>
   </div>
@@ -43,56 +44,59 @@
     <div class="row-fluid">
       <div class="span9">
         <div class="hero-color">
-          <video name="videoElement" class="centeredVideo" controls autoplay width="1024" height="576">
-              Your browser is too old which doesn't support HTML5 video.
+          <video name="videoElement" class="centeredVideo" controls autoplay width="100%">
+            Your browser is too old which doesn't support HTML5 video.
           </video>
         </div>
-
       </div>
       <!--/span9-->
       <div class="span3 ">
-        <div class="row-fluid hero-color">
-          <div class="span6" style="padding:10px">
-            <h4>{{title}}</h4>
-            <p>{{teacher}}</p>
+        <div class="row-fluid grey1">
+          <div class="span6" style="padding:20px; ">
+            <p style="font-size: 20px">{{title}}</p>
+            <p style="font-size: 15px">{{teacher}}</p>
           </div>
           <div class="span6" style="padding:10px">
-            <img src="{{image}}" />
-          </div>
-        </div>
-        <div class="tabbable">
-            <!-- Only required for left/right tabs -->
-            <ul class="nav nav-tabs">
-              <li class="active" style="text-align: center;width:50%">
-                <a href="#tab1" data-toggle="tab">目录</a>
-              </li>
-              <li style="text-align: center;width:50%">
-                <a href="#tab2" data-toggle="tab">简介</a>
-              </li>
-            </ul>
-            <div class="tab-content board">
-              <div class="tab-pane active" id="tab1">
-                  <ul class="nav nav-list">
-                      <li ng-repeat="ch in chapter track by $index" ng-click="chooseItem($index)"><a>{{ch.section_name}}</a></li>
-                  </ul>
-              </div>
-              <div class="tab-pane" id="tab2">
-                <p>{{course_info}}</p>
-              </div>
+            <div class="img-contain">
+              <img src="{{image}}" />
             </div>
           </div>
-          <!-- tabbable -->
+        </div>
+        <div class="tabbable white">
+          <!-- Only required for left/right tabs -->
+          <ul class="nav nav-tabs">
+            <li class="active" style="text-align: center;width:50%">
+              <a href="#tab1" data-toggle="tab">目录</a>
+            </li>
+            <li style="text-align: center;width:50%">
+              <a href="#tab2" data-toggle="tab">简介</a>
+            </li>
+          </ul>
+          <div class="tab-content board">
+            <div class="tab-pane active" id="tab1">
+              <ul class="nav nav-list">
+                <li ng-repeat="ch in chapter track by $index" ng-click="chooseItem($index)">
+                  <a>{{ch.section_name}}</a>
+                </li>
+              </ul>
+            </div>
+            <div class="tab-pane" id="tab2">
+              <p>{{course_info}}</p>
+            </div>
+          </div>
+        </div>
+        <!-- tabbable -->
       </div>
       <!--/span3-->
-      
-  </div>
-  <!--/row-fluid-->
 
-  <hr>
+    </div>
+    <!--/row-fluid-->
 
-  <footer>
-    <p>© 小智课堂 2018</p>
-  </footer>
+    <hr>
+
+    <footer>
+      <p>© 小智课堂 2018</p>
+    </footer>
 
   </div>
   <!--/.fluid-container-->
@@ -100,14 +104,14 @@
   <!-- Le javascript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
- 
+
   <script src="../../assets/js/jquery-1.11.3.min.js"></script>
   <script src="../../assets/js/bootstrap.js"></script>
   <script src="../../assets/js/bootstrap.min.js"></script>
   <script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
   <script src="study_detail.js"></script>
   <script src="flv.min.js"></script>
-  
+
 
 
 
