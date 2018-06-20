@@ -75,6 +75,14 @@ myBuy.controller('buyCtrl', ['$scope', '$http', function ($scope, $http, $locati
                 //console.log(JSON.stringify(course_info.course_name));
                 $scope.teacher = course_info.teacherName;
                 $scope.value = course_info.course_price;
+                if($scope.value==0)
+                {
+                    $scope.value_dis = "免费";
+                }
+                else
+                {
+                    $scope.value_dis = "￥"+ $scope.value;
+                }
                 $scope.introduce = course_info.course_info;
                 $scope.img = course_info.picPath;
                 $scope.chapter = response.data.section;

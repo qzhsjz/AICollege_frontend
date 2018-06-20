@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,129 +12,134 @@
     <link href="course_buy.css" type="text/css" rel="stylesheet">
     <script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
 
-  </head>
-  
-  <body>
+</head>
+
+<body ng-app="myBuy" ng-controller="buyCtrl">
     <div>
         <div class="bar-top">
-          <div class="container">
-              <a class="bar-title" href="index.html">小智课堂</a>
-              <ul class="navtitle pull-right">
-                  <li class="head">
-                      <div class="signup_in" id="signup"><a href="../login/login.html">登录/注册</a></div>
-                      <a href="../my_detail/my_detail.html" class="headimg"><img id="headerimg"  src="http://7zn2fy.com1.z0.glb.clouddn.com/apicloud/1d276ae45be8f9a2fdd1fd0687f35f4e.jpg"></a>
-                     
-                      <div class="bubble dropdown-menu">
-                          <div class="cusp"></div>
-                          <!-- <div class="func-one" id="my-collect">我的收藏</div> -->
-                          <!-- <div class="func-two" id="my-join">我的报名</div> -->
-                        <div class="quit" id="quit" onclick="quit()">注 销</div>
-                          
-                      </div>
-                  </li>
-                  
-                  <li class="mystudy"><a href="../mystudy/mystudy.html">我的学习</a></li>
-                  <!-- <li class="message"><a href="#">消息</a></li> -->
-                  
-                  <li class="Findout">
-                      <form class="form-search">
-                          <input type="text" class="input-medium search-query find_input search" style="width:250px;height: 15px;border-color: #e5e5e5;" placeholder="search">
-                          <button class="find_button">搜索</button>
-                      </form>
-                  </li>
-              </ul>
-          </div>
-        </div>
-      </div>
-    <div ng-app="myBuy" ng-controller="buyCtrl">
-        <div class="container">
-            <!--课程名称、图片等基本信息 -->
-            <div class="course-info">
-                    <div class="row-fluid">
-                        <div class="span5">
-                            <img ng-src="{{img}}" style="width:100%"/>
+            <div class="container">
+                <a class="bar-title" href="index.html">小智课堂</a>
+                <ul class="navtitle pull-right">
+                    <li class="head">
+                        <div class="signup_in" id="signup">
+                            <a href="../login/login.html">登录/注册</a>
                         </div>
-                        <div class="span7" style="padding: 20px">
-                            <p class="title">{{name}}</p>
-                            <p>讲师：{{teacher}}</p>
-                            <p class="value">¥{{value}}</p>
-                            <p><a href="" class="btn btn-primary btn-large bottom-box" ng-click="go_to()">{{design}} »</a></p>
-                            
-                        </div>
-                        
-                    </div>   
-                </div>
-                <!--课程介绍、课程目录-->
-                <div class="grey" style="width:100%">
-                        <ul class="nav nav-tabs">
-                                <li class="active" style=" text-align: center">
-                                    <a href="#tab1" data-toggle="tab"><span class="icon-th-list"></span>简介</a>                                
-                                </li>
-                                <li  style="text-align: center">
-                                    <a href="#tab2" data-toggle="tab"><span class="icon-list-alt"></span>目录</a>
-                                </li>
-                        </ul>
-                </div>
-                <!-- Example row of columns -->
-                <div class="row">
-                    <div class="span8">
-                        <div class="tab-content">
-                            <div id="tab1" class="tab-pane active">
-                                <div class="well" style="background-color: #ffffffff">
-                                    <p class="title">课程概述</p>
-                                    <p>{{introduce}}</p>
-                                </div>
-                            </div>
-                            <div id="tab2" class="tab-pane">
-                                <div class="well" style="background-color: #ffffffff">
-                                    <ul class="nav nav-list">
-                                        <li ng-repeat="ch in chapter"><a href="#">{{ch.section_name}}</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            
-    
-                        </div>
-                    </div>
-                    
-                    <div class="span4">
-                        <div class="well" style="background-color: #ffffffff">
-                            <p class="title">Advertise</p>
-                            <p>招聘程序员鼓励师任职要求：
-                                1、长相清新，声线甜美，微笑常在，人见人爱；
-                                2、善于倾听，善不善沟通不重要，能忍受IT工程师死宅无法交流的性格；
-                                3、耍不耍脾气不重要，要善于发现每一个程序暖男的天性，成功驯服；
-                                4、了解互联网，懂科技，不然聊起来云里雾里，工程师会更受打击。</p>
-                           <!-- <p><a class="btn" href="#">View details »</a></p> -->
-                        </div>
-                        
-                    </div>
-                </div>
-                
-                <hr>
-                <footer>
-                    <p>© 小智课堂 2018</p>
-                </footer>
-            
-            </div> <!-- /container -->
-        </div>
-    
-      
-    
-    </body>
+                        <a href="../my_detail/my_detail.html" class="headimg">
+                            <img id="headerimg" src="http://7zn2fy.com1.z0.glb.clouddn.com/apicloud/1d276ae45be8f9a2fdd1fd0687f35f4e.jpg">
+                        </a>
 
-    <script src="../../assets/js/jquery-1.11.3.min.js"></script>
-    <script src="../../assets/js/sha1.min.js"></script>
-    <script src="../../assets/js/common.js"></script>
-    <!-- <script src="assets/js/stickup.js"></script> -->
-    <script src="../../assets/js/bootstrap.min.js"></script>
-    <script src="course_buy.js"></script>
-    <!-- <script>
+                        <div class="bubble dropdown-menu">
+                            <div class="cusp"></div>
+
+                            <div class="quit" id="quit" onclick="quit()">注 销</div>
+
+                        </div>
+                    </li>
+
+                    <li class="mystudy">
+                        <a href="../mystudy/mystudy.html">我的学习</a>
+                    </li>
+
+                    <li class="Findout">
+                        <form class="form-search">
+                            <input type="text" class="input-medium search-query find_input search" style="width:250px;height: 15px;border-color: #e5e5e5;"
+                                placeholder="search">
+                            <button class="find_button">搜索</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+   
+<div class="container">
+        <!--课程名称、图片等基本信息 -->
+        <div class="row-fluid" style="background-color: #ffffff">
+            <div class="span5" style="padding:20px ">
+                <img ng-src="{{img}}" style="width:100%" />
+            </div>
+            <div class="span7" style="padding: 20px">
+                <p class="title">{{name}}</p>
+                <p>讲师：{{teacher}}</p>
+                <p class="value">{{value_dis}}</p>
+                <p>
+                    <a href="#" class="btn btn-primary btn-large bottom-box" ng-click="go_to()">{{design}} »</a>
+                </p>
+            </div>
+        </div>
+
+        <!--课程介绍、课程目录-->
+        <div class="grey" style="width:100%">
+            <ul class="nav nav-tabs">
+                <li class="active" style=" text-align: center">
+                    <a href="#tab1" data-toggle="tab">
+                        <span class="icon-th-list"></span>简介</a>
+                </li>
+                <li style="text-align: center">
+                    <a href="#tab2" data-toggle="tab">
+                        <span class="icon-list-alt"></span>目录</a>
+                </li>
+            </ul>
+        </div>
+        <!-- Example row of columns -->
+        <div class="row-fluid">
+            <div class="span8">
+                <div class="tab-content">
+                    <div id="tab1" class="tab-pane active">
+                        <div class="well" style="background-color: #ffffffff">
+                            <p class="title">课程概述</p>
+                            <p>{{introduce}}</p>
+                        </div>
+                    </div>
+                    <div id="tab2" class="tab-pane">
+                        <div class="well" style="background-color: #ffffffff">
+                            <ul class="nav nav-list">
+                                <li ng-repeat="ch in chapter">
+                                    <a href="#">{{ch.section_name}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="span4">
+                <div class="well" style="background-color: #ffffffff">
+                    <p class="title">Advertise</p>
+                    <p>招聘程序员鼓励师任职要求： 1、长相清新，声线甜美，微笑常在，人见人爱； 2、善于倾听，善不善沟通不重要，能忍受IT工程师死宅无法交流的性格； 3、耍不耍脾气不重要，要善于发现每一个程序暖男的天性，成功驯服；
+                        4、了解互联网，懂科技，不然聊起来云里雾里，工程师会更受打击。
+                    </p>
+                    <!-- <p><a class="btn" href="#">View details »</a></p> -->
+                </div>
+
+            </div>
+        </div>
+
+        <hr>
+        <footer>
+            <p>© 小智课堂 2018</p>
+        </footer>
+
+    </div>
+    <!-- /container -->
+
+
+
+
+</body>
+
+<script src="../../assets/js/jquery-1.11.3.min.js"></script>
+<script src="../../assets/js/sha1.min.js"></script>
+<script src="../../assets/js/common.js"></script>
+<!-- <script src="assets/js/stickup.js"></script> -->
+<script src="../../assets/js/bootstrap.min.js"></script>
+<script src="course_buy.js"></script>
+<!-- <script>
         BXF.component.login.install();
     </script> -->
-    <script type="text/javascript">
-        
-    </script>
+<script type="text/javascript">
 
-    </html>
-    
+</script>
+
+</html>
