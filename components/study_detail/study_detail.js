@@ -1,4 +1,5 @@
-﻿var urlcookie = 'http://39.106.19.27:8080/user/getuserinfo';
+﻿
+var urlcookie = 'http://39.106.19.27:8080/user/getuserinfo';
 var urlget = 'http://39.106.19.27:8080/course/';
 var next_page;
 var app = angular.module("myApp", []);
@@ -29,6 +30,7 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
                 withCredentials: true,
                 //data:{index:1}
             }).then(function (response) {
+                $('.span3').css("height",$('.span9').height());
                 var course_info = response.data.course;
                 //console.log(JSON.stringify(response.data.islearn));
                 $scope.title = course_info.course_name;
@@ -39,6 +41,21 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
                 $scope.introduce = course_info.course_info;
                 $scope.image = course_info.picPath;
                 $scope.chapter = response.data.section;
+                $scope.discuss=[
+                {
+                    head:"img/1.jpg",
+                    name:"swift",
+                    comment:"很棒的课程！"
+
+                },
+                {
+                    head:"img/1.jpg",
+                    name:"swift",
+                    comment:"很棒的课程！"
+
+                },
+
+            ];
                 $scope.play = $scope.chapter[0].videoPath;
                 $scope.itemNumber = 0;
                 $scope.flv_load = function () {

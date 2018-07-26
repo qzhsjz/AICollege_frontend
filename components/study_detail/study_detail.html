@@ -14,7 +14,7 @@
   <link href="demo.css" type="text/css" rel="stylesheet">
   <style type="text/css">
     body {
-      padding-top: 90px;
+      padding-top: 20px;
       padding-bottom: 20px;
       background-color: #eeeeee;;
       background-repeat: repeat;
@@ -31,7 +31,7 @@
 </head>
 
 <body ng-app="myApp" ng-controller="myCtrl">
-  <div class="navbar navbar-inverse navbar-fixed-top">
+  <!--<div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
         <a class="brand" href="../../index.html">
@@ -39,7 +39,7 @@
         </a>
       </div>
     </div>
-  </div>
+  </div>-->
   <div class="container-fluid">
     <div class="row-fluid">
       <div class="span9">
@@ -69,8 +69,9 @@
               <a href="#tab1" data-toggle="tab">目录</a>
             </li>
             <li style="text-align: center;width:50%">
-              <a href="#tab2" data-toggle="tab">简介</a>
+              <a href="#tab2" data-toggle="tab">评论</a>
             </li>
+            
           </ul>
           <div class="tab-content board">
             <div class="tab-pane active" id="tab1">
@@ -81,7 +82,19 @@
               </ul>
             </div>
             <div class="tab-pane" id="tab2">
-              <p>{{course_info}}</p>
+              <textarea rows="3" style="width: 90%"></textarea>
+              <button class="btn btn-small" type="button" ng-click="publish">发表</button>
+              <div style="padding-top: 30px"></div>
+              <li ng-repeat="dis in discuss track by $index">
+                <div class="row-fluid">
+                  <div class="span2">
+                    <img src={{dis.head}} class="img-circle">
+                    <p>{{dis.name}}</p>
+                  </div>
+                  <div class="span10"><p>{{dis.comment}}</p></div>
+                </div>
+                <hr>
+              </li>
             </div>
           </div>
         </div>
