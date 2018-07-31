@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>小智</title>
+
+    <!-- Bootstrap -->
+    <link href="../../assets/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="./shopcar.css" type="text/css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.js"></script>
+  </head>
+
+  <body ng-app="myApp" ng-controller="personCtrl">
+     <!-- <div class="navbar navbar-inverse navbar-fixed-top navbar-wrapper"> -->
+        <div>
+            <div class="bar-top">
+                <div class="container" style="position: relative;">
+                    <a class="bar-title" href="index.html">小智课堂</a>
+                    <div class="Findout" style="position: absolute;left: 50%;top: 38%;transform: translate(-50%,-50%);">
+                        <form class="form-search">
+                            <input type="text" class="input-medium search-query find_input search" style="width:250px;height: 15px;border-color: #e5e5e5;" placeholder="search">
+                            <button class="find_button">搜索</button>
+                        </form>
+                    </div>
+                    <ul class="navtitle pull-right">
+                        <li class="head">
+                            
+                            
+                            <a href="" class="headimg"><img id="headerimg" src="http://7zn2fy.com1.z0.glb.clouddn.com/apicloud/1d276ae45be8f9a2fdd1fd0687f35f4e.jpg"></a>
+                        
+                            <div class="bubble dropdown-menu">
+                                <div class="cusp"></div>
+                                <!-- <div class="func-one" id="my-collect">我的收藏</div> -->
+                                <!-- <div class="func-two" id="my-join">我的报名</div> -->
+                                <div class="quit" id="quit" onclick="quit()">注 销</div>
+                            </div>
+                        </li>
+                        <!-- <li class="signup_in" id="signup"><a href="components/login/login.html">登录/注册</a></li> -->
+                        <li class="mystudy"><a  href="components/mystudy/mystudy.html">消息</a></li>
+                        <li class="mystudy"><a  href="components/mystudy/mystudy.html">购物车</a></li>
+                        <li class="mystudy"><a  href="components/mystudy/mystudy.html">我的学习</a></li>
+                        <!-- <li class="message"><a href="#">消息</a></li> -->
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="top">
+            我的购物车<span class="ti">共{{num}}门课程</span>
+        </div>
+
+        <div class="tabl">
+            <table class="table table-bordered table-striped"  ng-init="names">
+                <thead>
+                  <tr>
+                    <th><input type="checkbox" class="all" ng-model="myCheck" ng-click="allbuy(myCheck)">全选</th>
+                    <th>商品名称</th>
+                    <th>单价</th>
+                    <th>数量</th>
+                    <th>删除</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="x in names">
+                    <td><input type="checkbox" class="sale" ng-checked="x.checked" ng-click="oneclick(x.id,x.mon*x.num,x.checked)">{{x.id+1}}</td>
+                    <td>{{'《'+x.name+'》'}}</td>
+                    <td>{{x.mon + "元"}}</td>
+                    <td>{{x.num}}</td>
+                    <td><button class="btn btn-mini btn btn-danger" type="button" ng-click="delete(x.id)">删除</button></td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+
+        <div class="settle row-fluid">
+            <div class="span8 inf">合计：<span id="mon">{{'￥'+all}}</span></div>
+            <div class="span2 butt">去结算</div>
+        </div>
+        <span class="low">(若购买享有优惠，相应金额将在订单结算页面减扣)</span>
+        
+
+   
+      
+    
+    </body>
+    <script src="../../assets/js/jquery-1.11.3.min.js"></script>
+    <script src="../../assets/js/sha1.min.js"></script>
+    <script src="../../assets/js/common.js"></script>
+    <!-- <script src="assets/js/stickup.js"></script> -->
+    <script src="../../assets/js/bootstrap.min.js"></script>
+    <script src="./shopcar.js"></script>
+    <!-- <script>
+        BXF.component.login.install();
+    </script> -->
+    <script type="text/javascript">
+        
+    </script>
+</html>

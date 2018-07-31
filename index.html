@@ -16,11 +16,17 @@
      <!-- <div class="navbar navbar-inverse navbar-fixed-top navbar-wrapper"> -->
         <div>
       <div class="bar-top">
-        <div class="container">
+        <div class="container" style="position: relative;">
             <a class="bar-title" href="index.html">小智课堂</a>
+            <div class="Findout" style="position: absolute;left: 50%;top: 38%;transform: translate(-50%,-50%);">
+                <form class="form-search">
+                    <input type="text" class="input-medium search-query find_input search" style="width:250px;height: 15px;border-color: #e5e5e5;" placeholder="search">
+                    <button class="find_button">搜索</button>
+                </form>
+            </div>
             <ul class="navtitle pull-right">
                 <li class="head">
-                    <div class="signup_in" id="signup"><a href="components/login/login.html">登录/注册</a></div>
+                    
                     
                     <a href="" class="headimg"><img id="headerimg" src="http://7zn2fy.com1.z0.glb.clouddn.com/apicloud/1d276ae45be8f9a2fdd1fd0687f35f4e.jpg"></a>
                    
@@ -31,16 +37,13 @@
                         <div class="quit" id="quit" onclick="quit()">注 销</div>
                     </div>
                 </li>
-                
+                <li class="signup_in" id="signup"><a href="components/login/login.html">登录/注册</a></li>
+                <li class="mystudy"><a  href="components/news/news.html">消息</a></li>
+                <li class="mystudy"><a  href="components/mystudy/mystudy.html">购物车</a></li>
                 <li class="mystudy"><a  href="components/mystudy/mystudy.html">我的学习</a></li>
                 <!-- <li class="message"><a href="#">消息</a></li> -->
                 
-                <li class="Findout">
-                    <form class="form-search">
-                        <input type="text" class="input-medium search-query find_input search" style="width:250px;height: 15px;border-color: #e5e5e5;" placeholder="search">
-                        <button class="find_button">搜索</button>
-                    </form>
-                </li>
+                
             </ul>
         </div>
       </div>
