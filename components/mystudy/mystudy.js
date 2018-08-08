@@ -151,6 +151,7 @@ course.controller('course', ['$scope', '$http', function ($scope, $http) {
                         hotcourse = response.data.data;
                         
                         hotpage = new Array(response.data.length);
+                        newpage = new Array(response.data.length);
                         for(i=0;i<response.data.length;i++){
                             hotpage[i]=i+1;
                             newpage[i]=i+1;
