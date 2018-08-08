@@ -119,6 +119,7 @@ var urlcookie = 'http://39.106.19.27:8080/user/getuserinfo';
 var urlget = 'http://39.106.19.27:8080/course/mystudy/';
 var hotcourse;
 var hotpage ;
+var newpage;
 
  var course = angular.module('Course', []);
 course.controller('course', ['$scope', '$http', function ($scope, $http) {
@@ -143,7 +144,7 @@ course.controller('course', ['$scope', '$http', function ($scope, $http) {
             }
             // console.log(JSON.stringify(response.data));
             $http({
-                method:'post', //get请求方式
+                method:'get', //get请求方式
                 url:urlget+1,   //请求地址
                 withCredentials:true,  
             }).then(function(response){
