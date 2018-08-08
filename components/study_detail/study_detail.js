@@ -5,6 +5,7 @@ var next_page;
 var app = angular.module("myApp", []);
 var isLearn;
 
+
 app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location) {
     $http({
         method: 'get', //get请求方式
@@ -14,6 +15,24 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
         if (response.error) {
             alert("1111");
         } else {
+            if (response.data.id) {
+                isLog = "1";
+                document.getElementById("signup").style.display = "none";
+                document.getElementById("headerimg").src = response.data.picture;
+                $(".mystudy").show();
+                //显示状态改变
+                $('.head').on('mouseenter', function () {
+                    $('.bubble').css("display", "block");
+                });
+                $('.head').on('mouseleave', function () {
+                    $('.bubble').css("display", "none");
+                });
+                $('.headimg').attr('href', '../my_detail/my_detail.html');
+                $('.headimg').attr('target', '_blank');
+            } else {
+                isLog = "0";
+                $(".mystudy").hide();
+            }
             //console.log(JSON.stringify(response));
             if (response.data.id) {
                 isLog = "1";
