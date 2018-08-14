@@ -52,11 +52,11 @@ app.controller('personCtrl',['$scope', '$http', function($scope, $http, $locatio
             $.ajax({
                 url:goodsinfo,
                 type:'post',
-                data: {
+                data: JSON.stringify({
                 'name': "usernamesign",
                 'mon': 233,
                 'num':1
-                },
+                }),
                 dataType: 'json',
                 success: function(data) {
                 // console.log(JSON.stringify(data));
