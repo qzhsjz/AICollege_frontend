@@ -219,7 +219,7 @@ input::-webkit-input-placeholder {
     margin-left: 10px;
 }
 .settle{
-    padding: 10px 100px;
+    padding-left: 100px;
     height: 50px;
 }
 .inf{

@@ -4,6 +4,7 @@ var urlget = 'http://39.106.19.27:8080/course/';
 var next_page;
 var app = angular.module("myApp", []);
 var isLearn;
+var isLog;
 
 
 app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location) {
