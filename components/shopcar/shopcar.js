@@ -51,6 +51,9 @@ app.controller('personCtrl',['$scope', '$http', function($scope, $http, $locatio
             
             $.ajax({
                 url:goodsinfo,
+                xhrFields: {
+                    withCredentials: true
+                },
                 type:'post',
                 data: JSON.stringify({
                 'name': "usernamesign",
