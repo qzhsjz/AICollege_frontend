@@ -59,7 +59,7 @@ app.controller('personCtrl',['$scope', '$http', function($scope, $http, $locatio
                 }),
                 dataType: 'json',
                 success: function(data) {
-                // console.log(JSON.stringify(data));
+                console.log(JSON.stringify(data));
                     alert(1);
                     $http({
                         method: 'get', //get请求方式
@@ -69,7 +69,7 @@ app.controller('personCtrl',['$scope', '$http', function($scope, $http, $locatio
                         if (response.error) {
                             alert("1111");
                         } else {
-                            console.log(response.data);
+                            console.log("返回值："+response.data);
                         }
                     }, function (response) {
                         //失败时执行 
