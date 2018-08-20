@@ -123,16 +123,16 @@
               </ul>
             </div>
             <div class="tab-pane" id="tab2">
-              <textarea rows="3" style="width: 90%"></textarea>
-              <button class="btn btn-small" type="button" ng-click="publish">发表</button>
+              <textarea ng-model= "comment" rows="3" style="width: 90%"></textarea>
+              <button class="btn btn-small" type="button" ng-click="publish_comment()">发表</button>
               <div style="padding-top: 30px"></div>
               <li ng-repeat="dis in discuss track by $index">
                 <div class="row-fluid">
                   <div class="span2">
-                    <img src={{dis.head}} class="img-circle">
-                    <p>{{dis.name}}</p>
+                    <img src={{dis.userpic}} class="img-circle">
+                    <p>{{dis.username}}</p>
                   </div>
-                  <div class="span10"><p>{{dis.comment}}</p></div>
+                  <div class="span10"><p>{{dis.str}}</p></div>
                 </div>
                 <hr>
               </li>

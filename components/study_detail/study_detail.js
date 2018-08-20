@@ -1,6 +1,6 @@
-﻿
-var urlcookie = 'http://39.106.19.27:8080/user/getuserinfo';
+﻿var urlcookie = 'http://39.106.19.27:8080/user/getuserinfo';
 var urlget = 'http://39.106.19.27:8080/course/';
+var ulrcomment = 'http://39.106.19.27:8080/course/getevaluation/'
 var next_page;
 var app = angular.module("myApp", []);
 var isLearn;
@@ -14,7 +14,7 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
         withCredentials: true,
     }).then(function (response) {
         if (response.error) {
-            alert("1111");
+            alert("网络错误，请刷新");
         } else {
             if (response.data.id) {
                 isLog = "1";
@@ -50,7 +50,7 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
                 withCredentials: true,
                 //data:{index:1}
             }).then(function (response) {
-                $('.span3').css("height",$('.span9').height());
+                $('.span3').css("height", $('.span9').height());
                 var course_info = response.data.course;
                 //console.log(JSON.stringify(response.data.islearn));
                 $scope.title = course_info.course_name;
@@ -61,23 +61,11 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
                 $scope.introduce = course_info.course_info;
                 $scope.image = course_info.picPath;
                 $scope.chapter = response.data.section;
-                $scope.discuss=[
-                {
-                    head:"img/1.jpg",
-                    name:"swift",
-                    comment:"很棒的课程！"
-
-                },
-                {
-                    head:"img/1.jpg",
-                    name:"swift",
-                    comment:"很棒的课程！"
-
-                },
-
-            ];
+                console.log(JSON.stringify($scope.chapter));
                 $scope.play = $scope.chapter[0].videoPath;
                 $scope.itemNumber = 0;
+                $scope.section_id = $scope.chapter[$scope.itemNumber].section_id;
+                $scope.discuss;
                 $scope.flv_load = function () {
                     console.log('isSupported: ' + flvjs.isSupported());
                     var index = $scope.play.indexOf("."); //得到"."在第几位
@@ -106,13 +94,71 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
                     }
                     xhr.send();
                 }
-                
+                var url_c = ulrcomment + $scope.section_id;
+                $http({
+                    method: 'get', //get请求方式
+                    url: url_c,   //请求地址
+                    withCredentials: true,
+                    //data:{index:1}
+                }).then(function (response) {
+                    console.log(JSON.stringify(response.data));
+                    $scope.discuss=response.data.evaluation;
+                }, function (response) {
+                    console.log(JSON.stringify("获取评论失败"));
+                });
+               
+
                 $scope.chooseItem = function (index) {
                     var ch = $scope.chapter[index];
+                    $scope.itemNumber = index;
                     $scope.play = ch.videoPath;
-                    //console.log(JSON.stringify($scope.play));
+                    $scope.section_id = $scope.chapter[$scope.itemNumber].section_id;
+                    console.log(JSON.stringify($scope.section_id));
                     $scope.flv_load();
+                    var url_com = ulrcomment + $scope.section_id;
+                    $http({
+                        method: 'get', //get请求方式
+                        url: url_com,   //请求地址
+                        withCredentials: true,
+                        //data:{index:1}
+                    }).then(function (response) {
+                        console.log(JSON.stringify(response.data));
+                        $scope.discuss=response.data;
+                    }, function (response) {
+                        console.log(JSON.stringify("获取评论失败"));
+                    });
                 }
+                //发表评论按钮点击事件
+                $scope.comment="";
+                $scope.publish_comment = function () {
+                    var content = $scope.comment;
+                    var videoID = $scope.section_id;
+                    var push_comment={sid:videoID,str:content};
+                    console.log(JSON.stringify(content));
+                    var urlget = 'http://39.106.19.27:8080/course/addEvaluation';
+                    $.ajax({
+                        url:urlget,
+                        xhrFields: {
+                            withCredentials: true
+                        },
+                        crossDomain: true,
+                        type:'get',
+                        data: {
+                          'sid': videoID,
+                          'str': content,
+                        },
+                        dataType: 'json',
+                        success: function(data) {
+                          console.log(JSON.stringify(data));
+                          if(data.error){
+                           alert(data.error);
+                         }else{
+                          alert("评论添加成功");
+                         }
+                        }
+                    });
+                }
+                //发表评论按钮点击事件结束
                 $scope.flv_load();
                 //console.log(JSON.stringify($scope.play));
 

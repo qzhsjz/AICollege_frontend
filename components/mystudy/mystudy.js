@@ -91,13 +91,7 @@
 
 
 
-    $scope.chooseItem=function(index){
-        var ch=$scope.hot[index];
-        var name=ch.teachername;
-        //location.href = "components/course_buy/course_buy.html?&id=" + name;
-        window.open("../course_buy/course_buy.html?&id=" + name);
-    };
-
+    
 var quit = function(){
     var urlquit = 'http://39.106.19.27:8080/user/logout';
     $.ajax({
@@ -180,6 +174,8 @@ course.controller('course', ['$scope', '$http', function ($scope, $http) {
                             });
                             
                                 $scope.hot = hotcourse;
+                                
+                            
                             // alert(page);
                         };
                         $scope.newpagechange = function(event) {
@@ -200,14 +196,20 @@ course.controller('course', ['$scope', '$http', function ($scope, $http) {
                             // alert(page);
                         };
                         
-                        $scope.chooseItem=function(index){
+                        /*$scope.chooseItem=function(index){
                             var ch=$scope.new[index];
                         // console.log(JSON.stringify(ch.id));
                             
                             var id=ch.id;
                             //location.href = "components/course_buy/course_buy.html?&id=" + name;
                             window.open("components/course_buy/course_buy.html?&id=" + id);
-                        }
+                        }*/
+
+                        $scope.chooseItem=function(index){
+                            var ch=$scope.hot[index];
+                            var id=ch.id;
+                            window.open("../course_buy/course_buy.html?&id=" + id);
+                        };
                     
          
          
