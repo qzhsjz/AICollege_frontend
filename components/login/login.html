@@ -11,7 +11,21 @@
     <link rel="stylesheet" href="jquery.mloading.css">
     
     <script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
-    
+    <script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="1105892740"  data-redirecturi="http://www.kiwich.com" charset="utf-8"></script>
+    <script type="text/javascript">
+        var paras = {};
+        
+        QC.api("get_user_info", paras)
+            .success(function(s){//成功回调
+                alert("获取用户信息成功！当前用户昵称为："+s.data.nickname);
+            })
+            .error(function(f){//失败回调
+                alert("获取用户信息失败！");
+            })
+            .complete(function(c){//完成请求回调
+                alert("获取用户信息完成！");
+            });
+        </script>
     <style>
        
     </style>
@@ -46,8 +60,14 @@
                             <div class="btn btn-lg btn-primary btn-block"  id="login">登 录</div>
                             <div class="b">第三方登录:</div>
                             <div class="im">
-                                <a><img src="https://img04.sogoucdn.com/net/a/04/link?url=https%3A%2F%2Fi01piccdn.sogoucdn.com%2F6a90a3f1cfa85106&appid=122"></a>
-                                <a><img src="https://img04.sogoucdn.com/net/a/04/link?url=https%3A%2F%2Fi02piccdn.sogoucdn.com%2Fb7f65a930a17e563&appid=122"></a>
+                                <span id="qqLoginBtn"></span>
+                                <script type="text/javascript">
+                                    QC.Login({
+                                        btnId:"qqLoginBtn"	//插入按钮的节点id
+                                    });
+                                </script>
+                                <!-- <a><img src="https://img04.sogoucdn.com/net/a/04/link?url=https%3A%2F%2Fi01piccdn.sogoucdn.com%2F6a90a3f1cfa85106&appid=122"></a>
+                                <a><img src="https://img04.sogoucdn.com/net/a/04/link?url=https%3A%2F%2Fi02piccdn.sogoucdn.com%2Fb7f65a930a17e563&appid=122"></a> -->
                             </div>
                         </div>
               </div>
@@ -102,7 +122,13 @@
     <script src="jquery.mloading.js"></script>
     <script src="login.js"></script>
     <script>
-       
+       if(QC.Login.check()){//如果已登录
+	QC.Login.getMe(function(openId, accessToken){
+		alert(["当前登录用户的", "openId为："+openId, "accessToken为："+accessToken].join("\n"));
+	});
+	//这里可以调用自己的保存接口
+	//...
+}
     </script>
 
 </html>

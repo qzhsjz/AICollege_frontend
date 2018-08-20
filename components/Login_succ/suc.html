@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>登录页面</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="../../assets/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="suc.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="jquery.mloading.css">
+    
+    <script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
+    <style>
+       
+    </style>
+</head>
+
+<body>
+    
+    <div style="width: 550px;height: 200px;line-height: 200px;text-align: center;border: 1px solid #000000;margin: 100px auto;">
+        您已登录成功！
+        <span id="div1"></span>S后自动跳转到小智学院
+    </div>
+    
+</body>
+
+<script src="../../assets/js/jquery-1.11.3.min.js"></script>
+<script src="../../assets/js/sha1.min.js"></script>
+<script src="../../assets/js/common.js"></script>
+<!-- <script src="assets/js/stickup.js"></script> -->
+<script src="../../assets/js/bootstrap.min.js"></script>
+<script src="suc.js"></script>
+<script type="text/javascript">
+    //设定倒数秒数
+    var t = 6;
+    //显示倒数秒数
+    function showTime(){
+        t -= 1;
+        document.getElementById('div1').innerHTML= t;
+        if(t==1){
+            location.href='/';
+        }
+        //每秒执行一次,showTime()
+        setTimeout("showTime()",1000);
+    }
+    
+    
+    //执行showTime()
+    showTime();
+</script>
+
+</html>
