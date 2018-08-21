@@ -55,37 +55,7 @@ app.controller('personCtrl',['$scope', '$http', function($scope, $http, $locatio
                     withCredentials: true
                 },
                 type:'post',
-                data: JSON.stringify({
-                'name': "usernamesign",
-                'mon': 233,
-                'num':1
-                }),
-                dataType: 'json',
-                success: function(data) {
-                console.log(JSON.stringify(data));
-                    alert(1);
-                    $http({
-                        method: 'get', //get请求方式
-                        url: goodsinfo,   //请求地址
-                        withCredentials: true,
-                    }).then(function (response) {
-                        if (response.error) {
-                            alert("1111");
-                        } else {
-                            console.log("返回值："+response.data);
-                        }
-                    }, function (response) {
-                        //失败时执行 
-                        console.log("CookieError" + response);
-                        alert("8888");
-                
-                    });//请求用户id
-                }
-            });
-            
-            $scope.myCheck = false;
-            $scope.names = [
-                {
+                data: JSON.stringify([{
                     id:0,
                     name:'人工智能第二期',   //名字
                     mon:288,                //单价
@@ -98,8 +68,48 @@ app.controller('personCtrl',['$scope', '$http', function($scope, $http, $locatio
                     mon:33338,
                     num:1,
                     checked:false
+                }]),
+                dataType: 'json',
+                success: function(data) {
+                console.log(JSON.stringify(data));
+                    //alert(1);
+                    $http({
+                        method: 'get', //get请求方式
+                        url: goodsinfo,   //请求地址
+                        withCredentials: true,
+                    }).then(function (response) {
+                        if (response.error) {
+                            alert("1111");
+                        } else {
+                            //console.log("返回值："+JSON.stringify(response.data));
+                            $scope.names = response.data;
+                        }
+                    }, function (response) {
+                        //失败时执行 
+                        console.log("CookieError" + response);
+                        alert("8888");
+                
+                    });//请求用户id
                 }
-            ];
+            });
+            
+            $scope.myCheck = false;
+            // $scope.names = [
+            //     {
+            //         id:0,
+            //         name:'人工智能第二期',   //名字
+            //         mon:288,                //单价
+            //         num:2,                  //数量
+            //         checked:false
+            //     },
+            //     {
+            //         id:1,
+            //         name:'人工智能第三期',
+            //         mon:33338,
+            //         num:1,
+            //         checked:false
+            //     }
+            // ];
             $scope.all = 0.00;
             $scope.allbuy = function(a){
                 var Mon = 0;
