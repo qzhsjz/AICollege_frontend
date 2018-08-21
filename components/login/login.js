@@ -2,8 +2,15 @@
 function chkvalue(txt) {
 
   var username = txt.value;
-  console.log(username);
-  // if(txt.value=="") alert("文本框里必须填写内容!");
+  // console.log(username);
+  if(txt.value==""){
+    // alert("不能为空!");
+    $('.toast').html("邮箱不能为空！");
+    $('.toast').css("display","block");
+    $('.toast').css("color","red");
+    $('.email').css("border","0.5px solid red");
+
+  } else{
   var urlget = 'http://39.106.19.27:8080/user/chkemail';
   $.ajax({
     url:urlget,
@@ -19,13 +26,18 @@ function chkvalue(txt) {
     success: function(data) {
       // console.log(JSON.stringify(data));
       if(data.error){
-       alert(data.error);
+      //  alert(data.error);
+      $('.toast').html(data.error);
+      $('.toast').css("display","block");
+      $('.toast').css("color","red");
+      $('.email').css("border","0.5px solid red");
      }else{
-     
+      $('.toast').css("display","none");
+      $('.email').css("border","1px solid #ccc");
      }
     }
 });
-
+}
 }
 
 $("#login").on('click',function(){
