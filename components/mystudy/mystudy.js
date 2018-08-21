@@ -134,12 +134,18 @@ course.controller('course', ['$scope', '$http', function ($scope, $http) {
             if(response.data.id){
                 document.getElementById("signup").style.display="none";
                 document.getElementById("headerimg").src=response.data.picture;
+                $(".mystudy").show();
+                                //显示状态改变
                 $('.head').on('mouseenter',function(){
                     $('.bubble').css("display","block");
                 });
                 $('.head').on('mouseleave',function(){
                     $('.bubble').css("display","none");
                 });
+                $('.headimg').attr('href','../../components/my_detail/my_detail.html'); 
+                $('.headimg').attr('target','_blank');
+            }else{
+                $(".mystudy").hide();
             }
             // console.log(JSON.stringify(response.data));
             $http({
