@@ -1,4 +1,32 @@
 
+function chkvalue(txt) {
+
+  var username = txt.value;
+  console.log(username);
+  // if(txt.value=="") alert("文本框里必须填写内容!");
+  var urlget = 'http://39.106.19.27:8080/user/chkemail';
+  $.ajax({
+    url:urlget,
+    xhrFields: {
+        withCredentials: true
+    },
+    crossDomain: true,
+    type:'post',
+    data: {
+      'email': username,
+    },
+    dataType: 'json',
+    success: function(data) {
+      // console.log(JSON.stringify(data));
+      if(data.error){
+       alert(data.error);
+     }else{
+     
+     }
+    }
+});
+
+}
 
 $("#login").on('click',function(){
    
