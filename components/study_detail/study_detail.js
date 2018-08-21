@@ -123,7 +123,7 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
                         //data:{index:1}
                     }).then(function (response) {
                         console.log(JSON.stringify(response.data));
-                        $scope.discuss=response.data;
+                        $scope.discuss=response.data.evaluation;
                     }, function (response) {
                         console.log(JSON.stringify("获取评论失败"));
                     });
@@ -166,7 +166,7 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
                         //data:{index:1}
                     }).then(function (response) {
                         console.log(JSON.stringify(response.data));
-                        $scope.discuss=response.data;
+                        $scope.discuss=response.data.evaluation;
                     }, function (response) {
                         console.log(JSON.stringify("刷新评论失败"));
                     });
