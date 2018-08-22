@@ -168,7 +168,7 @@ course.controller('course', ['$scope', '$http', function ($scope, $http) {
                         
                         var id=ch.id;
                         //location.href = "components/course_buy/course_buy.html?&id=" + name;
-                        window.open("components/course_buy/course_buy.html?&id=" + id);
+                        window.open("../course_buy/course_buy.html?&id=" + id);
                     }
 
                     $scope.chooseNewItem=function(index){
