@@ -65,8 +65,8 @@ course.controller('course', ['$scope', '$http', function ($scope, $http) {
         if(response.error){
             alert(response.error);
         }else{
-            console.log(JSON.stringify(response.data.error));
-            if(response.data.id){
+            console.log(JSON.stringify(response.data.emailVerified));
+            if(response.data.emailVerified){
                 document.getElementById("signup").style.display="none";
                 document.getElementById("headerimg").src=response.data.picture;
                 $(".mystudy").show();
