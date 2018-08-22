@@ -134,6 +134,9 @@ myBuy.controller('buyCtrl', ['$scope', '$http', function ($scope, $http, $locati
                     }
                     location.href=next_page;
                 }
+                $scope.add_shopcar=function(){
+                    
+                }
 
             }, function (response) {
                 //失败时执行 
