@@ -3,24 +3,24 @@ $(function(){
     var urlget = 'http://39.106.19.27:8080/user/changeinfo';
     var urlcookie = 'http://39.106.19.27:8080/user/getuserinfo';
 
-    // var nickname = "YDS";
-    // var email = "YDS";
-    // var QQ = "YDS";
-    // var weixin = "YDS";
-    // var UserID = "122345";
-    // var picsrc = "../login/images/weixin.png";
-
-    
-    var nickname ;
-    var email ;
-    var QQ ;
-    var weixin ;
-    var UserID;
-    var picsrc ;
+    var nickname = "YDS";
+    var email = "YDS";
+    var QQ = "YDS";
+    var weixin = "YDS";
+    var UserID = "122345";
+    var picsrc = "../login/images/weixin.png";
 
 
     var file = new Array(1) ;
 
+    var parseURL = function(loc){                  
+        var n1 = loc.length;//地址的总长度
+        var n2 = loc.indexOf("=");//取得=号的位置
+        var type = decodeURI(loc.substr(n2+1, n1-n2));//从=号后面的内容
+        return type;
+    };
+
+    console.log(parseURL(location.href)); //传参
 
 
     $.ajax({
@@ -37,15 +37,7 @@ $(function(){
            alert(data.error);
          }else{
             
-            document.getElementById("nickname").value=data.username;
-            document.getElementById("email").value=data.email;
-            // document.getElementById("QQ").setAttribute("placeholder",QQ);
-            // document.getElementById("weixin").setAttribute("placeholder",weixin);
-            document.getElementById("UserID").innerHTML = data.id;
-            document.getElementById("avarimgs").src=data.picture;
-            $('.butt_invent').on('click',function(){
-                location.href = "../inv_people/inv_people.html?key="+data.id;
-            });
+           
          }
         }
     });

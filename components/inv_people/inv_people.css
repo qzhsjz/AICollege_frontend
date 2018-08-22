@@ -36,5 +36,13 @@
       padding:10px 40px;
   }
   .butt_invent{
-      padding-left: 10px;
+      padding: 5px 10px;
+      background: #4A5073;
+      color: #fff;
+      border-radius: 5px;
+      cursor:pointer;
+  }
+  .butt_invent:active{
+      background: rgb(1, 65, 175);
+      color: #fff;
   }

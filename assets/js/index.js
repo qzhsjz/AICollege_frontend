@@ -35,24 +35,25 @@ var quit = function(){
 
 $('.find_button').on('click',function(){
     var search_text = $('#search_area').val();
-    var urlsearch = 'http://39.106.19.27:8080/course/keysearch/'+search_text;
-    $.ajax({
-        url:urlsearch,
-        xhrFields: {
-            withCredentials: true
-        },
-        crossDomain: true,
-        type:'get',
-        dataType: 'json',
-        success: function(data) {
-          console.log(JSON.stringify(data));
-          if(data.error){
-           alert(data.error);
-         }else{
-          location.href = "index.html";
-         }
-        }
-    });
+    
+    location.href = "components/search/search.html?key="+search_text;
+    // $.ajax({
+    //     url:urlsearch,
+    //     xhrFields: {
+    //         withCredentials: true
+    //     },
+    //     crossDomain: true,
+    //     type:'get',
+    //     dataType: 'json',
+    //     success: function(data) {
+    //       console.log(JSON.stringify(data));
+    //       if(data.error){
+    //        alert(data.error);
+    //      }else{
+    //         location.href = "components/search/search.html?"+search_text;
+    //      }
+    //     }
+    // });
 });
 
 course.controller('course', ['$scope', '$http', function ($scope, $http) {
@@ -65,7 +66,8 @@ course.controller('course', ['$scope', '$http', function ($scope, $http) {
         if(response.error){
             alert(response.error);
         }else{
-            if(response.data.id){
+            console.log(JSON.stringify(response.data.emailVerified));
+            if(response.data.emailVerified){
                 document.getElementById("signup").style.display="none";
                 document.getElementById("headerimg").src=response.data.picture;
                 $(".mystudy").show();
@@ -76,7 +78,7 @@ course.controller('course', ['$scope', '$http', function ($scope, $http) {
                 $('.head').on('mouseleave',function(){
                     $('.bubble').css("display","none");
                 });
-                $('.headimg').attr('href','../../components/my_detail/my_detail.html'); 
+                $('.headimg').attr('href','components/my_detail/my_detail.html'); 
                 $('.headimg').attr('target','_blank');
             }else{
                 $(".mystudy").hide();

@@ -8,7 +8,7 @@
 
     <!-- Bootstrap -->
     <link href="../../assets/css/bootstrap.min.css" type="text/css" rel="stylesheet">
-    <link href="my_detail.css" type="text/css" rel="stylesheet">
+    <link href="inv_people.css" type="text/css" rel="stylesheet">
     <script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
   </head>
 
@@ -26,52 +26,11 @@
       </div>
     </div>
 
-
-    <div class="container" id="container">
-        <div class="basicinfo">
-            <span class="basicinfosp">基本信息</span>
-            <span>UserID(邀请码):</span>
-            <span id="UserID"></span>
-            <a class="butt_invent" style="cursor:pointer">我邀请的人</a>
-            <form class="basicform">
-                <div class="row mb-20">
-                    <div class="col-md-4">
-                        <label>昵称</label>
-                        <input id="nickname" type="text" readOnly="true">
-                    </div>
-                    <div class="col-md-4">
-                        <label>头像</label>
-                        <img src="" class="img-circle img-thumbnail img-responsive" id="avarimgs">
-                        <input type="file" name="pclogo" multiple="multiple" id="xdaTanFileImg" onchange="xmTanUploadImg(this)" accept="image/*">
-<!--                        
-                        <div  >
-                            <input type="file" name="FileUpload" id="FileUpload">
-                            <a class="layui-btn layui-btn-mini" id="btn_uploadimg">上传图片</a>
-                        </div> -->
-
-
-                    </div>
-                    <div class="col-md-4">
-                        <label>邮箱</label>
-                        <input id="email" type="text" readOnly="true">
-                    </div>
-                    <div class="col-md-4">
-                        <label>QQ(暂不可用)</label>
-                        <input id="暂不可用" type="text" readOnly="true">
-                    </div>
-                    <div class="col-md-4">
-                        <label>微信(暂不可用)</label>
-                        <input id="暂不可用" type="text" readOnly="true" >
-                    </div>
-                </div>
-                <div class="row mb-10">
-                    <div class="col-md-12">
-                    <button class="btn btn-primary" type="button" id="save"><i class="fa fa-fw fa-lg fa-check-circle"></i> Save</button>
-                    </div>
-                </div>
-            </form>
-        </div>
+    <div style="padding: 30px 100px;font-size: 20px;font-weight: bold;">我邀请的人：</div>
+    <div style="width: 100%;">
+        <div style="margin-left: 100px;">1</div>
     </div>
+    
 
    
     </body>
@@ -80,41 +39,9 @@
     <script src="../../assets/js/common.js"></script>
     <!-- <script src="assets/js/stickup.js"></script> -->
     <script src="../../assets/js/bootstrap.min.js"></script>
-    <script src="my_detail.js"></script>
+    <script src="inv_people.js"></script>
     <!-- <script>
         BXF.component.login.install();
     </script> -->
-    <script type="text/javascript">
-   
-        if (typeof FileReader == 'undefined') {
-            document.getElementById("xmTanDiv").InnerHTML = "<h1>当前浏览器不支持FileReader接口</h1>";
-        document.getElementById("xdaTanFileImg").setAttribute("disabled", "disabled");
-                }
-        //选择图片，马上预览
-        function xmTanUploadImg(obj) {
-        var file = obj.files[0];               
-        console.log(obj);console.log(file);
-        console.log("file.size = " + file.size);
-        var reader = new FileReader();
-        reader.onloadstart = function (e) {
-            console.log("开始读取....");
-        }
-            reader.onprogress = function (e) {
-                console.log("正在读取中....");
-        }
-        reader.onabort = function (e) {
-            console.log("中断读取....");
-        }
-        reader.onerror = function (e) {
-            console.log("读取异常....");
-        }
-        reader.onload = function (e) {
-            console.log("成功读取....");
-        var img = document.getElementById("avarimgs");
-            img.src = e.target.result;
-        //或者 img.src = this.result;  //e.target == this
-        }
-            reader.readAsDataURL(file)
-        }
-    </script>
+    
 </html>

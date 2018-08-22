@@ -1,4 +1,44 @@
 
+function chkvalue(txt) {
+
+  var username = txt.value;
+  // console.log(username);
+  if(txt.value==""){
+    // alert("不能为空!");
+    $('.toast').html("邮箱不能为空！");
+    $('.toast').css("display","block");
+    $('.toast').css("color","red");
+    $('.email').css("border","0.5px solid red");
+
+  } else{
+  var urlget = 'http://39.106.19.27:8080/user/chkemail';
+  $.ajax({
+    url:urlget,
+    xhrFields: {
+        withCredentials: true
+    },
+    crossDomain: true,
+    type:'post',
+    data: {
+      'email': username,
+    },
+    dataType: 'json',
+    success: function(data) {
+      // console.log(JSON.stringify(data));
+      if(data.error){
+      //  alert(data.error);
+      $('.toast').html(data.error);
+      $('.toast').css("display","block");
+      $('.toast').css("color","red");
+      $('.email').css("border","0.5px solid red");
+     }else{
+      $('.toast').css("display","none");
+      $('.email').css("border","1px solid #ccc");
+     }
+    }
+});
+}
+}
 
 $("#login").on('click',function(){
    
@@ -19,10 +59,12 @@ $("#login").on('click',function(){
         dataType: 'json',
         success: function(data) {
           console.log(JSON.stringify(data));
-          if(data.error){
-           alert(data.error);
+          if(data.emailVerified){
+           
+            // console.log("成功登陆");
+            location.href = "../../index.html";
          }else{
-          location.href = "../../index.html";
+          alert(data.error);
          }
         }
     });
