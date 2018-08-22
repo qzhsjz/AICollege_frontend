@@ -33,7 +33,7 @@ myBuy.controller('buyCtrl', ['$scope', '$http', function ($scope, $http, $locati
         withCredentials: true,
     }).then(function (response) {
         if (response.error) {
-            alert("1111");
+            alert("网络错误，请刷新网页");
         } else {
             // console.log(JSON.stringify(response));
             if (response.data.id) {
@@ -67,6 +67,7 @@ myBuy.controller('buyCtrl', ['$scope', '$http', function ($scope, $http, $locati
                 withCredentials: true,
                 //data:{index:1}
             }).then(function (response) {
+                console.log(JSON.stringify("1111111"));
                 console.log(JSON.stringify(response));
                 var course_info = response.data.course;
                 isLearn = response.data.islearn;
@@ -87,7 +88,7 @@ myBuy.controller('buyCtrl', ['$scope', '$http', function ($scope, $http, $locati
                 $scope.img = course_info.picPath;
                 $scope.chapter = response.data.section;
                 if (isLearn == false) {
-                    console.log(JSON.stringify(isLog));
+                    //console.log(JSON.stringify(isLog));
                     $scope.design = "开始学习";
                     if (isLog == "1") {
                         if ($scope.value > 0) {
@@ -108,7 +109,7 @@ myBuy.controller('buyCtrl', ['$scope', '$http', function ($scope, $http, $locati
                     next_page = "../study_detail/study_detail.html?&id=" + id;
                 }
 
-                console.log(JSON.stringify(next_page));
+                //console.log(JSON.stringify(next_page));
 
                 $scope.go_to = function () {
                     var name = "course_buy";
@@ -136,8 +137,8 @@ myBuy.controller('buyCtrl', ['$scope', '$http', function ($scope, $http, $locati
 
             }, function (response) {
                 //失败时执行 
-                console.log(response);
-                alert("9999");
+                //console.log(response);
+                //alert("9999");
             });
         }
 
@@ -145,7 +146,7 @@ myBuy.controller('buyCtrl', ['$scope', '$http', function ($scope, $http, $locati
 
     }, function (response) {
         //失败时执行 
-        console.log("CookieError" + response);
+        //console.log("CookieError" + response);
         alert("8888");
 
     });
