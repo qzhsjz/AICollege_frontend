@@ -15,7 +15,6 @@ $(function(){
 
 
 
-
     $.ajax({
         url:urlcookie,
         xhrFields: {
