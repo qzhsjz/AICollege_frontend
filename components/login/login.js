@@ -59,11 +59,12 @@ $("#login").on('click',function(){
         dataType: 'json',
         success: function(data) {
           console.log(JSON.stringify(data));
-          if(data.error){
-           alert(data.error);
+          if(data.emailVerified){
+           
+            // console.log("成功登陆");
+            location.href = "../../index.html";
          }else{
-           console.log("成功登陆");
-          location.href = "../../index.html";
+          alert(data.error);
          }
         }
     });
