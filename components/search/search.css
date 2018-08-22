@@ -151,10 +151,6 @@ input::-webkit-input-placeholder {
     color: #99C0C8;
     cursor:pointer;
 }
-.find_button:active{
-    background: #86A6DC;
-    color: #fff;
-}
 .signup_in{
     display: inline;
     padding-right: 5px;
