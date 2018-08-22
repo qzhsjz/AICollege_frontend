@@ -62,6 +62,7 @@ $("#login").on('click',function(){
           if(data.error){
            alert(data.error);
          }else{
+           console.log("成功登陆");
           location.href = "../../index.html";
          }
         }
