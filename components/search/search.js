@@ -98,7 +98,7 @@ course.controller('course', ['$scope', '$http', function ($scope, $http) {
                 withCredentials:true,  
             }).then(function(response){
                 //console.log("1"+JSON.stringify(response.data.courseinfo));
-                if(response.data.courseinfo==[]){
+                if(response.data.courseinfo.length!=[]){
                     hotcourse = response.data.courseinfo;
                     newcourse = response.data.courseinfo;
                     

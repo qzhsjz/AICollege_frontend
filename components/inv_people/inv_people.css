@@ -1,0 +1,48 @@
+.bar-top{
+    background: #4A5073;
+    height:60px;
+    line-height: 60px;
+}
+
+.bar-title{
+    display: block;
+    float: left;
+    margin-left: -20px;
+    font-size: 20px;
+    font-weight: 200;
+    color:#fff;
+  }
+  .bar-title::before{
+    color:#86A6DC;
+  }
+
+  .basicinfo{
+      border: 1px solid #d8dee2;
+      margin: 20px;
+      padding:20px;
+  }
+
+  .basicinfosp{
+      font-size: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #d8dee2;
+  }
+  #avarimgs{
+      width:80px;
+    margin:10px 40px 15px 0;
+    
+  }
+  .basicform{
+      padding:10px 40px;
+  }
+  .butt_invent{
+      padding: 5px 10px;
+      background: #4A5073;
+      color: #fff;
+      border-radius: 5px;
+      cursor:pointer;
+  }
+  .butt_invent:active{
+      background: rgb(1, 65, 175);
+      color: #fff;
+  }
