@@ -37,7 +37,6 @@ $('.find_button').on('click',function(){
     var search_text = $('#search_area').val();
     var urlsearch = 'http://39.106.19.27:8080/course/keysearch/'+search_text;
     console.log(urlsearch);
-    location.href = "components/search/search.html";
     $.ajax({
         url:urlsearch,
         xhrFields: {
@@ -51,7 +50,7 @@ $('.find_button').on('click',function(){
           if(data.error){
            alert(data.error);
          }else{
-          
+          location.href = "index.html";
          }
         }
     });
