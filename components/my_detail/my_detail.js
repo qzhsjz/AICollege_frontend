@@ -3,12 +3,20 @@ $(function(){
     var urlget = 'http://39.106.19.27:8080/user/changeinfo';
     var urlcookie = 'http://39.106.19.27:8080/user/getuserinfo';
 
-    var nickname = "YDS";
-    var email = "YDS";
-    var QQ = "YDS";
-    var weixin = "YDS";
-    var UserID = "122345";
-    var picsrc = "../login/images/weixin.png";
+    // var nickname = "YDS";
+    // var email = "YDS";
+    // var QQ = "YDS";
+    // var weixin = "YDS";
+    // var UserID = "122345";
+    // var picsrc = "../login/images/weixin.png";
+
+    
+    var nickname ;
+    var email ;
+    var QQ ;
+    var weixin ;
+    var UserID;
+    var picsrc ;
 
 
     var file = new Array(1) ;
