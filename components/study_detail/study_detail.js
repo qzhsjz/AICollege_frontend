@@ -123,7 +123,7 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
                         //data:{index:1}
                     }).then(function (response) {
                         console.log(JSON.stringify(response.data));
-                        $scope.discuss=response.data;
+                        $scope.discuss=response.data.evaluation;
                     }, function (response) {
                         console.log(JSON.stringify("获取评论失败"));
                     });
@@ -156,6 +156,19 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
                           alert("评论添加成功");
                          }
                         }
+                    });
+
+                    var url_com = ulrcomment + $scope.section_id;
+                    $http({
+                        method: 'get', //get请求方式
+                        url: url_com,   //请求地址
+                        withCredentials: true,
+                        //data:{index:1}
+                    }).then(function (response) {
+                        console.log(JSON.stringify(response.data));
+                        $scope.discuss=response.data.evaluation;
+                    }, function (response) {
+                        console.log(JSON.stringify("刷新评论失败"));
                     });
                 }
                 //发表评论按钮点击事件结束
