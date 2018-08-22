@@ -35,6 +35,9 @@ $(function(){
             // document.getElementById("weixin").setAttribute("placeholder",weixin);
             document.getElementById("UserID").innerHTML = data.id;
             document.getElementById("avarimgs").src=data.picture;
+            $('.butt_invent').on('click',function(){
+                location.href = "../inv_people/inv_people.html?key="+data.id;
+            });
          }
         }
     });
