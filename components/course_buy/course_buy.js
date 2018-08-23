@@ -1,4 +1,4 @@
-var urlcourse = 'http://39.106.19.27:8080/course/judgeCourse/';
+
 var urlAdd = 'http://39.106.19.27:8080/course/addtostudy/'
 var next_page;
 var myBuy = angular.module("myBuy", []);
@@ -29,12 +29,13 @@ var quit = function () {
 myBuy.controller('buyCtrl', ['$scope', '$http', function ($scope, $http, $location) {
     $http({
         method: 'get', //get请求方式
-        url: urlcookie,   //请求地址
+        url: urlcookie,   //请求用户信息
         withCredentials: true,
     }).then(function (response) {
         if (response.error) {
             alert("网络错误，请刷新网页");
         } else {
+            console.log(JSON.stringify("已获取用户信息"));
             console.log(JSON.stringify(response));
             if (response.data.id) {
                 isLog = "1";
@@ -58,6 +59,7 @@ myBuy.controller('buyCtrl', ['$scope', '$http', function ($scope, $http, $locati
             var searchStr = location.search;
             var searchArr = searchStr.split("&");
             var id = searchArr[1].replace("id=", "");//string
+            var urlcourse = 'http://39.106.19.27:8080/course/judgeCourse/';
             urlcourse = urlcourse + id;
             urlAdd = urlAdd + id;
             var urlcookie = 'http://39.106.19.27:8080/user/getuserinfo';
@@ -67,7 +69,7 @@ myBuy.controller('buyCtrl', ['$scope', '$http', function ($scope, $http, $locati
                 withCredentials: true,
                 //data:{index:1}
             }).then(function (response) {
-                console.log(JSON.stringify("1111111"));
+                console.log(JSON.stringify("获取课程信息成功"));
                 console.log(JSON.stringify(response));
                 isLearn=true;
                 var course_info = response.data.course;
@@ -143,7 +145,8 @@ myBuy.controller('buyCtrl', ['$scope', '$http', function ($scope, $http, $locati
 
             }, function (response) {
                 //失败时执行 
-                console.log(response);
+                console.log(JSON.stringify("获取课程信息失败"));
+                console.log(JSON.stringify(response));
                 //alert("9999");
             });
         }
