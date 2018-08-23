@@ -1,4 +1,4 @@
-var urlget = 'http://39.106.19.27:8080/course/';
+var urlcourse = 'http://39.106.19.27:8080/course/judgeCourse/';
 var urlAdd = 'http://39.106.19.27:8080/course/addtostudy/'
 var next_page;
 var myBuy = angular.module("myBuy", []);
@@ -35,7 +35,7 @@ myBuy.controller('buyCtrl', ['$scope', '$http', function ($scope, $http, $locati
         if (response.error) {
             alert("网络错误，请刷新网页");
         } else {
-            // console.log(JSON.stringify(response));
+            console.log(JSON.stringify(response));
             if (response.data.id) {
                 isLog = "1";
                 document.getElementById("signup").style.display = "none";
@@ -58,19 +58,21 @@ myBuy.controller('buyCtrl', ['$scope', '$http', function ($scope, $http, $locati
             var searchStr = location.search;
             var searchArr = searchStr.split("&");
             var id = searchArr[1].replace("id=", "");//string
-            urlget = urlget + id;
+            urlcourse = urlcourse + id;
             urlAdd = urlAdd + id;
             var urlcookie = 'http://39.106.19.27:8080/user/getuserinfo';
             $http({
                 method: 'post', //get请求方式
-                url: urlget,   //请求地址
+                url: urlcourse,   //请求地址
                 withCredentials: true,
                 //data:{index:1}
             }).then(function (response) {
                 console.log(JSON.stringify("1111111"));
                 console.log(JSON.stringify(response));
+                isLearn=true;
                 var course_info = response.data.course;
                 isLearn = response.data.islearn;
+                
                 //console.log(JSON.stringify(response.data.islearn));
                 $scope.name = course_info.course_name;
                 //console.log(JSON.stringify(course_info.course_name));
@@ -88,7 +90,7 @@ myBuy.controller('buyCtrl', ['$scope', '$http', function ($scope, $http, $locati
                 $scope.img = course_info.picPath;
                 $scope.chapter = response.data.section;
                 if (isLearn == false) {
-                    //console.log(JSON.stringify(isLog));
+
                     $scope.design = "开始学习";
                     if (isLog == "1") {
                         if ($scope.value > 0) {
@@ -105,6 +107,7 @@ myBuy.controller('buyCtrl', ['$scope', '$http', function ($scope, $http, $locati
 
                 }
                 else {
+                    document.getElementById("shop_car").style.display = "none";
                     $scope.design = "继续学习";
                     next_page = "../study_detail/study_detail.html?&id=" + id;
                 }
@@ -135,12 +138,12 @@ myBuy.controller('buyCtrl', ['$scope', '$http', function ($scope, $http, $locati
                     location.href=next_page;
                 }
                 $scope.add_shopcar=function(){
-                    
+
                 }
 
             }, function (response) {
                 //失败时执行 
-                //console.log(response);
+                console.log(response);
                 //alert("9999");
             });
         }
@@ -148,9 +151,10 @@ myBuy.controller('buyCtrl', ['$scope', '$http', function ($scope, $http, $locati
 
 
     }, function (response) {
-        //失败时执行 
-        //console.log("CookieError" + response);
-        alert("8888");
+        //getuserinfo失败时执行 
+        console.log(JSON.stringify(response));
+        console.log(JSON.stringify("获取用户信息失败"));
+        //alert("8888");
 
     });
     

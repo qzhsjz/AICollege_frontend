@@ -1,5 +1,5 @@
 ﻿var urlcookie = 'http://39.106.19.27:8080/user/getuserinfo';
-var urlget = 'http://39.106.19.27:8080/course/';
+var urlget = 'http://39.106.19.27:8080/course/judgeCourse/';
 var ulrcomment = 'http://39.106.19.27:8080/course/getevaluation/'
 var next_page;
 var app = angular.module("myApp", []);
@@ -13,8 +13,9 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
         url: urlcookie,   //请求地址
         withCredentials: true,
     }).then(function (response) {
+        console.log(JSON.stringify(response));
         if (response.error) {
-            alert("网络错误，请刷新");
+            //alert("网络错误，请刷新");
         } else {
             if (response.data.id) {
                 isLog = "1";
@@ -192,7 +193,7 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
 
     }, function (response) {
         //失败时执行 
-        console.log("CookieError" + response);
+        //console.log("CookieError" + response);
         alert("8888");
 
     });//请求用户id
