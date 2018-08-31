@@ -121,8 +121,11 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
                 
                 $scope.flv_load=function() {
                     console.log('isSupported: ' + flvjs.isSupported());
+                    var index = $scope.play.indexOf("."); //得到"."在第几位
+                    var addr = $scope.play;
+                    addr = addr.substring(index + 1);
                     var mediaDataSource = {
-                        type: 'flv'
+                        type: addr
                     };
                     mediaDataSource['url'] = $scope.play;
                     console.log('MediaDataSource', mediaDataSource);
