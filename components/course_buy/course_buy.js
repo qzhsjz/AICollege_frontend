@@ -1,5 +1,5 @@
-
-var urlAdd = 'http://39.106.19.27:8080/course/addtostudy/'
+var goodsinfo = 'http://39.106.19.27:8080/user/shopcar';
+var urlAdd = 'http://39.106.19.27:8080/course/addtostudy/';
 var next_page;
 var myBuy = angular.module("myBuy", []);
 var isLearn;
@@ -25,6 +25,10 @@ var quit = function () {
         }
     });
 }
+// $("#add_buy").on('click',function(){
+   
+   
+// })
 
 myBuy.controller('buyCtrl', ['$scope', '$http', function ($scope, $http, $location) {
     $http({
@@ -35,7 +39,7 @@ myBuy.controller('buyCtrl', ['$scope', '$http', function ($scope, $http, $locati
         if (response.error) {
             alert("网络错误，请刷新网页");
         } else {
-            console.log(JSON.stringify("已获取用户信息"));
+            console.log(JSON.stringify("1已获取用户信息"));
             console.log(JSON.stringify(response));
             if (response.data.id) {
                 isLog = "1";
@@ -69,9 +73,10 @@ myBuy.controller('buyCtrl', ['$scope', '$http', function ($scope, $http, $locati
                 withCredentials: true,
                 //data:{index:1}
             }).then(function (response) {
-                console.log(JSON.stringify("获取课程信息成功"));
+                //console.log(JSON.stringify("获取课程信息成功"));
                 console.log(JSON.stringify(response));
                 isLearn=true;
+                //console.log(response.data);
                 var course_info = response.data.course;
                 isLearn = response.data.islearn;
                 
@@ -138,9 +143,49 @@ myBuy.controller('buyCtrl', ['$scope', '$http', function ($scope, $http, $locati
                         
                     }
                     location.href=next_page;
-                }
-                $scope.add_shopcar=function(){
-
+                };
+                $scope.add_shopcar = function(){
+                    $http({
+                        method: 'get', //get请求方式
+                        url: goodsinfo,   //请求地址
+                        withCredentials: true,
+                    }).then(function (response) {
+                        if (response.error) {
+                            alert("1111");
+                        } else {
+                            //console.log("返回值："+JSON.stringify(response.data));
+                            var Dataa = response.data;
+                            var i = response.data.length;
+                            //console.log(response.data.length);
+                            Dataa[i] = {
+                                id:i,
+                                name:course_info.course_name,   //名字
+                                mon:course_info.course_price,                //单价
+                                num:1,                  //数量
+                                checked:false,
+                                class_id:course_info.id,
+                            }
+                            $.ajax({
+                                url:goodsinfo,
+                                xhrFields: {
+                                    withCredentials: true
+                                },
+                                type:'post',
+                                data: JSON.stringify(Dataa),
+                                dataType: 'json',
+                                success: function(data) {
+                                //console.log(JSON.stringify(data));
+                                    //alert(1);
+                                   
+                                }
+                            });
+                        }
+                    }, function (response) {
+                        //失败时执行 
+                        console.log("CookieError" + response);
+                        alert("8888");
+                
+                    });//请求用户id
                 }
 
             }, function (response) {
