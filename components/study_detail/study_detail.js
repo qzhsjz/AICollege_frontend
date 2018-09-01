@@ -6,6 +6,8 @@ var app = angular.module("myApp", []);
 var isLearn;
 var isLog;
 var mediaURL;
+var player;
+
 
 
 
@@ -101,7 +103,12 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
                 $scope.section_id = $scope.chapter[$scope.itemNumber].section_id;
                 $scope.discuss;
                 $scope.flv_load_mds=function(mediaDataSource) {
+                    console.log('flv_load_mds ');
                     var element = document.getElementsByName('videoElement')[0];
+                    if (typeof player == "undefined")
+                    {
+                        console.log("player undefined");
+                    }
                     if (typeof player !== "undefined") {
                         if (player != null) {
                             player.unload();
@@ -112,26 +119,30 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
                     }
                     player = flvjs.createPlayer(mediaDataSource, {
                         enableWorker: false,
-                        lazyLoadMaxDuration: 3 * 60,
+                        lazyLoadMaxDuration: 5 * 60,
                         seekType: 'range',
                     });
                     player.attachMediaElement(element);
                     player.load();
+                    player.play();
+                    console.log('flv_load_mds finish');
                 }
                 
                 $scope.flv_load=function() {
+                    console.log('flv_load');
                     console.log('isSupported: ' + flvjs.isSupported());
                     var index = $scope.play.indexOf("."); //得到"."在第几位
-                    var addr = $scope.play;
-                    addr = addr.substring(index + 1);
+                    var mediaType = $scope.play;
+                    mediaType = mediaType.substring(index + 1);
                     var mediaDataSource = {
-                        type: addr
+                        type: mediaType
                     };
                     mediaDataSource['url'] = $scope.play;
                     console.log('MediaDataSource', mediaDataSource);
                     $scope.flv_load_mds(mediaDataSource);
-                    
                 }
+
+                
 
                 $scope.flv_load();
                 
@@ -154,7 +165,7 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
                     $scope.itemNumber = index;
                     $scope.play = ch.videoPath;
                     $scope.section_id = $scope.chapter[$scope.itemNumber].section_id;
-                    console.log(JSON.stringify($scope.play));
+                    console.log(JSON.stringify('videoPath:'+$scope.play));
                     $scope.flv_load();
                     var url_com = ulrcomment + $scope.section_id;
                     $http({
@@ -213,7 +224,6 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
                     });
                 }
                 //发表评论按钮点击事件结束
-                $scope.flv_load();
                 //console.log(JSON.stringify($scope.play));
 
 

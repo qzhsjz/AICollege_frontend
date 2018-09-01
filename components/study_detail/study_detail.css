@@ -3,6 +3,10 @@ body {
     padding-bottom: 40px;
     background-color: #eeeeee;
   }
+
+.pv{
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;width:130px;   
+}
 .bottom-box{
     margin-top:50px;
 }
