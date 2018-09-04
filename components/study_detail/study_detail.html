@@ -115,14 +115,14 @@
             
           </ul>
           <div class="tab-content board">
-            <div class="tab-pane active" id="tab1">
+            <div class="tab-pane active" id="tab1" style="overflow-y:auto; overflow-x:auto;  height:400px;">
               <ul class="nav nav-list">
                 <li a href="#" ng-repeat="ch in chapter track by $index" ng-click="chooseItem($index)">
                   <a>{{ch.section_name}}</a>
                 </li>
               </ul>
             </div>
-            <div class="tab-pane" id="tab2">
+            <div class="tab-pane" id="tab2" style="overflow-y:auto; overflow-x:auto;  height:400px;">
               <textarea ng-model="comment" rows="3" style="width: 90%"></textarea>
               <button class="btn btn-small" type="button" ng-click="publish_comment()">发表</button>
               <div style="padding-top: 30px"></div>
@@ -133,10 +133,10 @@
                       <img src={{dis.userpic}} class="img-circle">
                     </div>
                     <div class="span5">
-                      <p style="color:darkgreen">{{dis.username}}</p>
+                      <p >{{dis.username}}</p>
                     </div>
                   </div>
-                  <p>{{dis.str}}</p>
+                  <p style="color:rgb(59, 59, 59);padding:8px">{{dis.str}}</p>
                   <hr>
                 </li>
               </ul>

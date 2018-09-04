@@ -101,6 +101,7 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
                 $scope.play = $scope.chapter[0].videoPath;
                 $scope.itemNumber = 0;
                 $scope.section_id = $scope.chapter[$scope.itemNumber].section_id;
+                //console.log(JSON.stringify("section_id:"+$scope.section_id));
                 $scope.discuss;
                 $scope.flv_load_mds=function(mediaDataSource) {
                     console.log('flv_load_mds ');
@@ -201,27 +202,29 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
                         },
                         dataType: 'json',
                         success: function(data) {
-                          console.log(JSON.stringify(data));
-                          if(data.error){
-                           alert(data.error);
-                         }else{
-                          alert("评论添加成功");
-                         }
+                          //console.log(JSON.stringify("添加评论返回内容："+data));
+                            if (data.error) {
+                                alert(data.error);
+                            } else {
+                                alert("评论添加成功");
+                                var url_c = ulrcomment + $scope.section_id;
+                                console.log(JSON.stringify("请求地址：" + url_c));
+                                $http({
+                                    method: 'get', //get请求方式
+                                    url: url_c,   //请求地址
+                                    withCredentials: true,
+                                    //data:{index:1}
+                                }).then(function (response) {
+                                    console.log(JSON.stringify("返回评论：" + response.data.evaluation));
+                                    $scope.discuss = response.data.evaluation;
+                                }, function (response) {
+                                    console.log(JSON.stringify("获取评论失败"));
+                                });
+                            }
                         }
                     });
-
-                    var url_com = ulrcomment + $scope.section_id;
-                    $http({
-                        method: 'get', //get请求方式
-                        url: url_com,   //请求地址
-                        withCredentials: true,
-                        //data:{index:1}
-                    }).then(function (response) {
-                        console.log(JSON.stringify(response.data));
-                        $scope.discuss=response.data.evaluation;
-                    }, function (response) {
-                        console.log(JSON.stringify("刷新评论失败"));
-                    });
+                    console.log(JSON.stringify("添加评论成功"));              
+                    
                 }
                 //发表评论按钮点击事件结束
                 //console.log(JSON.stringify($scope.play));
