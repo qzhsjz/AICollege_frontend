@@ -89,10 +89,20 @@
             Your browser is too old which doesn't support HTML5 video.
           </video>
         </div>
+        <div style="width:600px;padding-left:28px">
+          <p>播放速率
+            <select id="play-rate">
+              <option value=0.5>0.5x</option>
+              <option value=1>1.0x</option>
+              <option value=1.25>1.25x</option>
+              <option value=1.5>1.5x</option>
+              <option value=2>2.0x</option>
+            </select></p>
+        </div>  
       </div>
       <!--/span9-->
       <div class="span3 ">
-        <div class="row-fluid grey1">
+        <div class="row grey1" style="margin-left:0px">
           <div class="span6" style="padding-top:20px; padding-left: 15px; padding-right: 5px ">
             <p class="pv" style="font-size: 17px">《{{title}}》</p>
             <p style="font-size: 13px">教师：{{teacher}}</p>
@@ -128,15 +138,15 @@
               <div style="padding-top: 30px"></div>
               <ul class="nav nav-list">
                 <li ng-repeat="dis in discuss track by $index">
-                  <div class="row-fluid">
+                  <div class="row">
                     <div class="span2">
                       <img src={{dis.userpic}} class="img-circle">
                     </div>
                     <div class="span5">
-                      <h5 style="color:rgb(105, 104, 104);padding-top:15px">{{dis.username}}</h5>
+                      <h5 style="color:rgb(105, 104, 104);padding-top:8px">{{dis.username}}</h5>
                     </div>
                   </div>
-                  <p style="color:rgb(105, 104, 104);padding:8px">{{dis.str}}</p>
+                  <p style="color:rgb(82, 23, 23);padding:8px">{{dis.str}}</p>
                   <hr>
                 </li>
               </ul>
@@ -150,11 +160,6 @@
     </div>
     <!--/row-fluid-->
 
-    <hr>
-
-    <footer>
-      <p>© 小智课堂 2018</p>
-    </footer>
 
   </div>
   <!--/.fluid-container-->

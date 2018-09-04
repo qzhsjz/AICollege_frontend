@@ -128,7 +128,17 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
                     player.play();
                     console.log('flv_load_mds finish');
                 }
-                
+                var playrate=document.getElementById("play-rate");
+                playrate.addEventListener('change',function(){
+                    var element = document.getElementsByName('videoElement')[0];
+                    if (typeof player !== "undefined") {
+                        if (player != null) {
+                            player.playbackRate=this.value;
+                            player.play();
+                            console.log("改变播放速度");
+                        }
+                    }
+                });
                 $scope.flv_load=function() {
                     console.log('flv_load');
                     console.log('isSupported: ' + flvjs.isSupported());
