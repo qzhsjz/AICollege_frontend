@@ -8,40 +8,6 @@ var isLog;
 var mediaURL;
 var player;
 
-
-
-
-/*$scope.flv_load = function () {
-                    console.log('isSupported: ' + flvjs.isSupported());
-                    var index = $scope.play.indexOf("."); //得到"."在第几位
-                    var addr = $scope.play;
-                    addr = addr.substring(index + 1);
-                    var xhr = new XMLHttpRequest();
-                    xhr.open('GET', $scope.play, true);
-                    xhr.onload = function (e) {
-                        var player;
-                        var element = document.getElementsByName('videoElement')[0];
-                        if (typeof player !== "undefined") {
-                            if (player != null) {
-                                player.unload();
-                                player.detachMediaElement();
-                                player.destroy();
-                                player = null;
-                            }
-                        }
-
-                        player = flvjs.createPlayer({
-                            type: addr,
-                            url: $scope.play
-                        });
-                        player.attachMediaElement(element);
-                        player.load();
-                    }
-                    xhr.send();
-                }
-*/               
-
-
 app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location) {
     $http({
         method: 'get', //get请求方式
@@ -134,11 +100,48 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
                     if (typeof player !== "undefined") {
                         if (player != null) {
                             player.playbackRate=this.value;
-                            player.play();
                             console.log("改变播放速度");
+                            console.log(JSON.stringify(this.value));
                         }
                     }
                 });
+
+                var playrate1=document.getElementById("play-rate1");
+                playrate1.addEventListener('change',function(){
+                    var element = document.getElementsByName('videoElement')[0];
+                    if (typeof player !== "undefined") {
+                        if (player != null) {
+                            element.playbackRate=this.value;
+                            console.log("改变播放速度");
+                            console.log(JSON.stringify(this.value));
+                        }
+                    }
+                });
+
+                var playrate2=document.getElementById("play-rate2");
+                playrate2.addEventListener('change',function(){
+                    var element = document.getElementsByName('videoElement')[0];
+                    if (typeof player !== "undefined") {
+                        if (player != null) {
+                            player.playbackRate=2;
+                            console.log("改变播放速度");
+                            console.log(JSON.stringify(this.value));
+                        }
+                    }
+                });
+
+                var playrate3=document.getElementById("play-rate3");
+                playrate3.addEventListener('change',function(){
+                    var element = document.getElementsByName('videoElement')[0];
+                    if (typeof player !== "undefined") {
+                        if (player != null) {
+                            element.playbackRate=2;
+                            console.log("改变播放速度");
+                            console.log(JSON.stringify(this.value));
+                        }
+                    }
+                });
+
                 $scope.flv_load=function() {
                     console.log('flv_load');
                     console.log('isSupported: ' + flvjs.isSupported());

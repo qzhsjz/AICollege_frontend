@@ -97,8 +97,36 @@
               <option value=1.25>1.25x</option>
               <option value=1.5>1.5x</option>
               <option value=2>2.0x</option>
-            </select></p>
-        </div>  
+            </select>
+          </p>
+          <p>播放速率1
+            <select id="play-rate1">
+              <option value="0.5">0.5x</option>
+              <option value="1" selected>1.0x</option>
+              <option value="1.25">1.25x</option>
+              <option value="1.5">1.5x</option>
+              <option value="2">2.0x</option>
+            </select>
+          </p>
+          <p>播放速率2
+            <select id="play-rate2">
+              <option value=0.5>0.5x</option>
+              <option value=1 selected>1.0x</option>
+              <option value=1.25>1.25x</option>
+              <option value=1.5>1.5x</option>
+              <option value=2>2.0x</option>
+            </select>
+          </p>
+          <p>播放速率3
+            <select id="play-rate3">
+              <option value=0.5>0.5x</option>
+              <option value=1 selected>1.0x</option>
+              <option value=1.25>1.25x</option>
+              <option value=1.5>1.5x</option>
+              <option value=2>2.0x</option>
+            </select>
+          </p>
+        </div>
       </div>
       <!--/span9-->
       <div class="span3 ">
@@ -109,7 +137,7 @@
           </div>
           <div class="span6" style="padding-top:20px; padding-right:15px;padding-bottom: 20px">
             <div class="img-contain">
-              <img style="width: 100%;height: 60px;" src="{{image}}" />
+              <img style="width: 130px;height: 60px;" src="{{image}}" />
             </div>
           </div>
         </div>
@@ -140,13 +168,13 @@
                 <li ng-repeat="dis in discuss track by $index">
                   <div class="row">
                     <div class="span2">
-                      <img src={{dis.userpic}} class="img-circle">
+                      <img style="width:36px" src={{dis.userpic}} class="img-circle">
                     </div>
                     <div class="span5">
-                      <h5 style="color:rgb(105, 104, 104);padding-top:8px">{{dis.username}}</h5>
+                      <h5 style="color:rgb(105, 104, 104);">{{dis.username}}</h5>
                     </div>
                   </div>
-                  <p style="color:rgb(82, 23, 23);padding:8px">{{dis.str}}</p>
+                  <p style="color:(105, 104, 104);padding:8px">{{dis.str}}</p>
                   <hr>
                 </li>
               </ul>
