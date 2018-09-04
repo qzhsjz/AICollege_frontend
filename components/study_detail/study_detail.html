@@ -92,15 +92,6 @@
         <div style="width:600px;padding-left:28px">
           <p>播放速率
             <select id="play-rate">
-              <option value=0.5>0.5x</option>
-              <option value=1 selected>1.0x</option>
-              <option value=1.25>1.25x</option>
-              <option value=1.5>1.5x</option>
-              <option value=2>2.0x</option>
-            </select>
-          </p>
-          <p>播放速率1
-            <select id="play-rate1">
               <option value="0.5">0.5x</option>
               <option value="1" selected>1.0x</option>
               <option value="1.25">1.25x</option>
@@ -108,39 +99,33 @@
               <option value="2">2.0x</option>
             </select>
           </p>
-          <p>播放速率2
-            <select id="play-rate2">
-              <option value=0.5>0.5x</option>
-              <option value=1 selected>1.0x</option>
-              <option value=1.25>1.25x</option>
-              <option value=1.5>1.5x</option>
-              <option value=2>2.0x</option>
-            </select>
-          </p>
-          <p>播放速率3
-            <select id="play-rate3">
-              <option value=0.5>0.5x</option>
-              <option value=1 selected>1.0x</option>
-              <option value=1.25>1.25x</option>
-              <option value=1.5>1.5x</option>
-              <option value=2>2.0x</option>
-            </select>
-          </p>
+          
         </div>
       </div>
       <!--/span9-->
       <div class="span3 ">
-        <div class="row grey1" style="margin-left:0px">
+        <div class=" grey1" style="margin-left:0px">
+          <!--
           <div class="span6" style="padding-top:20px; padding-left: 15px; padding-right: 5px ">
             <p class="pv" style="font-size: 17px">《{{title}}》</p>
             <p style="font-size: 13px">教师：{{teacher}}</p>
           </div>
           <div class="span6" style="padding-top:20px; padding-right:15px;padding-bottom: 20px">
-            <div class="img-contain">
+            <div class="img-contain" style="width: 130px;height: 60px;">
               <img style="width: 130px;height: 60px;" src="{{image}}" />
+            </div>
+          </div>-->
+          <div class="div-inline" style="padding-top:20px; padding-left: 15px; padding-right: 5px;padding-bottom: 30px">
+            <p class="pv" style="font-size: 17px">《{{title}}》</p>
+            <p style="font-size: 13px">教师：{{teacher}}</p>
+          </div>
+          <div class="div-inline" style="padding-top:20px;">
+            <div style="width: 140px;height: 80px;">
+              <img style="width: 140px;height: 80px;" src="{{image}}" />
             </div>
           </div>
         </div>
+    
         <div class="tabbable white">
           <!-- Only required for left/right tabs -->
           <ul class="nav nav-tabs">
@@ -166,13 +151,19 @@
               <div style="padding-top: 30px"></div>
               <ul class="nav nav-list">
                 <li ng-repeat="dis in discuss track by $index">
-                  <div class="row">
+                  <!--<div class="row">
                     <div class="span2">
                       <img style="width:36px" src={{dis.userpic}} class="img-circle">
                     </div>
                     <div class="span5">
                       <h5 style="color:rgb(105, 104, 104);">{{dis.username}}</h5>
                     </div>
+                  </div>-->
+                  <div class="div-inline">
+                    <img style="width:36px ;height: 36px;" src={{dis.userpic}} class="img-circle">
+                  </div>
+                  <div class="div-inline">
+                    <h5 style="color:rgb(105, 104, 104);padding-top:10px;padding-left:10px">{{dis.username}}</h5>
                   </div>
                   <p style="color:(105, 104, 104);padding:8px">{{dis.str}}</p>
                   <hr>

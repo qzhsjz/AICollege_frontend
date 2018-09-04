@@ -4,8 +4,11 @@ body {
     background-color: #eeeeee;
   }
 
+.div-inline{
+    display:inline-block;
+}
 .pv{
-    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;width:130px;   
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;width:120px;   
 }
 .bottom-box{
     margin-top:50px;

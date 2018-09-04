@@ -94,53 +94,20 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
                     player.play();
                     console.log('flv_load_mds finish');
                 }
+                
+
                 var playrate=document.getElementById("play-rate");
                 playrate.addEventListener('change',function(){
                     var element = document.getElementsByName('videoElement')[0];
                     if (typeof player !== "undefined") {
                         if (player != null) {
-                            player.playbackRate=this.value;
+                            element.playbackRate=this.value;
                             console.log("改变播放速度");
                             console.log(JSON.stringify(this.value));
                         }
                     }
                 });
 
-                var playrate1=document.getElementById("play-rate1");
-                playrate1.addEventListener('change',function(){
-                    var element = document.getElementsByName('videoElement')[0];
-                    if (typeof player !== "undefined") {
-                        if (player != null) {
-                            element.playbackRate=this.value;
-                            console.log("改变播放速度1");
-                            console.log(JSON.stringify(this.value));
-                        }
-                    }
-                });
-
-                var playrate2=document.getElementById("play-rate2");
-                playrate2.addEventListener('change',function(){
-                    var element = document.getElementsByName('videoElement')[0];
-                    if (typeof player !== "undefined") {
-                        if (player != null) {
-                            player.playbackRate=2;
-                            console.log("改变播放速度2");
-                            console.log(JSON.stringify(this.value));
-                        }
-                    }
-                });
-
-                var playrate3=document.getElementById("play-rate3");
-                playrate3.addEventListener('change',function(){
-                    var element = document.getElementsByName('videoElement')[0];
-                    if (typeof player !== "undefined") {
-                        if (player != null) {
-                            element.playbackRate=2;
-                            console.log("改变播放速度3");
-                            console.log(JSON.stringify(this.value));
-                        }
-                    }
-                });
 
                 $scope.flv_load=function() {
                     console.log('flv_load');
