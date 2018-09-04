@@ -123,7 +123,7 @@
               </ul>
             </div>
             <div class="tab-pane" id="tab2" style="overflow-y:auto; overflow-x:auto;  height:400px;">
-              <textarea ng-model="comment" rows="3" style="width: 90%"></textarea>
+              <textarea id="comment-text" ng-model="comment" rows="3" style="width: 90%"></textarea>
               <button class="btn btn-small" type="button" ng-click="publish_comment()">发表</button>
               <div style="padding-top: 30px"></div>
               <ul class="nav nav-list">
@@ -133,10 +133,10 @@
                       <img src={{dis.userpic}} class="img-circle">
                     </div>
                     <div class="span5">
-                      <p >{{dis.username}}</p>
+                      <h5 style="color:rgb(105, 104, 104);padding-top:15px">{{dis.username}}</h5>
                     </div>
                   </div>
-                  <p style="color:rgb(59, 59, 59);padding:8px">{{dis.str}}</p>
+                  <p style="color:rgb(105, 104, 104);padding:8px">{{dis.str}}</p>
                   <hr>
                 </li>
               </ul>

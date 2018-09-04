@@ -220,6 +220,7 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
                                 }, function (response) {
                                     console.log(JSON.stringify("获取评论失败"));
                                 });
+                                document.getElementById("comment-text").value="";
                             }
                         }
                     });
