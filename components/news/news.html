@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>小智</title>
+    <title>小智消息</title>
 
     <!-- Bootstrap -->
     <link href="../../assets/css/bootstrap.min.css" type="text/css" rel="stylesheet">
@@ -52,24 +52,24 @@
             </div>
         </div>
 
-        <div class="row-fluid in_box"  ng-app="myApp">
+        <div class="row-fluid in_box"  ng-app="myApp" ng-controller="personCtrl">
             <div class="span2 offset1 list">
-                <ul class="list_ul" ng-controller="personCtrl">
+                <ul class="list_ul">
                     <li ng-click="toggle1()" class="list1 active">
-                        课程提醒
+                        系统公告
                     </li>
                     <li ng-click="toggle2()" class="list2">
-                        平台通知
+                        收件箱
                     </li>
-                    <li ng-click="toggle3()" class="list3">
+                    <!-- <li ng-click="toggle3()" class="list3">
                         互动提醒
                         <span class="pot">12</span>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
-            <div class="span7 news_box">
+            <div class="span7 news_box" ng-init="Announcement">
                 <ul class="Classinf ">
-                    <li>
+                    <li ng-repeat="x in Announcement">
                         <div class="one">
                             <span class="info_left_B">恭喜您已成功获得<span class="name">《XXXX》</span>课程，开始学习吧</span>
                         </div>
@@ -83,27 +83,14 @@
                         暂无消息
                     </li>
                 </ul>
-                <ul class="Interactioninf dis">
-                    <li>
+                <ul class="Interactioninf dis" ng-init="Message">
+                    <li ng-repeat="x in Message">
                         <div class="one">
-                            <span class="info_left">来自<span class="name">林某某</span>的评论</span>
-                            <span class="info_right">2018-06-08</span>
+                            <span class="info_left">来自<span class="name">{{x.sendername}}</span>的消息</span>
+                            <span class="info_right">{{x.time}}</span>
                         </div>
                         <div class="">
-                            <p class="info_p">        如果你无法简洁的表达你的想法，那只说明你还不够了解它。
-                                    -- 阿尔伯特·爱因斯坦
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="one">
-                            <span class="info_left">来自<span class="name">林某某</span>的评论</span>
-                            <span class="info_right">2018-06-08</span>
-                        </div>
-                        <div class="">
-                            <p class="info_p">        如果你无法简洁的表达你的想法，那只说明你还不够了解它。
-                                    -- 阿尔伯特·爱因斯坦
-                            </p>
+                            <p class="info_p">{{x.content}}</p>
                         </div>
                     </li>
                 </ul>

@@ -85,24 +85,47 @@
     <div class="row-fluid">
       <div class="span9">
         <div class="white">
-          <video name="videoElement" class="centeredVideo" controls autoplay width="100%">
+          <video name="videoElement" class="centeredVideo" controls autoplay width="100%" controls oncontextmenu="return false;">
             Your browser is too old which doesn't support HTML5 video.
           </video>
+        </div>
+        <div style="width:600px;padding-top:10px;padding-left:0px">
+          <p class="div-inline" style="padding-top:0px;font-size: 16px">播放速率</p>
+          <div id="button-g" class="div-inline btn-group" data-toggle="buttons-radio" style="padding-top:0px;left: 10px">
+              <button onclick="play_rate()"  type="button" class="btn btn-small" value="0.5">0.5x</button>
+              <button onclick="play_rate1()" type="button" class="btn btn-small" value="0.75">0.75x</button>
+              <button onclick="play_rate2()" type="button" class="btn btn-small active" value="1">正常</button>
+              <button onclick="play_rate3()" type="button" class="btn btn-small" value="1.25">1.25x</button>
+              <button onclick="play_rate4()" type="button" class="btn btn-small" value="1.5">1.5x</button>
+              <button onclick="play_rate5()" type="button" class="btn btn-small" value="2">2.0x</button>
+            </div>
+          
         </div>
       </div>
       <!--/span9-->
       <div class="span3 ">
-        <div class="row-fluid grey1">
-          <div class="span6" style="padding:20px; ">
-            <p style="font-size: 20px">{{title}}</p>
-            <p style="font-size: 15px">{{teacher}}</p>
+        <div class=" grey1" style="margin-left:0px">
+          <!--
+          <div class="span6" style="padding-top:20px; padding-left: 15px; padding-right: 5px ">
+            <p class="pv" style="font-size: 17px">《{{title}}》</p>
+            <p style="font-size: 13px">教师：{{teacher}}</p>
           </div>
-          <div class="span6" style="padding:10px">
-            <div class="img-contain">
-              <img style="width: 98%;height: 60px;" src="{{image}}" />
+          <div class="span6" style="padding-top:20px; padding-right:15px;padding-bottom: 20px">
+            <div class="img-contain" style="width: 130px;height: 60px;">
+              <img style="width: 130px;height: 60px;" src="{{image}}" />
+            </div>
+          </div>-->
+          <div class="div-inline" style="padding-top:20px; padding-left: 15px; padding-right: 5px;padding-bottom: 30px">
+            <p class="pv" style="font-size: 17px">《{{title}}》</p>
+            <p style="font-size: 13px">教师：{{teacher}}</p>
+          </div>
+          <div class="div-inline" style="padding-top:20px;">
+            <div style="width: 140px;height: 80px;">
+              <img style="width: 140px;height: 80px;" src="{{image}}" />
             </div>
           </div>
         </div>
+    
         <div class="tabbable white">
           <!-- Only required for left/right tabs -->
           <ul class="nav nav-tabs">
@@ -115,27 +138,37 @@
             
           </ul>
           <div class="tab-content board">
-            <div class="tab-pane active" id="tab1">
+            <div class="tab-pane active" id="tab1" style="overflow-y:auto; overflow-x:auto;  height:400px;">
               <ul class="nav nav-list">
-                <li ng-repeat="ch in chapter track by $index" ng-click="chooseItem($index)">
+                <li a href="#" ng-repeat="ch in chapter track by $index" ng-click="chooseItem($index)">
                   <a>{{ch.section_name}}</a>
                 </li>
               </ul>
             </div>
-            <div class="tab-pane" id="tab2">
-              <textarea ng-model= "comment" rows="3" style="width: 90%"></textarea>
+            <div class="tab-pane" id="tab2" style="overflow-y:auto; overflow-x:auto;  height:400px;">
+              <textarea id="comment-text" ng-model="comment" rows="3" style="width: 90%"></textarea>
               <button class="btn btn-small" type="button" ng-click="publish_comment()">发表</button>
               <div style="padding-top: 30px"></div>
-              <li ng-repeat="dis in discuss track by $index">
-                <div class="row-fluid">
-                  <div class="span2">
-                    <img src={{dis.userpic}} class="img-circle">
-                    <p>{{dis.username}}</p>
+              <ul class="nav nav-list">
+                <li ng-repeat="dis in discuss track by $index">
+                  <!--<div class="row">
+                    <div class="span2">
+                      <img style="width:36px" src={{dis.userpic}} class="img-circle">
+                    </div>
+                    <div class="span5">
+                      <h5 style="color:rgb(105, 104, 104);">{{dis.username}}</h5>
+                    </div>
+                  </div>-->
+                  <div class="div-inline">
+                    <img style="width:40px ;height:40px;" src={{dis.userpic}} class="img-circle">
                   </div>
-                  <div class="span10"><p>{{dis.str}}</p></div>
-                </div>
-                <hr>
-              </li>
+                  <div class="div-inline">
+                    <h5 style="color:rgb(105, 104, 104);padding-top:10px;padding-left:10px">{{dis.username}}</h5>
+                  </div>
+                  <p style="color:(105, 104, 104);padding:8px">{{dis.str}}</p>
+                  <hr>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -146,11 +179,6 @@
     </div>
     <!--/row-fluid-->
 
-    <hr>
-
-    <footer>
-      <p>© 小智课堂 2018</p>
-    </footer>
 
   </div>
   <!--/.fluid-container-->
@@ -164,7 +192,7 @@
   <script src="../../assets/js/bootstrap.min.js"></script>
   <script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
   <script src="study_detail.js"></script>
-  <script src="flv.min.js"></script>
+  <script src="flv.js"></script>
 
 
 

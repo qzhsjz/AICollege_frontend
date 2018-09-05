@@ -59,74 +59,85 @@
 
    
 <div class="container">
-        <!--课程名称、图片等基本信息 -->
-        <div class="row-fluid" style="background-color: #ffffff">
-            <div class="span5" style="padding:20px ">
-                <img style="width: 98%;height: 200px;" ng-src="{{img}}" style="width:100%" />
-            </div>
-            <div class="span7" style="padding: 20px">
-                <p class="title">{{name}}</p>
-                <p>讲师：{{teacher}}</p>
-                <p class="value">{{value_dis}}</p>
-                <p>
-                    <a href="#" class="btn btn-primary btn-large bottom-box" ng-click="go_to()">{{design}} »</a>
-                </p>
-            </div>
+    <!--课程名称、图片等基本信息 -->
+    <div class="row-fluid" style="background-color: #ffffff">
+        <div class="span5" style="padding:20px ">
+            <img style="width: 98%;height: 200px;" ng-src="{{img}}" style="width:100%" />
         </div>
-
-        <!--课程介绍、课程目录-->
-        <div class="grey" style="width:100%">
-            <ul class="nav nav-tabs">
-                <li class="active" style=" text-align: center">
-                    <a href="#tab1" data-toggle="tab">
-                        <span class="icon-th-list"></span>简介</a>
-                </li>
-                <li style="text-align: center">
-                    <a href="#tab2" data-toggle="tab">
-                        <span class="icon-list-alt"></span>目录</a>
-                </li>
-            </ul>
-        </div>
-        <!-- Example row of columns -->
-        <div class="row-fluid">
-            <div class="span8">
-                <div class="tab-content">
-                    <div id="tab1" class="tab-pane active">
-                        <div class="well" style="background-color: #ffffffff">
-                            <p class="title">课程概述</p>
-                            <p>{{introduce}}</p>
-                        </div>
-                    </div>
-                    <div id="tab2" class="tab-pane">
-                        <div class="well" style="background-color: #ffffffff">
-                            <ul class="nav nav-list">
-                                <li ng-repeat="ch in chapter">
-                                    <a href="#">{{ch.section_name}}</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="span4">
-                <div class="well" style="background-color: #ffffffff">
-                    <p class="title">Advertise</p>
-                    <p>招聘程序员鼓励师任职要求： 1、长相清新，声线甜美，微笑常在，人见人爱； 2、善于倾听，善不善沟通不重要，能忍受IT工程师死宅无法交流的性格； 3、耍不耍脾气不重要，要善于发现每一个程序暖男的天性，成功驯服；
-                        4、了解互联网，懂科技，不然聊起来云里雾里，工程师会更受打击。
+        <div class="span7" style="padding: 20px">
+            <p class="title">{{name}}</p>
+            <p>讲师：{{teacher}}</p>
+            <p class="value">{{value_dis}}</p>
+            <div class="row-fluid">
+                <div class="span4">
+                    <p>
+                        <a href="#" class="btn btn-primary btn-large bottom-box" ng-click="go_to()">{{design}} »</a>
                     </p>
-                    <!-- <p><a class="btn" href="#">View details »</a></p> -->
                 </div>
+                <div id="shop_car" class="span4">
+                    <p>
+                        <span class="btn  btn-large bottom-box" ng-click="add_shopcar()" id="add_buy">加入购物车 »</span>
+                    </p>
+                </div>
+            </div>
 
+
+        </div>
+    </div>
+
+    <!--课程介绍、课程目录-->
+    <div class="grey" style="width:100%">
+        <ul class="nav nav-tabs">
+            <li class="active" style=" text-align: center">
+                <a href="#tab1" data-toggle="tab">
+                    <span class="icon-th-list"></span>简介</a>
+            </li>
+            <li style="text-align: center">
+                <a href="#tab2" data-toggle="tab">
+                    <span class="icon-list-alt"></span>目录</a>
+            </li>
+        </ul>
+    </div>
+    <!-- Example row of columns -->
+    <div class="row-fluid">
+        <div class="span8">
+            <div class="tab-content">
+                <div id="tab1" class="tab-pane active">
+                    <div class="well" style="background-color: #ffffffff">
+                        <p class="title">课程概述</p>
+                        <p>{{introduce}}</p>
+                    </div>
+                </div>
+                <div id="tab2" class="tab-pane">
+                    <div class="well" style="background-color: #ffffffff">
+                        <ul class="nav nav-list">
+                            <li ng-repeat="ch in chapter">
+                                <a href="#">{{ch.section_name}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <hr>
-        <footer>
-            <p>© 小智课堂 2018</p>
-        </footer>
+        <div class="span4">
+            <div class="well" style="background-color: #ffffffff">
+                <p class="title">Advertise</p>
+                <p>招聘程序员鼓励师任职要求： 1、长相清新，声线甜美，微笑常在，人见人爱； 2、善于倾听，善不善沟通不重要，能忍受IT工程师死宅无法交流的性格； 3、耍不耍脾气不重要，要善于发现每一个程序暖男的天性，成功驯服；
+                    4、了解互联网，懂科技，不然聊起来云里雾里，工程师会更受打击。
+                </p>
+                <!-- <p><a class="btn" href="#">View details »</a></p> -->
+            </div>
 
+        </div>
     </div>
+
+    <hr>
+    <footer>
+        <p>© 小智课堂 2018</p>
+    </footer>
+
+</div>
     <!-- /container -->
 
 

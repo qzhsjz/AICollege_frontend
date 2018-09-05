@@ -1,10 +1,67 @@
 ﻿var urlcookie = 'http://39.106.19.27:8080/user/getuserinfo';
-var urlget = 'http://39.106.19.27:8080/course/';
+var urlget = 'http://39.106.19.27:8080/course/judgeCourse/';
 var ulrcomment = 'http://39.106.19.27:8080/course/getevaluation/'
 var next_page;
 var app = angular.module("myApp", []);
 var isLearn;
 var isLog;
+var mediaURL;
+var player;
+
+var play_rate = function () {
+    var element = document.getElementsByName('videoElement')[0];
+    if (typeof player !== "undefined") {
+        if (player != null) {
+            element.playbackRate = 0.5;
+            console.log("0.5");
+        }
+    }
+}
+var play_rate1 = function () {
+    var element = document.getElementsByName('videoElement')[0];
+    if (typeof player !== "undefined") {
+        if (player != null) {
+            element.playbackRate = 0.75;
+            console.log("0.75");
+        }
+    }
+}
+var play_rate2 = function () {
+    var element = document.getElementsByName('videoElement')[0];
+    if (typeof player !== "undefined") {
+        if (player != null) {
+            element.playbackRate = 1;
+            console.log("1");
+        }
+    }
+}
+var play_rate3 = function () {
+    var element = document.getElementsByName('videoElement')[0];
+    if (typeof player !== "undefined") {
+        if (player != null) {
+            element.playbackRate = 1.25;
+            console.log("1.25");
+        }
+    }
+}
+var play_rate4 = function () {
+    var element = document.getElementsByName('videoElement')[0];
+    if (typeof player !== "undefined") {
+        if (player != null) {
+            element.playbackRate = 1.5;
+            console.log("1.5");
+        }
+    }
+}
+var play_rate5 = function () {
+    var element = document.getElementsByName('videoElement')[0];
+    if (typeof player !== "undefined") {
+        if (player != null) {
+            element.playbackRate = 2;
+            console.log("2");
+        }
+    }
+}
 
 
 app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location) {
@@ -13,8 +70,9 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
         url: urlcookie,   //请求地址
         withCredentials: true,
     }).then(function (response) {
+        console.log(JSON.stringify(response));
         if (response.error) {
-            alert("网络错误，请刷新");
+            //alert("网络错误，请刷新");
         } else {
             if (response.data.id) {
                 isLog = "1";
@@ -50,9 +108,13 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
                 withCredentials: true,
                 //data:{index:1}
             }).then(function (response) {
+                if(response.data.isLearn==false)
+                {
+                    location.href = "../course_buy/course_buy.html?&id="+id;
+                }
                 $('.span3').css("height", $('.span9').height());
                 var course_info = response.data.course;
-                //console.log(JSON.stringify(response.data.islearn));
+                console.log(JSON.stringify(response.data));
                 $scope.title = course_info.course_name;
                 //console.log(JSON.stringify(course_info.course_name));
                 $scope.course_info = course_info.course_info;
@@ -65,35 +127,53 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
                 $scope.play = $scope.chapter[0].videoPath;
                 $scope.itemNumber = 0;
                 $scope.section_id = $scope.chapter[$scope.itemNumber].section_id;
+                //console.log(JSON.stringify("section_id:"+$scope.section_id));
                 $scope.discuss;
-                $scope.flv_load = function () {
+                $scope.flv_load_mds=function(mediaDataSource) {
+                    console.log('flv_load_mds ');
+                    var element = document.getElementsByName('videoElement')[0];
+                    if (typeof player == "undefined")
+                    {
+                        console.log("player undefined");
+                    }
+                    if (typeof player !== "undefined") {
+                        if (player != null) {
+                            player.unload();
+                            player.detachMediaElement();
+                            player.destroy();
+                            player = null;
+                        }
+                    }
+                    player = flvjs.createPlayer(mediaDataSource, {
+                        enableWorker: false,
+                        lazyLoadMaxDuration: 5 * 60,
+                        seekType: 'range',
+                    });
+                    player.attachMediaElement(element);
+                    player.load();
+                    player.play();
+                    console.log('flv_load_mds finish');
+                }
+                
+
+                $scope.flv_load=function() {
+                    console.log('flv_load');
                     console.log('isSupported: ' + flvjs.isSupported());
                     var index = $scope.play.indexOf("."); //得到"."在第几位
-                    var addr = $scope.play;
-                    addr = addr.substring(index + 1);
-                    var xhr = new XMLHttpRequest();
-                    xhr.open('GET', $scope.play, true);
-                    xhr.onload = function (e) {
-                        var player;
-                        var element = document.getElementsByName('videoElement')[0];
-                        if (typeof player !== "undefined") {
-                            if (player != null) {
-                                player.unload();
-                                player.detachMediaElement();
-                                player.destroy();
-                                player = null;
-                            }
-                        }
-
-                        player = flvjs.createPlayer({
-                            type: addr,
-                            url: $scope.play
-                        });
-                        player.attachMediaElement(element);
-                        player.load();
-                    }
-                    xhr.send();
+                    var mediaType = $scope.play;
+                    mediaType = mediaType.substring(index + 1);
+                    var mediaDataSource = {
+                        type: mediaType
+                    };
+                    mediaDataSource['url'] = $scope.play;
+                    console.log('MediaDataSource', mediaDataSource);
+                    $scope.flv_load_mds(mediaDataSource);
                 }
+
+                
+
+                $scope.flv_load();
+                
                 var url_c = ulrcomment + $scope.section_id;
                 $http({
                     method: 'get', //get请求方式
@@ -113,7 +193,7 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
                     $scope.itemNumber = index;
                     $scope.play = ch.videoPath;
                     $scope.section_id = $scope.chapter[$scope.itemNumber].section_id;
-                    console.log(JSON.stringify($scope.section_id));
+                    console.log(JSON.stringify('videoPath:'+$scope.play));
                     $scope.flv_load();
                     var url_com = ulrcomment + $scope.section_id;
                     $http({
@@ -149,30 +229,32 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
                         },
                         dataType: 'json',
                         success: function(data) {
-                          console.log(JSON.stringify(data));
-                          if(data.error){
-                           alert(data.error);
-                         }else{
-                          alert("评论添加成功");
-                         }
+                          //console.log(JSON.stringify("添加评论返回内容："+data));
+                            if (data.error) {
+                                alert(data.error);
+                            } else {
+                                alert("评论添加成功");
+                                var url_c = ulrcomment + $scope.section_id;
+                                console.log(JSON.stringify("请求地址：" + url_c));
+                                $http({
+                                    method: 'get', //get请求方式
+                                    url: url_c,   //请求地址
+                                    withCredentials: true,
+                                    //data:{index:1}
+                                }).then(function (response) {
+                                    console.log(JSON.stringify("返回评论：" + response.data.evaluation));
+                                    $scope.discuss = response.data.evaluation;
+                                }, function (response) {
+                                    console.log(JSON.stringify("获取评论失败"));
+                                });
+                                document.getElementById("comment-text").value="";
+                            }
                         }
                     });
-
-                    var url_com = ulrcomment + $scope.section_id;
-                    $http({
-                        method: 'get', //get请求方式
-                        url: url_com,   //请求地址
-                        withCredentials: true,
-                        //data:{index:1}
-                    }).then(function (response) {
-                        console.log(JSON.stringify(response.data));
-                        $scope.discuss=response.data.evaluation;
-                    }, function (response) {
-                        console.log(JSON.stringify("刷新评论失败"));
-                    });
+                    console.log(JSON.stringify("添加评论成功"));              
+                    
                 }
                 //发表评论按钮点击事件结束
-                $scope.flv_load();
                 //console.log(JSON.stringify($scope.play));
 
 
@@ -192,12 +274,12 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
 
     }, function (response) {
         //失败时执行 
-        console.log("CookieError" + response);
+        //console.log("CookieError" + response);
         alert("8888");
 
     });//请求用户id
 
 }]);
 
-
-
+                
+                
