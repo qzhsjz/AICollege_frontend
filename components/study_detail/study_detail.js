@@ -8,6 +8,62 @@ var isLog;
 var mediaURL;
 var player;
 
+var play_rate = function () {
+    var element = document.getElementsByName('videoElement')[0];
+    if (typeof player !== "undefined") {
+        if (player != null) {
+            element.playbackRate = 0.5;
+            console.log("0.5");
+        }
+    }
+}
+var play_rate1 = function () {
+    var element = document.getElementsByName('videoElement')[0];
+    if (typeof player !== "undefined") {
+        if (player != null) {
+            element.playbackRate = 0.75;
+            console.log("0.75");
+        }
+    }
+}
+var play_rate2 = function () {
+    var element = document.getElementsByName('videoElement')[0];
+    if (typeof player !== "undefined") {
+        if (player != null) {
+            element.playbackRate = 1;
+            console.log("1");
+        }
+    }
+}
+var play_rate3 = function () {
+    var element = document.getElementsByName('videoElement')[0];
+    if (typeof player !== "undefined") {
+        if (player != null) {
+            element.playbackRate = 1.25;
+            console.log("1.25");
+        }
+    }
+}
+var play_rate4 = function () {
+    var element = document.getElementsByName('videoElement')[0];
+    if (typeof player !== "undefined") {
+        if (player != null) {
+            element.playbackRate = 1.5;
+            console.log("1.5");
+        }
+    }
+}
+var play_rate5 = function () {
+    var element = document.getElementsByName('videoElement')[0];
+    if (typeof player !== "undefined") {
+        if (player != null) {
+            element.playbackRate = 2;
+            console.log("2");
+        }
+    }
+}
+
+
 app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location) {
     $http({
         method: 'get', //get请求方式
@@ -52,9 +108,13 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
                 withCredentials: true,
                 //data:{index:1}
             }).then(function (response) {
+                if(response.data.isLearn==false)
+                {
+                    location.href = "../course_buy/course_buy.html?&id="+id;
+                }
                 $('.span3').css("height", $('.span9').height());
                 var course_info = response.data.course;
-                //console.log(JSON.stringify(response.data.islearn));
+                console.log(JSON.stringify(response.data));
                 $scope.title = course_info.course_name;
                 //console.log(JSON.stringify(course_info.course_name));
                 $scope.course_info = course_info.course_info;
@@ -95,19 +155,6 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
                     console.log('flv_load_mds finish');
                 }
                 
-
-                var playrate=document.getElementById("play-rate");
-                playrate.addEventListener('change',function(){
-                    var element = document.getElementsByName('videoElement')[0];
-                    if (typeof player !== "undefined") {
-                        if (player != null) {
-                            element.playbackRate=this.value;
-                            console.log("改变播放速度");
-                            console.log(JSON.stringify(this.value));
-                        }
-                    }
-                });
-
 
                 $scope.flv_load=function() {
                     console.log('flv_load');
@@ -234,5 +281,5 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
 
 }]);
 
-
-
+                
+                
