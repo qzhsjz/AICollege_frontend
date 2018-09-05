@@ -34,7 +34,7 @@ app.controller('personCtrl',['$scope', '$http', function($scope, $http, $locatio
             url: urlnew,   //请求地址
             withCredentials: true,
         }).then(function (response) {
-            console.log(JSON.stringify(response.data.Message));
+            //console.log(JSON.stringify(response.data.Message));
             $scope.box1 = true;
             $scope.Message = response.data.Message;
             $scope.Announcement = response.data.Announcement;
