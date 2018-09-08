@@ -42,34 +42,65 @@ function chkvalue(txt) {
 
 $("#login").on('click',function(){
    
-    var username = $("input[name='username']").val();
-    var password = $("input[name='password']").val();
-    var urlget = 'http://39.106.19.27:8080/user/login';
-      $.ajax({
-        url:urlget,
-        xhrFields: {
-            withCredentials: true
-        },
-        crossDomain: true,
-        type:'get',
-        data: {
-          'username': username,
-          'password': password,
-        },
-        dataType: 'json',
-        success: function(data) {
-          console.log(JSON.stringify(data));
-          if(data.emailVerified){
-           
-            // console.log("成功登陆");
-            location.href = "../../index.html";
-         }else{
-          alert(data.error);
-         }
+  var username = $("input[name='username']").val();
+  var password = $("input[name='password']").val();
+  var urlget = 'http://39.106.19.27:8080/user/login';
+    $.ajax({
+      url:urlget,
+      xhrFields: {
+          withCredentials: true
+      },
+      crossDomain: true,
+      type:'get',
+      data: {
+        'username': username,
+        'password': password,
+      },
+      dataType: 'json',
+      success: function(data) {
+        console.log(JSON.stringify(data));
+        if(data.emailVerified){
+          
+          // console.log("成功登陆");
+          location.href = "../../index.html";
+        }else{
+        alert(data.error);
         }
-    });
-    // $.post(urlget,{ username: "John", password: "2pm" });
-    });
+      }
+  });
+  // $.post(urlget,{ username: "John", password: "2pm" });
+  });
+  function onKeyDown(event){
+    var e = event || window.event || arguments.callee.caller.arguments[0];
+        if(e && e.keyCode==13){ // enter 键
+          var username = $("input[name='username']").val();
+          var password = $("input[name='password']").val();
+          var urlget = 'http://39.106.19.27:8080/user/login';
+            $.ajax({
+              url:urlget,
+              xhrFields: {
+                  withCredentials: true
+              },
+              crossDomain: true,
+              type:'get',
+              data: {
+                'username': username,
+                'password': password,
+              },
+              dataType: 'json',
+              success: function(data) {
+                console.log(JSON.stringify(data));
+                if(data.emailVerified){
+                  
+                  // console.log("成功登陆");
+                  location.href = "../../index.html";
+                }else{
+                alert(data.error);
+                }
+              }
+          });
+        }    
+  }
 
     
     $("#validation").on('click',function(){
