@@ -256,7 +256,11 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
                 }
                 //发表评论按钮点击事件结束
                 //console.log(JSON.stringify($scope.play));
+                $scope.repeat = function()
+                {
+                    var repeat = $scope.repeatContent;
 
+                }
 
             }, function (response) {
                 //失败时执行 

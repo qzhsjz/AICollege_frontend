@@ -103,30 +103,19 @@
         </div>
       </div>
       <!--/span9-->
-      <div class="span3 ">
-        <div class=" grey1" style="margin-left:0px">
-          <!--
-          <div class="span6" style="padding-top:20px; padding-left: 15px; padding-right: 5px ">
-            <p class="pv" style="font-size: 17px">《{{title}}》</p>
-            <p style="font-size: 13px">教师：{{teacher}}</p>
-          </div>
-          <div class="span6" style="padding-top:20px; padding-right:15px;padding-bottom: 20px">
-            <div class="img-contain" style="width: 130px;height: 60px;">
-              <img style="width: 130px;height: 60px;" src="{{image}}" />
-            </div>
-          </div>-->
+      <div class="span3 white" style="padding-bottom:0px">
+        <div class="grey1">
           <div class="div-inline" style="padding-top:20px; padding-left: 15px; padding-right: 5px;padding-bottom: 30px">
             <p class="pv" style="font-size: 17px">《{{title}}》</p>
             <p style="font-size: 13px">教师：{{teacher}}</p>
           </div>
-          <div class="div-inline" style="padding-top:20px;">
+          <div class="div-inline" style="padding-top:20px;padding-bottom:0px">
             <div style="width: 140px;height: 80px;">
               <img style="width: 140px;height: 80px;" src="{{image}}" />
             </div>
           </div>
         </div>
-    
-        <div class="tabbable white">
+        <div class="tabbable white ">
           <!-- Only required for left/right tabs -->
           <ul class="nav nav-tabs">
             <li class="active" style="text-align: center;width:50%">
@@ -134,38 +123,42 @@
             </li>
             <li style="text-align: center;width:50%">
               <a href="#tab2" data-toggle="tab">评论</a>
-            </li>
-            
+            </li>  
           </ul>
-          <div class="tab-content board">
-            <div class="tab-pane active" id="tab1" style="overflow-y:auto; overflow-x:auto;  height:400px;">
+          <div class="tab-content board" style="padding-bottom:0px">
+            <div class="tab-pane active" id="tab1" style="overflow-y:auto; overflow-x:auto;  ">
               <ul class="nav nav-list">
                 <li a href="#" ng-repeat="ch in chapter track by $index" ng-click="chooseItem($index)">
                   <a>{{ch.section_name}}</a>
                 </li>
               </ul>
             </div>
-            <div class="tab-pane" id="tab2" style="overflow-y:auto; overflow-x:auto;  height:400px;">
+            <div class="tab-pane" id="tab2" style="overflow-y:auto; overflow-x:auto;">
               <textarea id="comment-text" ng-model="comment" rows="3" style="width: 90%"></textarea>
               <button class="btn btn-small" type="button" ng-click="publish_comment()">发表</button>
               <div style="padding-top: 30px"></div>
               <ul class="nav nav-list">
                 <li ng-repeat="dis in discuss track by $index">
-                  <!--<div class="row">
-                    <div class="span2">
-                      <img style="width:36px" src={{dis.userpic}} class="img-circle">
-                    </div>
-                    <div class="span5">
-                      <h5 style="color:rgb(105, 104, 104);">{{dis.username}}</h5>
-                    </div>
-                  </div>-->
                   <div class="div-inline">
                     <img style="width:40px ;height:40px;" src={{dis.userpic}} class="img-circle">
                   </div>
                   <div class="div-inline">
                     <h5 style="color:rgb(105, 104, 104);padding-top:10px;padding-left:10px">{{dis.username}}</h5>
                   </div>
-                  <p style="color:(105, 104, 104);padding:8px">{{dis.str}}</p>
+                  <p style="color:(105, 104, 104);padding:5px">{{dis.str}}</p>
+                  <p style="color:rgb(160, 158, 158);font-size: 11px" class="accordion-toggle" data-toggle="collapse" href="#collapseOne">回复</p>
+                  <li ng-repeat="replys in dis.reply">
+                    <div class="div-inline" style="padding-left: 15px">
+                      <img style="width:30px;height: 30px" src={{replys.replyPeople}} class="img-circle">
+                      <p>></p>
+                      <img style="width:30px;height: 30px" src={{replys.replyedPeople}} class="img-circle">
+                    </div>
+                    <p>{{replys.replyComment}}</p>
+                  </li>
+                  <div id="collapseOne" class="accordion-body collapse ">
+                    <textarea id="repeat-text" class="div-inline"id="comment-text" ng-model="repeatContent" rows="1" style="width: 70%"></textarea>
+                    <button class="div-inline btn btn-small" type="button" ng-click="repeat()" style="color:rgb(160, 158, 158);font-size: 11px";>评论</button>
+                  </div>
                   <hr>
                 </li>
               </ul>
