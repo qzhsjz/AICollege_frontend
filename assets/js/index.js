@@ -55,6 +55,13 @@ $('.find_button').on('click',function(){
     //     }
     // });
 });
+function onKeyDown(event){
+    var e = event || window.event || arguments.callee.caller.arguments[0];
+        if(e && e.keyCode==13){ // enter 键
+            var search_text = $('#search_area').val();
+            location.href = "search.html?key="+search_text;
+        }    
+}
 
 course.controller('course', ['$scope', '$http', function ($scope, $http) {
     
@@ -123,7 +130,7 @@ course.controller('course', ['$scope', '$http', function ($scope, $http) {
                         
                         $scope.hotpagechange = function(event) {
                             var page = $(event.target).html();
-         
+                            
          
                             $http({
                                 method:'post', //get请求方式
@@ -131,7 +138,7 @@ course.controller('course', ['$scope', '$http', function ($scope, $http) {
                                 withCredentials:true, 
                             }).then(function(response){
                                  hotcourse = response.data.data;
-                                
+                                 $scope.hot = hotcourse;
                             },function(response){
                                 //失败时执行 
                                 console.log(response);
@@ -149,7 +156,7 @@ course.controller('course', ['$scope', '$http', function ($scope, $http) {
                                 withCredentials:true, 
                             }).then(function(response){
                                 newcourse = response.data.data;
-                                
+                                $scope.new = newcourse;
                             },function(response){
                                 //失败时执行 
                                 console.log(response);
