@@ -2,6 +2,26 @@ var urlcookie = 'http://39.106.19.27:8080/user/getuserinfo';
 var urlnew =  'http://39.106.19.27:8080/message/getmsg';
 var app = angular.module('myApp', []);
 
+var quit = function(){
+    var urlquit = 'http://39.106.19.27:8080/user/logout';
+    $.ajax({
+        url:urlquit,
+        xhrFields: {
+            withCredentials: true
+        },
+        crossDomain: true,
+        type:'get',
+        dataType: 'json',
+        success: function(data) {
+          console.log(JSON.stringify(data));
+          if(data.error){
+           alert(data.error);
+         }else{
+          location.href = "../../index.html";
+         }
+        }
+    });
+}
 
 app.controller('personCtrl',['$scope', '$http', function($scope, $http, $location) {
     $http({
