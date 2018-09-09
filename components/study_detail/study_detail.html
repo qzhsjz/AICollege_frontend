@@ -145,20 +145,18 @@
                   <div class="div-inline">
                     <h5 style="color:rgb(105, 104, 104);padding-top:10px;padding-left:10px">{{dis.username}}</h5>
                   </div>
-                  <p style="color:(105, 104, 104);padding:5px">{{dis.str}}</p>
-                  <p style="color:rgb(160, 158, 158);font-size: 11px" class="accordion-toggle" data-toggle="collapse" href="#collapseOne">回复</p>
-                  <li ng-repeat="replys in dis.reply">
-                    <div class="div-inline" style="padding-left: 15px">
-                      <img style="width:30px;height: 30px" src={{replys.replyPeople}} class="img-circle">
-                      <p>></p>
-                      <img style="width:30px;height: 30px" src={{replys.replyedPeople}} class="img-circle">
-                    </div>
-                    <p>{{replys.replyComment}}</p>
-                  </li>
-                  <div id="collapseOne" class="accordion-body collapse ">
-                    <textarea id="repeat-text" class="div-inline" ng-model="repeatContent" rows="1" style="width: 70%"></textarea>
-                    <button class="div-inline btn btn-small" type="button" ng-click="repeat()" style="color:rgb(160, 158, 158);font-size: 11px";>评论</button>
+                  <p style="color:(105, 104, 104);padding:5px">{{dis.content}}</p>
+                  <div class="checkbox" style="color:rgb(160, 158, 158);font-size: 10px">
+                    <label>
+                      <input type="checkbox" ng-model="reply">回复</label>
                   </div>
+                  <div ng-show="reply">
+                    <textarea class="div-inline" ng-model="dis.repeat_text" rows="1" style="width: 70%"></textarea>
+                    <button class="div-inline btn btn-small" type="button" ng-click="repeat($index)" style="color:rgb(160, 158, 158);font-size: 11px"
+                      ;>评论</button>
+                  </div>
+                  <hr>
+
                   <hr>
                 </li>
               </ul>

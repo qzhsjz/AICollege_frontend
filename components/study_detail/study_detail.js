@@ -225,7 +225,7 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
                         type:'get',
                         data: {
                           'sid': videoID,
-                          'str': content,
+                          'content': content,
                         },
                         dataType: 'json',
                         success: function(data) {
@@ -233,6 +233,57 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
                             if (data.error) {
                                 alert(data.error);
                             } else {
+                                alert("评论添加成功");
+                                console.log(JSON.stringify("添加评论成功"));
+                                var url_c = ulrcomment + $scope.section_id;
+                                console.log(JSON.stringify("请求地址：" + url_c));
+                                $http({
+                                    method: 'get', //get请求方式
+                                    url: url_c,   //请求地址
+                                    withCredentials: true,
+                                    //data:{index:1}
+                                }).then(function (response) {
+                                    console.log(JSON.stringify("返回评论：" + response.data.evaluation));
+                                    $scope.discuss = response.data.evaluation;
+                                }, function (response) {
+                                    console.log(JSON.stringify("获取评论失败"));
+                                });
+                                document.getElementById("comment-text").value="";
+                            }
+                        }
+                    });
+                                  
+                    
+                }
+                //发表评论按钮点击事件结束
+                //console.log(JSON.stringify($scope.play));
+                
+                $scope.repeat = function(index){
+                    console.log(JSON.stringify(index));
+                    var repeatContent = $scope.discuss[index].repeat_text;
+                    console.log(JSON.stringify(repeatContent));
+                    var content = repeatContent;
+                    var videoID = $scope.section_id;
+                    var urlget = 'http://39.106.19.27:8080/course/addEvaluation';
+                    $.ajax({
+                        url:urlget,
+                        xhrFields: {
+                            withCredentials: true
+                        },
+                        crossDomain: true,
+                        type:'post',
+                        data: {
+                          'sid': videoID,
+                          'reply':$scope.discuss[index].id,
+                          'content': content,
+                        },
+                        dataType: 'json',
+                        success: function(data) {
+                          //console.log(JSON.stringify("添加评论返回内容："+data));
+                            if (data.error) {
+                                alert(data.error);
+                            } else {
+                                console.log(JSON.stringify("添加评论成功")); 
                                 alert("评论添加成功");
                                 var url_c = ulrcomment + $scope.section_id;
                                 console.log(JSON.stringify("请求地址：" + url_c));
@@ -251,15 +302,6 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http, $location)
                             }
                         }
                     });
-                    console.log(JSON.stringify("添加评论成功"));              
-                    
-                }
-                //发表评论按钮点击事件结束
-                //console.log(JSON.stringify($scope.play));
-                $scope.repeat = function()
-                {
-                    var repeat = $scope.repeatContent;
-
                 }
 
             }, function (response) {
