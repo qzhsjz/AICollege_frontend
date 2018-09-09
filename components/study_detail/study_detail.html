@@ -133,7 +133,7 @@
                 </li>
               </ul>
             </div>
-            <div class="tab-pane" id="tab2" style="overflow-y:auto; overflow-x:auto;">
+            <div class="tab-pane" id="tab2" style="overflow-y:auto; overflow-x:auto; height: 400px;">
               <textarea id="comment-text" ng-model="comment" rows="3" style="width: 90%"></textarea>
               <button class="btn btn-small" type="button" ng-click="publish_comment()">发表</button>
               <div style="padding-top: 30px"></div>
@@ -145,6 +145,12 @@
                   <div class="div-inline">
                     <h5 style="color:rgb(105, 104, 104);padding-top:10px;padding-left:10px">{{dis.username}}</h5>
                   </div>
+                  <div class="div-inline">
+                    <p ng-show="dis.reply_username" style="color:rgb(189, 186, 186);padding-top:10px">▶</p>
+                  </div>
+                  <div class="div-inline">
+                    <h5 style="color:rgb(105, 104, 104);padding-top:10px">{{dis.reply_username}}</h5>
+                  </div>
                   <p style="color:(105, 104, 104);padding:5px">{{dis.content}}</p>
                   <div class="checkbox" style="color:rgb(160, 158, 158);font-size: 10px">
                     <label>
@@ -155,7 +161,6 @@
                     <button class="div-inline btn btn-small" type="button" ng-click="repeat($index)" style="color:rgb(160, 158, 158);font-size: 11px"
                       ;>评论</button>
                   </div>
-                  <hr>
 
                   <hr>
                 </li>
